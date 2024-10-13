@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialSkin;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,14 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class Login : Form
+    public partial class Login : MaterialSkin.Controls.MaterialForm
     {
+
         public Login()
         {
             InitializeComponent();
+           
         }
+
     }
 }
