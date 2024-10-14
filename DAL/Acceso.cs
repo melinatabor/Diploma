@@ -8,7 +8,7 @@ namespace DAL
 {
     public class Acceso
     {
-        private static SqlConnection _connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ProyectoIS"].ConnectionString);
+        private static SqlConnection _connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DistribuidoraDelHaras"].ConnectionString);
         private static SqlCommand _command;
         private static SqlTransaction _transaction;
 
