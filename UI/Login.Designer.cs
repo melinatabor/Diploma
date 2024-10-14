@@ -3,14 +3,14 @@
     partial class Login
     {
         /// <summary>
-        /// Variable del diseñador necesaria.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Limpiar los recursos que se estén usando.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,170 +20,181 @@
             base.Dispose(disposing);
         }
 
-        #region Código generado por el Diseñador de Windows Forms
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// Método necesario para admitir el Diseñador. No se puede modificar
-        /// el contenido de este método con el editor de código.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
+        [System.Obsolete]
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.txtUsuario = new MaterialSkin.Controls.MaterialTextBox();
-            this.txtPsw = new MaterialSkin.Controls.MaterialTextBox();
+            this.inputUsuario = new MetroFramework.Controls.MetroTextBox();
+            this.inputPsw = new MetroFramework.Controls.MetroTextBox();
+            this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
             this.btnIngresar = new MaterialSkin.Controls.MaterialButton();
-            this.btnRegistrarse = new MaterialSkin.Controls.MaterialButton();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.materialCard1.SuspendLayout();
+            this.btnRegistrar = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
-            // materialDivider1
+            // inputUsuario
             // 
-            this.materialDivider1.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.materialDivider1.Depth = 0;
-            this.materialDivider1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.materialDivider1.Location = new System.Drawing.Point(3, 0);
-            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialDivider1.Name = "materialDivider1";
-            this.materialDivider1.Size = new System.Drawing.Size(456, 828);
-            this.materialDivider1.TabIndex = 1;
-            this.materialDivider1.Text = "materialDivider1";
+            this.inputUsuario.Anchor = System.Windows.Forms.AnchorStyles.Top;
             // 
-            // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(298, 74);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(240, 234);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
-            // materialCard1
+            this.inputUsuario.CustomButton.Image = null;
+            this.inputUsuario.CustomButton.Location = new System.Drawing.Point(218, 1);
+            this.inputUsuario.CustomButton.Name = "";
+            this.inputUsuario.CustomButton.Size = new System.Drawing.Size(33, 33);
+            this.inputUsuario.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.inputUsuario.CustomButton.TabIndex = 1;
+            this.inputUsuario.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.inputUsuario.CustomButton.UseSelectable = true;
+            this.inputUsuario.CustomButton.Visible = false;
+            this.inputUsuario.DisplayIcon = true;
+            this.inputUsuario.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.inputUsuario.Icon = global::UI.Properties.Resources.Username;
+            this.inputUsuario.Lines = new string[0];
+            this.inputUsuario.Location = new System.Drawing.Point(88, 178);
+            this.inputUsuario.MaxLength = 32767;
+            this.inputUsuario.Name = "inputUsuario";
+            this.inputUsuario.PasswordChar = '\0';
+            this.inputUsuario.PromptText = "Username";
+            this.inputUsuario.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.inputUsuario.SelectedText = "";
+            this.inputUsuario.SelectionLength = 0;
+            this.inputUsuario.SelectionStart = 0;
+            this.inputUsuario.ShortcutsEnabled = true;
+            this.inputUsuario.Size = new System.Drawing.Size(252, 35);
+            this.inputUsuario.TabIndex = 0;
+            this.inputUsuario.UseSelectable = true;
+            this.inputUsuario.WaterMark = "Username";
+            this.inputUsuario.WaterMarkColor = System.Drawing.Color.Gray;
+            this.inputUsuario.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
-            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.btnRegistrarse);
-            this.materialCard1.Controls.Add(this.btnIngresar);
-            this.materialCard1.Controls.Add(this.pictureBox1);
-            this.materialCard1.Controls.Add(this.txtPsw);
-            this.materialCard1.Controls.Add(this.txtUsuario);
-            this.materialCard1.Depth = 0;
-            this.materialCard1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(459, 0);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(831, 828);
-            this.materialCard1.TabIndex = 3;
+            // inputPsw
             // 
-            // txtUsuario
+            this.inputPsw.Anchor = System.Windows.Forms.AnchorStyles.Top;
             // 
-            this.txtUsuario.AnimateReadOnly = false;
-            this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUsuario.Depth = 0;
-            this.txtUsuario.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtUsuario.Hint = "Usuario";
-            this.txtUsuario.LeadingIcon = null;
-            this.txtUsuario.Location = new System.Drawing.Point(229, 376);
-            this.txtUsuario.MaxLength = 50;
-            this.txtUsuario.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtUsuario.Multiline = false;
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(394, 50);
-            this.txtUsuario.TabIndex = 0;
-            this.txtUsuario.Text = "";
-            this.txtUsuario.TrailingIcon = null;
             // 
-            // txtPsw
             // 
-            this.txtPsw.AnimateReadOnly = false;
-            this.txtPsw.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPsw.Depth = 0;
-            this.txtPsw.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtPsw.Hint = "Contraseña";
-            this.txtPsw.LeadingIcon = null;
-            this.txtPsw.Location = new System.Drawing.Point(229, 463);
-            this.txtPsw.MaxLength = 50;
-            this.txtPsw.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtPsw.Multiline = false;
-            this.txtPsw.Name = "txtPsw";
-            this.txtPsw.Size = new System.Drawing.Size(394, 50);
-            this.txtPsw.TabIndex = 1;
-            this.txtPsw.Text = "";
-            this.txtPsw.TrailingIcon = null;
+            this.inputPsw.CustomButton.Image = null;
+            this.inputPsw.CustomButton.Location = new System.Drawing.Point(218, 1);
+            this.inputPsw.CustomButton.Name = "";
+            this.inputPsw.CustomButton.Size = new System.Drawing.Size(33, 33);
+            this.inputPsw.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.inputPsw.CustomButton.TabIndex = 1;
+            this.inputPsw.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.inputPsw.CustomButton.UseSelectable = true;
+            this.inputPsw.CustomButton.Visible = false;
+            this.inputPsw.DisplayIcon = true;
+            this.inputPsw.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.inputPsw.Icon = global::UI.Properties.Resources.Password;
+            this.inputPsw.Lines = new string[0];
+            this.inputPsw.Location = new System.Drawing.Point(88, 228);
+            this.inputPsw.MaxLength = 32767;
+            this.inputPsw.Name = "inputPsw";
+            this.inputPsw.PasswordChar = '*';
+            this.inputPsw.PromptText = "Password";
+            this.inputPsw.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.inputPsw.SelectedText = "";
+            this.inputPsw.SelectionLength = 0;
+            this.inputPsw.SelectionStart = 0;
+            this.inputPsw.ShortcutsEnabled = true;
+            this.inputPsw.Size = new System.Drawing.Size(252, 35);
+            this.inputPsw.TabIndex = 1;
+            this.inputPsw.UseSelectable = true;
+            this.inputPsw.WaterMark = "Password";
+            this.inputPsw.WaterMarkColor = System.Drawing.Color.Gray;
+            this.inputPsw.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // metroPanel3
+            // 
+            this.metroPanel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.metroPanel3.BackgroundImage = global::UI.Properties.Resources.Login;
+            this.metroPanel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.metroPanel3.HorizontalScrollbarBarColor = true;
+            this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel3.HorizontalScrollbarSize = 10;
+            this.metroPanel3.Location = new System.Drawing.Point(160, 30);
+            this.metroPanel3.Name = "metroPanel3";
+            this.metroPanel3.Size = new System.Drawing.Size(107, 103);
+            this.metroPanel3.TabIndex = 5;
+            this.metroPanel3.UseCustomBackColor = true;
+            this.metroPanel3.VerticalScrollbarBarColor = true;
+            this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel3.VerticalScrollbarSize = 10;
             // 
             // btnIngresar
             // 
+            this.btnIngresar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnIngresar.AutoSize = false;
             this.btnIngresar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnIngresar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnIngresar.Depth = 0;
+            this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnIngresar.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresar.HighEmphasis = true;
-            this.btnIngresar.Icon = null;
-            this.btnIngresar.Location = new System.Drawing.Point(229, 561);
+            this.btnIngresar.Icon = global::UI.Properties.Resources.Username;
+            this.btnIngresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnIngresar.Location = new System.Drawing.Point(86, 288);
             this.btnIngresar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnIngresar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnIngresar.Size = new System.Drawing.Size(194, 57);
-            this.btnIngresar.TabIndex = 2;
+            this.btnIngresar.Size = new System.Drawing.Size(127, 72);
+            this.btnIngresar.TabIndex = 6;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnIngresar.UseAccentColor = false;
             this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
-            // btnRegistrarse
+            // btnRegistrar
             // 
-            this.btnRegistrarse.AutoSize = false;
-            this.btnRegistrarse.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnRegistrarse.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnRegistrarse.Depth = 0;
-            this.btnRegistrarse.HighEmphasis = true;
-            this.btnRegistrarse.Icon = null;
-            this.btnRegistrarse.Location = new System.Drawing.Point(445, 561);
-            this.btnRegistrarse.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnRegistrarse.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnRegistrarse.Name = "btnRegistrarse";
-            this.btnRegistrarse.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnRegistrarse.Size = new System.Drawing.Size(178, 57);
-            this.btnRegistrarse.TabIndex = 3;
-            this.btnRegistrarse.Text = "Registrarse";
-            this.btnRegistrarse.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
-            this.btnRegistrarse.UseAccentColor = false;
-            this.btnRegistrarse.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnRegistrar.AutoSize = false;
+            this.btnRegistrar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnRegistrar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnRegistrar.Depth = 0;
+            this.btnRegistrar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.HighEmphasis = true;
+            this.btnRegistrar.Icon = null;
+            this.btnRegistrar.Location = new System.Drawing.Point(221, 288);
+            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnRegistrar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnRegistrar.Size = new System.Drawing.Size(119, 72);
+            this.btnRegistrar.TabIndex = 7;
+            this.btnRegistrar.Text = "Registrarse";
+            this.btnRegistrar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnRegistrar.UseAccentColor = true;
+            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1293, 831);
-            this.Controls.Add(this.materialCard1);
-            this.Controls.Add(this.materialDivider1);
-            this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.StatusAndActionBar_None;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(414, 469);
+            this.Controls.Add(this.btnRegistrar);
+            this.Controls.Add(this.btnIngresar);
+            this.Controls.Add(this.inputPsw);
+            this.Controls.Add(this.metroPanel3);
+            this.Controls.Add(this.inputUsuario);
             this.Name = "Login";
-            this.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Distribuidora del Haras";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.materialCard1.ResumeLayout(false);
+            this.Padding = new System.Windows.Forms.Padding(0, 60, 0, 0);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private MaterialSkin.Controls.MaterialDivider materialDivider1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private MaterialSkin.Controls.MaterialCard materialCard1;
-        private MaterialSkin.Controls.MaterialTextBox txtUsuario;
+        private MetroFramework.Controls.MetroTextBox inputPsw;
+        private MetroFramework.Controls.MetroTextBox inputUsuario;
+        private MetroFramework.Controls.MetroPanel metroPanel3;
         private MaterialSkin.Controls.MaterialButton btnIngresar;
-        private MaterialSkin.Controls.MaterialTextBox txtPsw;
-        private MaterialSkin.Controls.MaterialButton btnRegistrarse;
+        private MaterialSkin.Controls.MaterialButton btnRegistrar;
     }
 }
-

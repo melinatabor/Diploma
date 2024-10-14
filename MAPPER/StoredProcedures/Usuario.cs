@@ -9,5 +9,6 @@ namespace MPP.StoredProcedures
     internal static class Usuario
     {
         public const string SPAgregar = "SP_Agregar_Usuario";
+        public const string SPBuscarXPswUsername = "SP_Buscar_Usuario_X_Psw_Username";
     }
 }

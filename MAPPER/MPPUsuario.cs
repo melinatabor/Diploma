@@ -4,6 +4,7 @@ using MPP.StoredProcedures;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,25 @@ namespace MPP
 
                 return AccesoBD.ExecuteNonQuery(Usuario.SPAgregar, queryParams, true);
 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static BEUsuario BuscarUsuario(BEUsuario usuario)
+        {
+            try
+            {
+                Hashtable queryParams = new Hashtable();
+
+                queryParams.Add("@Username", usuario.Username);
+                queryParams.Add("@Password", usuario.Password);
+
+                DataTable table = AccesoBD.ExecuteDataTable(Usuario.SPBuscarXPswUsername, queryParams, true);
+
+                return null;
             }
             catch (Exception ex)
             {

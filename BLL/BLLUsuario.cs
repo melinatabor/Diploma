@@ -21,5 +21,28 @@ namespace BLL
             }
             catch (Exception ex) { throw ex; }
         }
+
+        public static void Login(BEUsuario usuario)
+        {
+            try
+            {
+                BEUsuario usuarioExistente = BuscarUsuario(usuario)
+                    ?? throw new Exception("Credenciales incorrectas. Por favor vuelva a ingresar los datos correctamente.");
+
+
+                SessionManager.Login(usuarioExistente);
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        public static BEUsuario BuscarUsuario(BEUsuario usuario)
+        {
+            try
+            {
+                usuario.Password = Encriptador.Run(usuario.Password);
+                return MPPUsuario.BuscarUsuario(usuario);
+            }
+            catch (Exception ex) { throw ex; }
+        }
     }
 }

@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,14 +42,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Encriptador.cs" />
-    <Compile Include="SessionManager.cs" />
+    <Compile Include="DigitoVerificador\DigitoVerificador.cs" />
+    <Compile Include="Encriptador\Encriptador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SesionManager\SesionManager.cs" />
+    <Compile Include="Traductor\Traductor.cs" />
+    <Compile Include="Validador\Validador.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Abstraccion\Abstraccion.csproj">
-      <Project>{de46b8a7-766c-4e70-a50d-f230b52387a4}</Project>
+      <Project>{5c482bd9-8982-4882-b670-baf2adde4ba8}</Project>
       <Name>Abstraccion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BE\BE.csproj">
+      <Project>{bbbbd1eb-3dcb-4f63-a519-3de2e30634f1}</Project>
+      <Name>BE</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
