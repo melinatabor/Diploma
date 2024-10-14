@@ -29,101 +29,49 @@
         [System.Obsolete]
         private void InitializeComponent()
         {
-            this.inputUsuario = new MetroFramework.Controls.MetroTextBox();
-            this.inputPsw = new MetroFramework.Controls.MetroTextBox();
-            this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
-            this.btnIngresar = new MaterialSkin.Controls.MaterialButton();
             this.btnRegistrar = new MaterialSkin.Controls.MaterialButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnIngresar = new MaterialSkin.Controls.MaterialButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.inputUsuario = new MaterialSkin.Controls.MaterialTextBox2();
+            this.inputPsw = new MaterialSkin.Controls.MaterialTextBox2();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // inputUsuario
+            // btnRegistrar
             // 
-            this.inputUsuario.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnRegistrar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnRegistrar.AutoSize = false;
+            this.btnRegistrar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnRegistrar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnRegistrar.Depth = 0;
+            this.btnRegistrar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.HighEmphasis = true;
+            this.btnRegistrar.Icon = null;
+            this.btnRegistrar.Location = new System.Drawing.Point(400, 335);
+            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnRegistrar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnRegistrar.Size = new System.Drawing.Size(174, 50);
+            this.btnRegistrar.TabIndex = 4;
+            this.btnRegistrar.Text = "Registrarse";
+            this.btnRegistrar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.btnRegistrar.UseAccentColor = false;
+            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
+            // pictureBox1
             // 
-            // 
-            this.inputUsuario.CustomButton.Image = null;
-            this.inputUsuario.CustomButton.Location = new System.Drawing.Point(218, 1);
-            this.inputUsuario.CustomButton.Name = "";
-            this.inputUsuario.CustomButton.Size = new System.Drawing.Size(33, 33);
-            this.inputUsuario.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.inputUsuario.CustomButton.TabIndex = 1;
-            this.inputUsuario.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.inputUsuario.CustomButton.UseSelectable = true;
-            this.inputUsuario.CustomButton.Visible = false;
-            this.inputUsuario.DisplayIcon = true;
-            this.inputUsuario.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.inputUsuario.Icon = global::UI.Properties.Resources.Username;
-            this.inputUsuario.Lines = new string[0];
-            this.inputUsuario.Location = new System.Drawing.Point(88, 178);
-            this.inputUsuario.MaxLength = 32767;
-            this.inputUsuario.Name = "inputUsuario";
-            this.inputUsuario.PasswordChar = '\0';
-            this.inputUsuario.PromptText = "Username";
-            this.inputUsuario.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.inputUsuario.SelectedText = "";
-            this.inputUsuario.SelectionLength = 0;
-            this.inputUsuario.SelectionStart = 0;
-            this.inputUsuario.ShortcutsEnabled = true;
-            this.inputUsuario.Size = new System.Drawing.Size(252, 35);
-            this.inputUsuario.TabIndex = 0;
-            this.inputUsuario.UseSelectable = true;
-            this.inputUsuario.WaterMark = "Username";
-            this.inputUsuario.WaterMarkColor = System.Drawing.Color.Gray;
-            this.inputUsuario.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // inputPsw
-            // 
-            this.inputPsw.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            // 
-            // 
-            // 
-            this.inputPsw.CustomButton.Image = null;
-            this.inputPsw.CustomButton.Location = new System.Drawing.Point(218, 1);
-            this.inputPsw.CustomButton.Name = "";
-            this.inputPsw.CustomButton.Size = new System.Drawing.Size(33, 33);
-            this.inputPsw.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.inputPsw.CustomButton.TabIndex = 1;
-            this.inputPsw.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.inputPsw.CustomButton.UseSelectable = true;
-            this.inputPsw.CustomButton.Visible = false;
-            this.inputPsw.DisplayIcon = true;
-            this.inputPsw.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.inputPsw.Icon = global::UI.Properties.Resources.Password;
-            this.inputPsw.Lines = new string[0];
-            this.inputPsw.Location = new System.Drawing.Point(88, 228);
-            this.inputPsw.MaxLength = 32767;
-            this.inputPsw.Name = "inputPsw";
-            this.inputPsw.PasswordChar = '*';
-            this.inputPsw.PromptText = "Password";
-            this.inputPsw.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.inputPsw.SelectedText = "";
-            this.inputPsw.SelectionLength = 0;
-            this.inputPsw.SelectionStart = 0;
-            this.inputPsw.ShortcutsEnabled = true;
-            this.inputPsw.Size = new System.Drawing.Size(252, 35);
-            this.inputPsw.TabIndex = 1;
-            this.inputPsw.UseSelectable = true;
-            this.inputPsw.WaterMark = "Password";
-            this.inputPsw.WaterMarkColor = System.Drawing.Color.Gray;
-            this.inputPsw.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // metroPanel3
-            // 
-            this.metroPanel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.metroPanel3.BackgroundImage = global::UI.Properties.Resources.Login;
-            this.metroPanel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.metroPanel3.HorizontalScrollbarBarColor = true;
-            this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel3.HorizontalScrollbarSize = 10;
-            this.metroPanel3.Location = new System.Drawing.Point(160, 30);
-            this.metroPanel3.Name = "metroPanel3";
-            this.metroPanel3.Size = new System.Drawing.Size(107, 103);
-            this.metroPanel3.TabIndex = 5;
-            this.metroPanel3.UseCustomBackColor = true;
-            this.metroPanel3.VerticalScrollbarBarColor = true;
-            this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel3.VerticalScrollbarSize = 10;
+            this.pictureBox1.Image = global::UI.Properties.Resources.DistribuidoraLogo;
+            this.pictureBox1.Location = new System.Drawing.Point(322, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(142, 145);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
             // 
             // btnIngresar
             // 
@@ -137,64 +85,127 @@
             this.btnIngresar.HighEmphasis = true;
             this.btnIngresar.Icon = global::UI.Properties.Resources.Username;
             this.btnIngresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIngresar.Location = new System.Drawing.Point(86, 288);
+            this.btnIngresar.Location = new System.Drawing.Point(206, 335);
             this.btnIngresar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnIngresar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnIngresar.Size = new System.Drawing.Size(127, 72);
-            this.btnIngresar.TabIndex = 6;
+            this.btnIngresar.Size = new System.Drawing.Size(177, 50);
+            this.btnIngresar.TabIndex = 3;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnIngresar.UseAccentColor = false;
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
-            // btnRegistrar
+            // panel1
             // 
-            this.btnRegistrar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnRegistrar.AutoSize = false;
-            this.btnRegistrar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnRegistrar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnRegistrar.Depth = 0;
-            this.btnRegistrar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.HighEmphasis = true;
-            this.btnRegistrar.Icon = null;
-            this.btnRegistrar.Location = new System.Drawing.Point(221, 288);
-            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnRegistrar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnRegistrar.Size = new System.Drawing.Size(119, 72);
-            this.btnRegistrar.TabIndex = 7;
-            this.btnRegistrar.Text = "Registrarse";
-            this.btnRegistrar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnRegistrar.UseAccentColor = true;
-            this.btnRegistrar.UseVisualStyleBackColor = true;
-            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.inputPsw);
+            this.panel1.Controls.Add(this.inputUsuario);
+            this.panel1.Controls.Add(this.btnRegistrar);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.btnIngresar);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(60, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(649, 439);
+            this.panel1.TabIndex = 9;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(3, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(190, 439);
+            this.panel2.TabIndex = 10;
+            // 
+            // inputUsuario
+            // 
+            this.inputUsuario.AnimateReadOnly = false;
+            this.inputUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.inputUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.inputUsuario.Depth = 0;
+            this.inputUsuario.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.inputUsuario.HideSelection = false;
+            this.inputUsuario.Hint = "Usuario";
+            this.inputUsuario.LeadingIcon = global::UI.Properties.Resources.Username;
+            this.inputUsuario.Location = new System.Drawing.Point(206, 182);
+            this.inputUsuario.MaxLength = 32767;
+            this.inputUsuario.MouseState = MaterialSkin.MouseState.OUT;
+            this.inputUsuario.Name = "inputUsuario";
+            this.inputUsuario.PasswordChar = '\0';
+            this.inputUsuario.PrefixSuffixText = null;
+            this.inputUsuario.ReadOnly = false;
+            this.inputUsuario.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.inputUsuario.SelectedText = "";
+            this.inputUsuario.SelectionLength = 0;
+            this.inputUsuario.SelectionStart = 0;
+            this.inputUsuario.ShortcutsEnabled = true;
+            this.inputUsuario.Size = new System.Drawing.Size(368, 48);
+            this.inputUsuario.TabIndex = 1;
+            this.inputUsuario.TabStop = false;
+            this.inputUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.inputUsuario.TrailingIcon = null;
+            this.inputUsuario.UseAccent = false;
+            this.inputUsuario.UseSystemPasswordChar = false;
+            // 
+            // inputPsw
+            // 
+            this.inputPsw.AnimateReadOnly = false;
+            this.inputPsw.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.inputPsw.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.inputPsw.Depth = 0;
+            this.inputPsw.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.inputPsw.HideSelection = true;
+            this.inputPsw.Hint = "Contraseña";
+            this.inputPsw.LeadingIcon = global::UI.Properties.Resources.Password;
+            this.inputPsw.Location = new System.Drawing.Point(206, 260);
+            this.inputPsw.MaxLength = 32767;
+            this.inputPsw.MouseState = MaterialSkin.MouseState.OUT;
+            this.inputPsw.Name = "inputPsw";
+            this.inputPsw.PasswordChar = '●';
+            this.inputPsw.PrefixSuffixText = null;
+            this.inputPsw.ReadOnly = false;
+            this.inputPsw.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.inputPsw.SelectedText = "";
+            this.inputPsw.SelectionLength = 0;
+            this.inputPsw.SelectionStart = 0;
+            this.inputPsw.ShortcutsEnabled = true;
+            this.inputPsw.Size = new System.Drawing.Size(368, 48);
+            this.inputPsw.TabIndex = 2;
+            this.inputPsw.TabStop = false;
+            this.inputPsw.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.inputPsw.TrailingIcon = null;
+            this.inputPsw.UseAccent = false;
+            this.inputPsw.UseSystemPasswordChar = true;
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(414, 469);
-            this.Controls.Add(this.btnRegistrar);
-            this.Controls.Add(this.btnIngresar);
-            this.Controls.Add(this.inputPsw);
-            this.Controls.Add(this.metroPanel3);
-            this.Controls.Add(this.inputUsuario);
+            this.ClientSize = new System.Drawing.Size(709, 439);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.StatusAndActionBar_None;
             this.Name = "Login";
-            this.Padding = new System.Windows.Forms.Padding(0, 60, 0, 0);
+            this.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private MetroFramework.Controls.MetroTextBox inputPsw;
-        private MetroFramework.Controls.MetroTextBox inputUsuario;
-        private MetroFramework.Controls.MetroPanel metroPanel3;
         private MaterialSkin.Controls.MaterialButton btnIngresar;
         private MaterialSkin.Controls.MaterialButton btnRegistrar;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private MaterialSkin.Controls.MaterialTextBox2 inputUsuario;
+        private MaterialSkin.Controls.MaterialTextBox2 inputPsw;
     }
 }

@@ -192,12 +192,6 @@
     <None Include="Resources\Password.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Login.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\LoginBG.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Visible.png" />
     <None Include="Resources\Correo.png" />
     <None Include="Resources\Registro.png" />
@@ -206,6 +200,9 @@
     <None Include="Resources\Filtrar.png" />
     <None Include="Resources\Right.png" />
     <None Include="Resources\Left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DistribuidoraLogo1.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

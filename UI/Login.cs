@@ -7,7 +7,7 @@ using Servicios.SesionManager;
 
 namespace UI
 {
-    public partial class Login : MetroFramework.Forms.MetroForm
+    public partial class Login : MaterialSkin.Controls.MaterialForm
     {
         public Login()
         {
