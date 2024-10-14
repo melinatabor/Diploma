@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,24 +42,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLLBitacora.cs" />
+    <Compile Include="BLLIdioma.cs" />
+    <Compile Include="BLLPermiso.cs" />
+    <Compile Include="BLLTraduccion.cs" />
     <Compile Include="BLLUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Abstraccion\Abstraccion.csproj">
-      <Project>{de46b8a7-766c-4e70-a50d-f230b52387a4}</Project>
+      <Project>{5c482bd9-8982-4882-b670-baf2adde4ba8}</Project>
       <Name>Abstraccion</Name>
     </ProjectReference>
     <ProjectReference Include="..\BE\BE.csproj">
-      <Project>{d6ca5b28-ac69-4eee-8d70-98e50b02da07}</Project>
+      <Project>{bbbbd1eb-3dcb-4f63-a519-3de2e30634f1}</Project>
       <Name>BE</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MAPPER\MPP.csproj">
-      <Project>{79127486-311a-430e-ba28-ea14c02b7194}</Project>
+    <ProjectReference Include="..\MPP\MPP.csproj">
+      <Project>{a55a891d-1bdf-459e-a311-9fb40400ba7a}</Project>
       <Name>MPP</Name>
     </ProjectReference>
     <ProjectReference Include="..\Servicios\Servicios.csproj">
-      <Project>{1c457b1f-e718-4142-add7-bb0d2eb97969}</Project>
+      <Project>{0f5bc99d-b1a0-45fb-8b42-23bc11c123b7}</Project>
       <Name>Servicios</Name>
     </ProjectReference>
   </ItemGroup>

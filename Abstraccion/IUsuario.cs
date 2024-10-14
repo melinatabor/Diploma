@@ -1,8 +1,5 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Abstraccion
 {
@@ -10,6 +7,6 @@ namespace Abstraccion
     {
         string Username { get; set; }
         string Password { get; set; }
-
+        List<int> ListaPermisos { get; set; }
     }
 }

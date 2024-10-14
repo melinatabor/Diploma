@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,14 +42,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BEBitacora.cs" />
+    <Compile Include="BEBitacoraCriteria.cs" />
+    <Compile Include="BEBitacoraFiltrada.cs" />
+    <Compile Include="BEFamilia.cs" />
+    <Compile Include="BEIdioma.cs" />
+    <Compile Include="BEPalabra.cs" />
+    <Compile Include="BEPermiso.cs" />
+    <Compile Include="BEPermisoSimple.cs" />
+    <Compile Include="BETraduccion.cs" />
     <Compile Include="BEUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Abstraccion\Abstraccion.csproj">
-      <Project>{de46b8a7-766c-4e70-a50d-f230b52387a4}</Project>
+      <Project>{5c482bd9-8982-4882-b670-baf2adde4ba8}</Project>
       <Name>Abstraccion</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
