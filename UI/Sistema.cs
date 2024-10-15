@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace UI
 {
-    public partial class Sistema : MetroFramework.Forms.MetroForm, ISubscriptor
+    public partial class Sistema : MaterialSkin.Controls.MaterialForm, ISubscriptor
     {
         private Dictionary<int, ToolStripMenuItem> _permisosMDI;
         private void InicializarPermisosMenuItems()
