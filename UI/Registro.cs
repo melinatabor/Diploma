@@ -10,7 +10,7 @@ using Servicios.SesionManager;
 
 namespace UI
 {
-    public partial class Registro : MetroFramework.Forms.MetroForm, ISubscriptor
+    public partial class Registro : MaterialSkin.Controls.MaterialForm, ISubscriptor
     {
         private bool emailValido = false;
         private bool pswValida = false;
@@ -115,12 +115,12 @@ namespace UI
             {
                 if (Validador.Validar(txtEmail.Text.Trim(), Validador.TipoValidacion.Email))
                 {
-                    toolTip1.SetToolTip(txtEmail, "");
+                    toolTipFormRegistro.SetToolTip(txtEmail, "");
                     emailValido = true;
                 }
                 else
                 {
-                    toolTip1.SetToolTip(txtEmail, "Falta agregar el @ o el formato del email es incorrecto.");
+                    toolTipFormRegistro.SetToolTip(txtEmail, "Falta agregar el @ o el formato del email es incorrecto.");
                     emailValido = false;
                 }
             }
@@ -137,12 +137,12 @@ namespace UI
             {
                 if (Validador.Validar(txtPsw.Text.Trim(), Validador.TipoValidacion.Password))
                 {
-                    toolTip1.SetToolTip(txtPsw, "");
+                    toolTipFormRegistro.SetToolTip(txtPsw, "");
                     pswValida = true;
                 }
                 else
                 {
-                    toolTip1.SetToolTip(txtPsw, "Requiere al menos una letra minúscula.\r\n" +
+                    toolTipFormRegistro.SetToolTip(txtPsw, "Requiere al menos una letra minúscula.\r\n" +
                     "Requiere al menos una letra mayúscula.\r\n" +
                     "Requiere al menos un dígito.\r\n" +
                     "Requiere al menos un carácter especial entre @, $, !, %, *, ? o &.\r\n" +

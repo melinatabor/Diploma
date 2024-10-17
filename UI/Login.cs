@@ -54,8 +54,8 @@ namespace UI
                     MessageBoxIcon.Information
                 );
 
-                Sistema sistema = new Sistema();
-                sistema.Show();
+                Home home = new Home();
+                home.Show();
                 Hide();
             }
             catch (Exception ex)
