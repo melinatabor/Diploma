@@ -1,4 +1,5 @@
-﻿using BE;
+﻿using Abstraccion;
+using BE;
 using BLL;
 using MaterialSkin.Controls;
 using MetroFramework;
@@ -16,15 +17,273 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class Home : MaterialSkin.Controls.MaterialForm
+    public partial class Home : MaterialSkin.Controls.MaterialForm, ISubscriptor
     {
         private bool emailValido = false;
         private bool pswValida = false;
+        private int idUsuarioSeleccionado;
+        private string _tag = "Traducción para ";
+
         public Home()
         {
             InitializeComponent();
             ActualizarListaUsuarios();
         }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                Subscribirse();
+                Actualizar();
+                ActualizarDropDown();
+                ActualizarListaIdiomas();
+                ActualizarListaUsuarios();
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        #region Tab Idiomas:
+        private void ActualizarDropDown()
+        {
+            try
+            {
+                ddIdiomas.DataSource = null;
+                ddIdiomas.DataSource = BLLIdioma.Listar();
+                ddIdiomas.DisplayMember = "Idioma";
+                ddIdiomas.ValueMember = "Id";
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        public void Subscribirse()
+        {
+            try
+            {
+                BLLIdioma.RegistrarSubscriptor(this);
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Error Subscriptor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        public void Actualizar()
+        {
+            try
+            {
+                List<BEPalabra> palabras = BLLIdioma.ObtenerTags();
+
+                // Actualizar el titulo del formulario
+                if (this.Tag != null && this.Tag.ToString() != "")
+                {
+                    BEPalabra palabra = palabras.Find(pal => pal.Tag.Equals(this.Tag.ToString()));
+
+                    if (palabra != null)
+                    {
+                        this.Text = palabra.Traduccion;
+                        this.Refresh();
+                    }
+                }
+
+                // Actualizar controles
+                foreach (Control control in Controls)
+                {
+                    if (control.Tag != null && control.Tag.ToString() != "")
+                    {
+                        BEPalabra palabra = palabras.Find(pal => pal.Tag.Equals(control.Tag.ToString()));
+                        if (palabra != null)
+                        {
+                            if (control is Label label && label.Name == "labelTag")
+                            {
+                                label.Text = _tag = palabra.Traduccion;
+                            }
+                            else if (control is MaterialSkin.Controls.MaterialComboBox materialComboBox)
+                            {
+                                materialComboBox.Hint = palabra.Traduccion;
+                            }
+                            else if (control is MaterialSkin.Controls.MaterialTextBox materialTextBox)
+                            {
+                                materialTextBox.Hint = palabra.Traduccion;
+                            }
+                            else
+                            {
+                                control.Text = palabra.Traduccion;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Error Actualizar Idioma", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void ActualizarListaIdiomas(int idIdioma = 1)
+        {
+            listaIdiomas.Items.Clear();
+            List<BETraduccion> idiomas = BLLTraduccion.Listar(idIdioma);
+
+            foreach (BETraduccion idioma in idiomas)
+            {
+                string[] row =
+                {
+                        idioma.Id.ToString(),
+                        idioma.Tag,
+                        idioma.Neutro,
+                        idioma.Traduccion,
+                };
+
+                var item = new ListViewItem(row);
+                listaIdiomas.Items.Add(item);
+            }
+        }
+
+        private void btnCambiarIdioma_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BEIdioma idioma = (BEIdioma)ddIdiomas.SelectedItem;
+                if (idioma != null)
+                {
+                    BLLIdioma.CambiarIdioma(idioma.Id);
+                }
+            }
+            catch (Exception ex)
+            {
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
+                return;
+            }
+        }
+
+        private void ddIdiomas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddIdiomas.SelectedValue != null && ddIdiomas.SelectedValue is int selectedId)
+                    ActualizarListaIdiomas(selectedId);
+            }
+            catch (Exception ex)
+            {
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
+                return;
+            }
+        }
+
+        private void listaIdiomas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listaIdiomas.SelectedItems.Count > 0)
+                {
+                    ListViewItem filaSeleccionada = listaIdiomas.SelectedItems[0];
+                    string tag = filaSeleccionada.SubItems[1].Text;
+                    string trad = filaSeleccionada.SubItems[3].Text;
+
+                    labelTag.Text = _tag + tag + ":";
+                    txtTraduccion.Hint = trad;
+                    txtTraduccion.Text = trad;
+                }
+            }
+            catch (Exception ex)
+            {
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
+                return;
+            }
+        }
+
+        private void btnAgregarIdioma_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(inputNuevoIdioma.Text))
+                {
+                    MaterialDialog dialog = new MaterialDialog(this, "Error", "Debe ingresar un idioma para poder agregarlo.", "OK");
+                    dialog.ShowDialog(this);
+                    return;
+                }
+                MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", $"¿Esta seguro que desea agregar el idioma {inputNuevoIdioma.Text}?", "Sí, deseo agregarlo", true, "Cancelar");
+                DialogResult result = materialDialog.ShowDialog(this);
+               
+
+                if (result != DialogResult.OK)
+                    return;
+
+                BEIdioma idioma = new BEIdioma
+                {
+                    Idioma = inputNuevoIdioma.Text
+                };
+
+                bool agregado = BLLIdioma.Agregar(idioma);
+
+                if (agregado)
+                {
+                    MaterialDialog dialog = new MaterialDialog(this, "Éxito", "Idioma agregado correctamente", "OK");
+                    dialog.ShowDialog(this);
+                    ActualizarDropDown();
+                    inputNuevoIdioma.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
+                return;
+            }
+        }
+
+        private void btnModificarTraduccion_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listaIdiomas.SelectedItems.Count != 1)
+                    throw new Exception("Debe seleccionar una traducción");
+
+                ListViewItem filaSeleccionada = listaIdiomas.SelectedItems[0];
+                BETraduccion traduccion = new BETraduccion()
+                {
+                    Id = Convert.ToInt16(filaSeleccionada.SubItems[0].Text),
+                    Tag = filaSeleccionada.SubItems[1].Text,
+                    Neutro = filaSeleccionada.SubItems[2].Text,
+                    Traduccion = txtTraduccion.Text
+                };
+                BEIdioma idioma = (BEIdioma)ddIdiomas.SelectedItem;
+
+                MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", $"¿Esta seguro que desea modificar la traduccion?", "Sí, deseo modificarlo", true, "Cancelar");
+                DialogResult result = materialDialog.ShowDialog(this);
+
+                if (result != DialogResult.OK)
+                    return;
+
+                BLLTraduccion.Modificar(idioma, traduccion, txtTraduccion.Text.Trim());
+
+                ActualizarListaIdiomas(idioma.Id);
+
+                txtTraduccion.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
+                return;
+            }
+        }
+        #endregion
+
 
         #region Tab Usuarios:
         private void ActualizarListaUsuarios()
@@ -63,19 +322,13 @@ namespace UI
                 if (listaUsuarios.Items.Count <= 0) throw new Exception("No hay usuarios para modificar.");
                 if (listaUsuarios.SelectedItems.Count == 0) throw new Exception("Selecciona una fila para modificar.");
 
-                ListViewItem filaSeleccionada = listaUsuarios.SelectedItems[0];
-
-                int idUsuario = Convert.ToInt32(filaSeleccionada.SubItems[0].Text);
-
-                Modificacion modificacion = new Modificacion(idUsuario);
-                modificacion.Show();
-                modificacion.FormClosed += (s, args) => ActualizarListaUsuarios();
-
+                tabControlUsuarios.SelectedTab = tabModificar;
             }
             catch (Exception ex)
             {
                 RegistrarBitacora(ex.Message, BEBitacora.BitacoraTipo.ERROR);
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
             }
         }
 
@@ -85,30 +338,22 @@ namespace UI
             {
                 if (listaUsuarios.Items.Count <= 0) throw new Exception("No hay usuarios para eliminar.");
                 if (listaUsuarios.SelectedItems.Count == 0) throw new Exception("Selecciona una fila para eliminar.");
-                
-                ListViewItem filaSeleccionada = listaUsuarios.SelectedItems[0];
-                bool activo = Convert.ToBoolean(filaSeleccionada.SubItems[6].Text);
+
+                bool activo = Convert.ToBoolean(listaUsuarios.SelectedItems[0].SubItems[6].Text);
                 if (!activo) throw new Exception("No se puede eliminar un usuario ya borrado.");
+                BEUsuario usuario = BLLUsuario.ObtenerUsuario(idUsuarioSeleccionado);
 
-                BEUsuario usuario = new BEUsuario
-                {
-                    Id = Convert.ToInt32(filaSeleccionada.SubItems[0].Text),
-                    Nombre = filaSeleccionada.SubItems[1].Text,          
-                    Apellido = filaSeleccionada.SubItems[2].Text,            
-                    Email = filaSeleccionada.SubItems[3].Text,               
-                    Username = filaSeleccionada.SubItems[4].Text,             
-                    Password = filaSeleccionada.SubItems[5].Text,             
-                    Activo = activo
-                };
-                DialogResult respuesta = MetroMessageBox.Show(this, $"¿Esta seguro que desea eliminar el usuario {usuario.Nombre} {usuario.Apellido}?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", $"¿Esta seguro que desea eliminar el usuario {usuario.Nombre} {usuario.Apellido}?", "Sí, deseo eliminarlo", true, "Cancelar");
+                DialogResult result = materialDialog.ShowDialog(this);
 
-                if (respuesta == DialogResult.Yes)
+                if (result == DialogResult.OK)
                 {
                     bool eliminado = BLLUsuario.Eliminar(usuario);
                     if (eliminado)
                     {
                         RegistrarBitacora($"El usuario ha eliminado el usuario con ID: {usuario.Id}", BEBitacora.BitacoraTipo.INFO);
-                        MetroMessageBox.Show(this, "Usuario eliminado con exito", "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MaterialSnackBar SnackBarMessage = new MaterialSnackBar($"Usuario {usuario.Id} eliminado con exito", 2500);
+                        SnackBarMessage.Show(this);
                         ActualizarListaUsuarios();
                     }
 
@@ -117,11 +362,27 @@ namespace UI
             catch (Exception ex)
             {
                 RegistrarBitacora(ex.Message, BEBitacora.BitacoraTipo.ERROR);
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
             }
         }
 
+        private void listaUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listaUsuarios.SelectedItems.Count > 0)
+            {
+                idUsuarioSeleccionado = Convert.ToInt16(listaUsuarios.SelectedItems[0].SubItems[0].Text);
+
+                BEUsuario usuario = BLLUsuario.ObtenerUsuario(idUsuarioSeleccionado);
+
+                txtNombreModificado.Text = usuario.Nombre;
+                txtApellidoModificado.Text = usuario.Apellido;
+                txtEmailModificado.Text = usuario.Email;
+                txtUsuarioModificado.Text = usuario.Username;
+            }
+        }
         #endregion
+
 
         #region Tab Registrar:
         private void btnRegistro_Click(object sender, EventArgs e)
@@ -138,7 +399,8 @@ namespace UI
                 {
                     BLLUsuario.RecalcularDigitoVerificadorVertical();
 
-                    MetroMessageBox.Show(this, "Usuario agregado correctamente.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", "Usuario agregado correctamente.", "OK");
+                    materialDialog.ShowDialog(this);
                     nuevoUsuario = BLLUsuario.BuscarUsuarioPorUsername(nuevoUsuario.Username);
                     //RegistrarBitacora(nuevoUsuario, $"Se ha registrado un nuevo usuario con Id: {nuevoUsuario.Id}");
                 }
@@ -149,7 +411,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }
@@ -188,7 +451,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return null;
             }
         }
@@ -234,8 +498,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
             }
         }
 
@@ -260,13 +524,58 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
             }
         }
 
 
         #endregion
 
+
+        #region Tab Modificar:
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BEUsuario usuario = new BEUsuario(idUsuarioSeleccionado);
+                usuario.Nombre = txtNombreModificado.Text;
+                usuario.Apellido = txtApellidoModificado.Text;
+                usuario.Email = txtEmailModificado.Text;
+                usuario.Username = txtUsuarioModificado.Text;
+
+                MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", "¿Esta seguro que desea modificar el usuario?", "Sí, deseo modificarlo", true, "Cancelar");
+                DialogResult result = materialDialog.ShowDialog(this);
+                if (result == DialogResult.OK)
+                {
+                    bool guardado = BLLUsuario.Editar(usuario);
+                    if (guardado)
+                    {
+                        BLLUsuario.RecalcularDigitoVerificadorVertical();
+
+                        RegistrarBitacora($"El usuario ha modificado un usuario", BEBitacora.BitacoraTipo.INFO);
+                        MaterialSnackBar SnackBarMessage = new MaterialSnackBar("Usuario modificado con exito", 2500);
+                        SnackBarMessage.Show(this);
+                    }
+                    ActualizarListaUsuarios();
+                    tabControlUsuarios.SelectedTab = tabListaUsuarios;
+                }
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                RegistrarBitacora($"Ha ocurrido un error: {ex.Message}", BEBitacora.BitacoraTipo.ERROR);
+                return;
+            }
+        }
+
+
+
+
+
+        #endregion
+
+      
     }
 }

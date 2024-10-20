@@ -33,9 +33,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnIngresar = new MaterialSkin.Controls.MaterialButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.inputUsuario = new MaterialSkin.Controls.MaterialTextBox2();
             this.inputPsw = new MaterialSkin.Controls.MaterialTextBox2();
+            this.inputUsuario = new MaterialSkin.Controls.MaterialTextBox2();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -112,45 +112,6 @@
             this.panel1.Size = new System.Drawing.Size(649, 439);
             this.panel1.TabIndex = 9;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(3, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(190, 439);
-            this.panel2.TabIndex = 10;
-            // 
-            // inputUsuario
-            // 
-            this.inputUsuario.AnimateReadOnly = false;
-            this.inputUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.inputUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.inputUsuario.Depth = 0;
-            this.inputUsuario.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.inputUsuario.HideSelection = false;
-            this.inputUsuario.Hint = "Usuario";
-            this.inputUsuario.LeadingIcon = global::UI.Properties.Resources.Username;
-            this.inputUsuario.Location = new System.Drawing.Point(206, 182);
-            this.inputUsuario.MaxLength = 32767;
-            this.inputUsuario.MouseState = MaterialSkin.MouseState.OUT;
-            this.inputUsuario.Name = "inputUsuario";
-            this.inputUsuario.PasswordChar = '\0';
-            this.inputUsuario.PrefixSuffixText = null;
-            this.inputUsuario.ReadOnly = false;
-            this.inputUsuario.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.inputUsuario.SelectedText = "";
-            this.inputUsuario.SelectionLength = 0;
-            this.inputUsuario.SelectionStart = 0;
-            this.inputUsuario.ShortcutsEnabled = true;
-            this.inputUsuario.Size = new System.Drawing.Size(368, 48);
-            this.inputUsuario.TabIndex = 1;
-            this.inputUsuario.TabStop = false;
-            this.inputUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.inputUsuario.TrailingIcon = null;
-            this.inputUsuario.UseAccent = false;
-            this.inputUsuario.UseSystemPasswordChar = false;
-            // 
             // inputPsw
             // 
             this.inputPsw.AnimateReadOnly = false;
@@ -180,6 +141,45 @@
             this.inputPsw.TrailingIcon = null;
             this.inputPsw.UseAccent = false;
             this.inputPsw.UseSystemPasswordChar = true;
+            // 
+            // inputUsuario
+            // 
+            this.inputUsuario.AnimateReadOnly = false;
+            this.inputUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.inputUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.inputUsuario.Depth = 0;
+            this.inputUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.inputUsuario.HideSelection = false;
+            this.inputUsuario.Hint = "Usuario";
+            this.inputUsuario.LeadingIcon = global::UI.Properties.Resources.Username;
+            this.inputUsuario.Location = new System.Drawing.Point(206, 182);
+            this.inputUsuario.MaxLength = 32767;
+            this.inputUsuario.MouseState = MaterialSkin.MouseState.OUT;
+            this.inputUsuario.Name = "inputUsuario";
+            this.inputUsuario.PasswordChar = '\0';
+            this.inputUsuario.PrefixSuffixText = null;
+            this.inputUsuario.ReadOnly = false;
+            this.inputUsuario.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.inputUsuario.SelectedText = "";
+            this.inputUsuario.SelectionLength = 0;
+            this.inputUsuario.SelectionStart = 0;
+            this.inputUsuario.ShortcutsEnabled = true;
+            this.inputUsuario.Size = new System.Drawing.Size(368, 48);
+            this.inputUsuario.TabIndex = 1;
+            this.inputUsuario.TabStop = false;
+            this.inputUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.inputUsuario.TrailingIcon = null;
+            this.inputUsuario.UseAccent = false;
+            this.inputUsuario.UseSystemPasswordChar = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(3, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(190, 439);
+            this.panel2.TabIndex = 10;
             // 
             // Login
             // 

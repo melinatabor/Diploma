@@ -4,6 +4,7 @@ using MetroFramework;
 using BE;
 using BLL;
 using Servicios.SesionManager;
+using MaterialSkin.Controls;
 
 namespace UI
 {
@@ -46,21 +47,16 @@ namespace UI
 
                 BLLUsuario.Login(usuario);
 
-                MetroMessageBox.Show(
-                    this,
-                    $"Usuario logeado: {SesionManager.GetUsername()}",
-                    "Logeado",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
-
+                MaterialDialog materialDialog = new MaterialDialog(this, "Login", $"Usuario logeado: {SesionManager.GetUsername()}", "OK");
+                materialDialog.ShowDialog(this);
                 Home home = new Home();
                 home.Show();
                 Hide();
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }
@@ -74,7 +70,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }

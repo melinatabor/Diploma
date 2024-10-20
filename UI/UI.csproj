@@ -78,12 +78,6 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Idioma.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Idioma.Designer.cs">
-      <DependentUpon>Idioma.cs</DependentUpon>
-    </Compile>
     <Compile Include="Modificacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,9 +129,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Idioma.resx">
-      <DependentUpon>Idioma.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Modificacion.resx">
       <DependentUpon>Modificacion.cs</DependentUpon>
@@ -212,6 +204,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\DistribuidoraLogo1.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Tierra.png" />
+    <Content Include="Resources\World.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
