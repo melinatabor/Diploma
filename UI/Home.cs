@@ -23,6 +23,9 @@ namespace UI
         private bool pswValida = false;
         private int idUsuarioSeleccionado;
         private string _tag = "Traducción para ";
+        private int _pagina = 1;
+        private int _rowsPerPage = 5;
+        private string _paginaTag = "Página:";
 
         public Home()
         {
@@ -39,6 +42,13 @@ namespace UI
                 ActualizarDropDown();
                 ActualizarListaIdiomas();
                 ActualizarListaUsuarios();
+                ActualizarDGV();
+                dgvUsuarios.DataSource = null;
+                dgvUsuarios.DataSource = BLLUsuario.Listar();
+                ddUsuarios.Items.Clear();
+                foreach (BEUsuario usuario in BLLUsuario.Listar())
+                    ddUsuarios.Items.Add(usuario.Username);
+                CargarBitacora();
             }
             catch (Exception ex)
             {
@@ -576,6 +586,637 @@ namespace UI
 
         #endregion
 
-      
+
+        #region Tab Permisos:
+
+        private void ActualizarDGV()
+        {
+            try
+            {
+                dgvPermisos.DataSource = null;
+                dgvPermisos.DataSource = BLLPermiso.ListarPermisos();
+
+
+                dgvFamilia.DataSource = null;
+                dgvFamilia.DataSource = BLLPermiso.ListarFamilias();
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void LlenarTreeNode(TreeNode tree, BEPermiso permiso)
+        {
+            TreeNode treenode = new TreeNode(permiso.Nombre);
+
+            treenode.Tag = permiso;
+            tree.Nodes.Add(treenode);
+            if (permiso.Hijos != null)
+                foreach (var item in permiso.Hijos)
+                {
+                    LlenarTreeNode(treenode, item);
+                }
+
+        }
+
+        private void btnAgregarFamilia_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BEPermiso permiso = new BEFamilia() { Nombre = txtFamilia.Text };
+
+                if (string.IsNullOrEmpty(permiso.Nombre)) throw new Exception("El nombre de la familia no puede estar vacio.");
+
+                DialogResult opcion = MetroMessageBox.Show(this, "Desea agregar una nueva familia?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (opcion == DialogResult.No)
+                    return;
+
+                bool alta = BLLPermiso.AgregarFamilia(permiso);
+
+                if (alta)
+                {
+                    MetroMessageBox.Show(this, "Familia agregada correctamente.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ActualizarDGV();
+                    txtFamilia.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void btnAgregarPermiso_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvPermisos.SelectedRows.Count <= 0) throw new Exception("Seleccione un permiso para agregar.");
+
+                if (dgvFamilia.SelectedRows.Count <= 0) throw new Exception("Seleccione una familia.");
+
+                DialogResult opcion = MetroMessageBox.Show(this, "Desea agregar el permiso seleccionado a la familia seleccionada?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (opcion == DialogResult.No)
+                    return;
+
+                DataGridViewRow filaSeleccionada = dgvPermisos.SelectedRows[0];
+
+                int idPermiso = Convert.ToInt32(filaSeleccionada.Cells[0].Value);
+
+                BEPermiso permiso = BLLPermiso.BuscarPermiso(idPermiso);
+
+                if (permiso == null) throw new Exception("El permiso no existe.");
+
+                DataGridViewRow filaSeleccionadaFamilia = dgvFamilia.SelectedRows[0];
+
+                int idFamilia = Convert.ToInt32(filaSeleccionadaFamilia.Cells[0].Value);
+
+                BEPermiso familia = BLLPermiso.BuscarFamilia(idFamilia);
+
+                if (familia == null) throw new Exception("La familia no existe.");
+
+                // Verificar recursividad antes de agregar el permiso a la familia
+                if (VerificarRecursividad(permiso, familia))
+                {
+                    throw new Exception("No se puede agregar el permiso a la familia ya que generaría una recursividad.");
+                }
+
+                bool alta = BLLPermiso.AgregarPermisoAFamilia(permiso, familia);
+
+                if (alta)
+                {
+                    MetroMessageBox.Show(this, "Permiso agregado a familia correctamente.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    BEPermiso familiaSeleccionada = (BEPermiso)dgvFamilia.CurrentRow.DataBoundItem;
+                    ListarArbolRecursivo(familiaSeleccionada);
+                }
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private bool VerificarRecursividad(BEPermiso permiso, BEPermiso familia)
+        {
+            List<BEPermiso> padres = BLLPermiso.ObtenerPadres(familia);
+
+            return padres.Any(a => a.Id == permiso.Id);
+        }
+
+        private void ListarArbolRecursivo(BEPermiso familia)
+        {
+            try
+            {
+                treeView1.Nodes.Clear();
+
+                TreeNode root = new TreeNode(familia.Nombre);
+                root.Tag = familia;
+                treeView1.Nodes.Add(root);
+
+                List<BEPermiso> hijos = BLLPermiso.ListarHijosRecursivo(familia);
+
+                foreach (var item in hijos)
+                    LlenarTreeNode(root, item);
+
+                treeView1.ExpandAll();
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void btnAsignarPermisoUsuario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvPermisos.SelectedRows.Count <= 0) throw new Exception("Seleccione un permiso para agregar.");
+
+                if (dgvUsuarios.SelectedRows.Count <= 0) throw new Exception("Seleccione un usuario.");
+
+                DialogResult opcion = MetroMessageBox.Show(this, "Desea asingar el permiso al usuario?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (opcion == DialogResult.No)
+                    return;
+
+                DataGridViewRow filaSeleccionada = dgvPermisos.SelectedRows[0];
+
+                int idPermiso = Convert.ToInt32(filaSeleccionada.Cells[0].Value);
+
+                BEPermiso permiso = BLLPermiso.BuscarPermiso(idPermiso);
+
+                if (permiso == null) throw new Exception("El permiso no existe.");
+
+                BEUsuario usuario = (BEUsuario)dgvUsuarios.CurrentRow.DataBoundItem;
+
+                usuario = BLLUsuario.BuscarUsuarioPorUsername(usuario.Username);
+
+                if (usuario == null) throw new Exception("El usuario no existe.");
+
+                bool agregado = BLLUsuario.AsignarPermiso(usuario, permiso);
+
+                if (agregado)
+                {
+                    MetroMessageBox.Show(this, "Permiso agregado a usuario correctamente.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void dgvFamilia_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                BEPermiso familiaSeleccionada = (BEPermiso)dgvFamilia.CurrentRow.DataBoundItem;
+
+                ListarArbolRecursivo(familiaSeleccionada);
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void dgvUsuarios_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                BEUsuario usuario = (BEUsuario)dgvUsuarios.CurrentRow.DataBoundItem;
+
+                List<BEPermiso> permisos = BLLUsuario.ObtenerPermisos(usuario);
+
+                ListarPermisosUsuario(permisos);
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void ListarPermisosUsuario(List<BEPermiso> permisosUsuario)
+        {
+            try
+            {
+                treeViewPermUsuario.Nodes.Clear();
+
+                TreeNode root = new TreeNode("Permisos de Usuario");
+                treeViewPermUsuario.Nodes.Add(root);
+
+                foreach (var permiso in permisosUsuario)
+                {
+                    TreeNode permisoNode = new TreeNode(permiso.Nombre);
+                    permisoNode.Tag = permiso;
+                    root.Nodes.Add(permisoNode);
+
+                    if (permiso.EsPadre)
+                    {
+                        List<BEPermiso> hijos = BLLPermiso.ListarHijosRecursivo(permiso);
+                        foreach (var hijo in hijos)
+                        {
+                            LlenarTreeNode(permisoNode, hijo);
+                        }
+                    }
+                }
+
+                treeViewPermUsuario.ExpandAll();
+
+                /* Antes no mostrabamos los permisos padres:
+                    treeViewPermUsuario.Nodes.Clear();
+
+                     TreeNode root = new TreeNode("Permisos de Usuario");
+                     treeViewPermUsuario.Nodes.Add(root);
+
+                     List<BEPermiso> hijos = new List<BEPermiso>();
+                     foreach (var item in permisosUsuario)
+                     {
+                         if (item.EsPadre)
+                             hijos.AddRange(BLLPermiso.ListarHijosRecursivo(item));
+                         else
+                             hijos.Add(item);
+                     }
+
+                     foreach (var item in hijos)
+                         LlenarTreeNode(root, item);
+
+                     treeViewPermUsuario.ExpandAll();
+                 */
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void btnEliminarFamilia_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvFamilia.SelectedRows.Count <= 0) throw new Exception("Seleccione una familia.");
+
+                DialogResult opcion = MetroMessageBox.Show(this, "Desea eliminar la familia?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (opcion == DialogResult.No)
+                    return;
+
+                DataGridViewRow filaSeleccionadaFamilia = dgvFamilia.SelectedRows[0];
+
+                int idFamilia = Convert.ToInt32(filaSeleccionadaFamilia.Cells[0].Value);
+
+                BEPermiso familia = BLLPermiso.BuscarFamilia(idFamilia);
+
+                if (familia == null) throw new Exception("La familia no existe.");
+
+                bool eliminado = BLLPermiso.EliminarFamilia(familia);
+
+                if (eliminado)
+                {
+                    MetroMessageBox.Show(this, "Familia eliminada correctamente.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ActualizarDGV();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void btnEliminarPermisos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvUsuarios.SelectedRows.Count <= 0) throw new Exception("Seleccione un usuario.");
+
+                DialogResult opcion = MetroMessageBox.Show(this, "Desea eliminar los permisos asignados al usuario?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (opcion == DialogResult.No)
+                    return;
+
+                BEUsuario usuario = (BEUsuario)dgvUsuarios.CurrentRow.DataBoundItem;
+
+                bool eliminado = BLLUsuario.EliminarPermisos(usuario);
+
+                if (eliminado)
+                {
+                    MetroMessageBox.Show(this, "Permisos eliminados correctamente.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        #endregion
+
+
+        #region Tab Restaurar:
+        private void btnBuscarVersiones_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddUsuarios.SelectedIndex == -1)
+                {
+                    MetroMessageBox.Show(this, "Debe seleccionar un usuario", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                string username = ddUsuarios.Items[ddUsuarios.SelectedIndex].ToString();
+
+                BEUsuario usuario = BLLUsuario.BuscarUsuarioPorUsername(username);
+
+                List<BEUsuario> lista = BLLUsuario.FiltrarHistoricosPorUsuario(usuario.Id);
+
+                if (lista.Count > 0)
+                    ActualizarDGVHistoricos(lista);
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void btnRestaurarVersion_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvUsuariosHistoricos.SelectedRows.Count == 1)
+                {
+                    DialogResult opcion = MetroMessageBox.Show(this, "Desea restaurar esta version?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (opcion == DialogResult.No)
+                        return;
+
+                    string username = ddUsuarios.Items[ddUsuarios.SelectedIndex].ToString();
+                    BEUsuario usuario = BLLUsuario.BuscarUsuarioPorUsername(username);
+
+                    BEUsuario usuarioHistorico = (BEUsuario)dgvUsuariosHistoricos.SelectedRows[0].DataBoundItem;
+                    bool guardado = BLLUsuario.RestaurarVersion(usuarioHistorico, usuario);
+
+                    if (guardado)
+                    {
+                        BLLUsuario.RecalcularDigitoVerificadorVertical();
+
+                        MetroMessageBox.Show(
+                            this,
+                            $"Usuario Restaurado",
+                            "Restaurado",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        );
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void ActualizarDGVHistoricos(List<BEUsuario> lista)
+        {
+            try
+            {
+                dgvUsuariosHistoricos.DataSource = null;
+                dgvUsuariosHistoricos.DataSource = lista;
+
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+        #endregion
+
+
+        #region Tab Historial:
+        private void CargarBitacora()
+        {
+            try
+            {
+                dtFrom.Format = dtTo.Format = DateTimePickerFormat.Custom;
+                dtFrom.CustomFormat = dtTo.CustomFormat = "dd-MM-yyyy";
+                Subscribirse();
+                Actualizar();
+                labelPagina.Text = _paginaTag + " " + _pagina.ToString();
+
+                dtFrom.Value = new DateTime(DateTime.Now.Year, 1, 1);
+                dtTo.Value = DateTime.Now;
+
+                comboBoxTipo.Items.Clear();
+                comboBoxTipo.Items.Add(BEBitacora.BitacoraTipo.INFO);
+                comboBoxTipo.Items.Add(BEBitacora.BitacoraTipo.ERROR);
+
+                comboBoxUsuario.Items.Clear();
+                foreach (BEUsuario usuario in BLLUsuario.Listar())
+                    comboBoxUsuario.Items.Add(usuario.Username);
+
+                BEBitacoraCriteria criteria = new BEBitacoraCriteria()
+                {
+                    Desde = dtFrom.Value,
+                    Hasta = dtTo.Value,
+                    Tipo = null,
+                    Usuario = null,
+                    Page = _pagina,
+                    RowPerPage = _rowsPerPage
+                };
+                gridBitacora.DataSource = null;
+                gridBitacora.DataSource = BLLBitacora.Filtrar(criteria);
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void btnLeft_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _pagina -= 1;
+
+                if (_pagina <= 1)
+                {
+                    btnLeft.Enabled = false;
+                    labelPagina.Text = _paginaTag + " " + _pagina.ToString();
+                    return;
+                }
+
+                BEBitacoraCriteria criteria = new BEBitacoraCriteria()
+                {
+                    Desde = dtFrom.Value,
+                    Hasta = dtTo.Value,
+                    Tipo = comboBoxTipo.SelectedIndex + 1,
+                    Usuario = comboBoxUsuario.Text,
+                    Page = _pagina,
+                    RowPerPage = _rowsPerPage
+                };
+                gridBitacora.DataSource = null;
+                gridBitacora.DataSource = BLLBitacora.Filtrar(criteria);
+
+                btnRight.Enabled = true;
+
+                labelPagina.Text = _paginaTag + " " + _pagina.ToString();
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void btnRight_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _pagina += 1;
+
+                BEBitacoraCriteria criteria = new BEBitacoraCriteria()
+                {
+                    Desde = dtFrom.Value,
+                    Hasta = dtTo.Value,
+                    Tipo = comboBoxTipo.SelectedIndex + 1,
+                    Usuario = comboBoxUsuario.Text,
+                    Page = _pagina,
+                    RowPerPage = _rowsPerPage
+                };
+
+                var results = BLLBitacora.Filtrar(criteria);
+
+                if (results.Count < _rowsPerPage)
+                    btnRight.Enabled = false;
+
+                else
+                    btnRight.Enabled = true;
+
+                gridBitacora.DataSource = null;
+                gridBitacora.DataSource = results;
+
+                btnLeft.Enabled = true;
+
+                labelPagina.Text = _paginaTag + " " + _pagina.ToString();
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _pagina = 1;
+                btnLeft.Enabled = false;
+
+                BEBitacoraCriteria criteria = new BEBitacoraCriteria()
+                {
+                    Desde = dtFrom.Value,
+                    Hasta = dtTo.Value,
+                    Tipo = comboBoxTipo.SelectedIndex + 1,
+                    Usuario = comboBoxUsuario.Text,
+                    Page = _pagina,
+                    RowPerPage = _rowsPerPage
+                };
+
+                var results = BLLBitacora.Filtrar(criteria);
+
+                if (results.Count < _rowsPerPage)
+                    btnRight.Enabled = false;
+
+                else
+                    btnRight.Enabled = true;
+
+                gridBitacora.DataSource = null;
+                gridBitacora.DataSource = results;
+
+                labelPagina.Text = _paginaTag + " " + _pagina.ToString();
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+        #endregion
+
+
+        #region Tab Cerrar Sesion:
+
+        private void RegistrarBitacora()
+        {
+            try
+            {
+                string username = SesionManager.GetUsername();
+
+                BEUsuario usuarioActual = BLLUsuario.BuscarUsuarioPorUsername(username) ?? throw new Exception($"No existe el username: {username}");
+
+                BEBitacora bitacora = new BEBitacora()
+                {
+                    Usuario = usuarioActual.Id,
+                    Tipo = BEBitacora.BitacoraTipo.INFO,
+                    Mensaje = "El usuario finalizó la sesión"
+                };
+
+                BLLBitacora.Agregar(bitacora);
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+        #endregion
+
+        private void materialTabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (materialTabControl1.SelectedTab == tabCerrar)
+            {
+                try
+                {
+                    DialogResult opcion = MetroMessageBox.Show(this, "Desea cerrar la sesion?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (opcion == DialogResult.Yes)
+                    {
+                        RegistrarBitacora();
+                        SesionManager.Logout();
+                        Login login = new Login();
+                        login.Show();
+                        Hide();
+                    }
+                    else
+                    {
+                        materialTabControl1.SelectedTab = tabInicio;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+        }
     }
 }

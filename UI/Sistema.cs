@@ -142,21 +142,6 @@ namespace UI
             }
         }
 
-        private void idiomaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Idioma idioma = new Idioma();
-                idioma.MdiParent = this;
-                idioma.Show();
-            }
-            catch (Exception ex)
-            {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-        }
-
         private void permisosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
