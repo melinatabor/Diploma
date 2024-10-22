@@ -51,6 +51,7 @@
     <Compile Include="BEPermiso.cs" />
     <Compile Include="BEPermisoSimple.cs" />
     <Compile Include="BETraduccion.cs" />
+    <Compile Include="BEProveedor.cs" />
     <Compile Include="BEUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

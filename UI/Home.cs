@@ -30,7 +30,6 @@ namespace UI
         public Home()
         {
             InitializeComponent();
-            ActualizarListaUsuarios();
         }
 
         private void Home_Load(object sender, EventArgs e)
@@ -42,6 +41,7 @@ namespace UI
                 ActualizarDropDown();
                 ActualizarListaIdiomas();
                 ActualizarListaUsuarios();
+                ActualizarListaProveedores();
                 ActualizarDGV();
                 dgvUsuarios.DataSource = null;
                 dgvUsuarios.DataSource = BLLUsuario.Listar();
@@ -52,10 +52,168 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }
+
+        #region Tab Proveedores:
+        private void ActualizarListaProveedores()
+        {
+            listaProveedores.Items.Clear();
+            List<BEProveedor> proveedores = BLLProveedor.Listar();
+
+            foreach (BEProveedor proveedor in proveedores)
+            {
+                string[] row =
+                {
+                        proveedor.Id.ToString(),
+                        proveedor.Marca,
+                        proveedor.Nombre,
+                        proveedor.Apellido,
+                        proveedor.Telefono,
+                        proveedor.Domicilio,
+                        proveedor.Localidad,
+                    };
+
+                var item = new ListViewItem(row);
+
+                listaProveedores.Items.Add(item);
+            }
+        }
+
+        private void btnAgregarProveedor_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txtProvNombre.Text) || string.IsNullOrEmpty(txtProvApellido.Text) || string.IsNullOrEmpty(txtProvMarca.Text) || string.IsNullOrEmpty(txtProvTelefono.Text) || string.IsNullOrEmpty(txtProvLocalidad.Text) || string.IsNullOrEmpty(txtProvDomicilio.Text))
+                {
+                    MaterialDialog dialog = new MaterialDialog(this, "Error", "Debe ingresar los datos para poder agregar el proveedor.", "OK");
+                    dialog.ShowDialog(this);
+                    return;
+                }
+
+                if (listaProveedores.SelectedItems.Count != 0)
+                {
+                    listaProveedores.SelectedItems.Clear();
+                    txtProvApellido.Text = txtProvDomicilio.Text = txtProvLocalidad.Text = txtProvMarca.Text = txtProvNombre.Text = txtProvTelefono.Text = "";
+                    throw new Exception("No se puede agregar un proveedor si hay uno seleccionado.");
+                }
+                BEProveedor nuevoProveedor = new BEProveedor()
+                {
+                    Nombre = txtProvNombre.Text,
+                    Domicilio = txtProvDomicilio.Text,
+                    Apellido = txtProvApellido.Text,
+                    Marca = txtProvMarca.Text,
+                    Telefono = txtProvTelefono.Text,
+                    Localidad = txtProvLocalidad.Text,
+                };
+                bool alta = BLLProveedor.Agregar(nuevoProveedor);
+
+                if (alta)
+                {
+                    MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", "Proveedor agregado correctamente.", "OK");
+                    materialDialog.ShowDialog(this);
+                }
+
+                ActualizarListaProveedores();
+            }
+            catch (Exception ex)
+            {
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
+                return;
+            }
+            
+        }
+
+        private void btnModificarProveedor_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listaProveedores.Items.Count <= 0) throw new Exception("No hay proveedores para modificar.");
+                if (listaProveedores.SelectedItems.Count == 0) throw new Exception("Selecciona una fila para modificar.");
+
+
+                BEProveedor proveedor = new BEProveedor(Convert.ToInt16(listaProveedores.SelectedItems[0].SubItems[0].Text));
+                proveedor.Marca = txtProvMarca.Text;
+                proveedor.Nombre = txtProvNombre.Text;
+                proveedor.Apellido = txtProvApellido.Text;
+                proveedor.Domicilio = txtProvDomicilio.Text;
+                proveedor.Localidad = txtProvLocalidad.Text;
+                proveedor.Telefono = txtProvTelefono.Text;
+
+                MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", "¿Esta seguro que desea modificar el proveedor?", "Sí, deseo modificarlo", true, "Cancelar");
+                DialogResult result = materialDialog.ShowDialog(this);
+                if (result == DialogResult.OK)
+                {
+                    bool guardado = BLLProveedor.Editar(proveedor);
+                    if (guardado)
+                    {
+                        MaterialSnackBar SnackBarMessage = new MaterialSnackBar($"Proveedor modificado con exito", 2500);
+                        SnackBarMessage.Show(this);
+                        ActualizarListaProveedores();
+                        listaProveedores.SelectedItems.Clear();
+                        txtProvApellido.Text = txtProvDomicilio.Text = txtProvLocalidad.Text = txtProvMarca.Text = txtProvNombre.Text = txtProvTelefono.Text = "";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
+            }
+        }
+
+        private void btnProvEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listaProveedores.Items.Count <= 0) throw new Exception("No hay proveedores para eliminar.");
+                if (listaProveedores.SelectedItems.Count == 0) throw new Exception("Selecciona una fila para eliminar.");
+
+                int id = Convert.ToInt32(listaProveedores.SelectedItems[0].SubItems[0].Text);
+                
+
+                MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", $"¿Esta seguro que desea eliminar el proveedor?", "Sí, deseo eliminarlo", true, "Cancelar");
+                DialogResult result = materialDialog.ShowDialog(this);
+
+                if (result == DialogResult.OK)
+                {
+                    bool eliminado = BLLProveedor.Eliminar(id);
+                    if (eliminado)
+                    {
+                        MaterialSnackBar SnackBarMessage = new MaterialSnackBar($"Proveedor eliminado con exito", 2500);
+                        SnackBarMessage.Show(this);
+                        ActualizarListaProveedores();
+                        txtProvApellido.Text = txtProvDomicilio.Text = txtProvLocalidad.Text = txtProvMarca.Text = txtProvNombre.Text = txtProvTelefono.Text = "";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
+            }
+        }
+
+        private void listaProveedores_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listaProveedores.SelectedItems.Count > 0)
+            {
+                ListViewItem filaSeleccionada = listaProveedores.SelectedItems[0];
+
+                txtProvMarca.Text =     filaSeleccionada.SubItems[1].Text;
+                txtProvNombre.Text =    filaSeleccionada.SubItems[2].Text;
+                txtProvApellido.Text =  filaSeleccionada.SubItems[3].Text;
+                txtProvTelefono.Text =  filaSeleccionada.SubItems[4].Text;
+                txtProvDomicilio.Text = filaSeleccionada.SubItems[5].Text;
+                txtProvLocalidad.Text = filaSeleccionada.SubItems[6].Text;
+            }
+
+        }
+        #endregion
 
         #region Tab Idiomas:
         private void ActualizarDropDown()
@@ -69,7 +227,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }
@@ -82,7 +241,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error Subscriptor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }
@@ -135,7 +295,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error Actualizar Idioma", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }
@@ -485,7 +646,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
 
@@ -574,14 +736,12 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 RegistrarBitacora($"Ha ocurrido un error: {ex.Message}", BEBitacora.BitacoraTipo.ERROR);
                 return;
             }
         }
-
-
-
 
 
         #endregion
@@ -602,7 +762,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }
@@ -645,7 +806,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }
@@ -696,7 +858,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }
@@ -727,7 +890,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }
@@ -769,7 +933,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }
@@ -784,7 +949,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }
@@ -801,7 +967,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }
@@ -856,7 +1023,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }
@@ -891,7 +1059,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }
@@ -916,10 +1085,11 @@ namespace UI
                     MetroMessageBox.Show(this, "Permisos eliminados correctamente.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
+                return;
             }
         }
         #endregion
@@ -932,7 +1102,8 @@ namespace UI
             {
                 if (ddUsuarios.SelectedIndex == -1)
                 {
-                    MetroMessageBox.Show(this, "Debe seleccionar un usuario", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", "Debe seleccionar un usuario", "OK");
+                    materialDialog.ShowDialog(this);
                     return;
                 }
 
@@ -947,7 +1118,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }
@@ -958,9 +1130,9 @@ namespace UI
             {
                 if (dgvUsuariosHistoricos.SelectedRows.Count == 1)
                 {
-                    DialogResult opcion = MetroMessageBox.Show(this, "Desea restaurar esta version?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    if (opcion == DialogResult.No)
+                    MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", "¿Desea restaurar esta version?", "Si", true, "No");
+                    DialogResult result = materialDialog.ShowDialog(this);
+                    if (result != DialogResult.OK)
                         return;
 
                     string username = ddUsuarios.Items[ddUsuarios.SelectedIndex].ToString();
@@ -973,13 +1145,9 @@ namespace UI
                     {
                         BLLUsuario.RecalcularDigitoVerificadorVertical();
 
-                        MetroMessageBox.Show(
-                            this,
-                            $"Usuario Restaurado",
-                            "Restaurado",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information
-                        );
+                        MaterialDialog dialog = new MaterialDialog(this, "Aviso", "Usuario Restaurado", "OK");
+                        dialog.ShowDialog(this);
+                        ActualizarListaUsuarios();
                     }
 
                 }
@@ -987,7 +1155,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }
@@ -1002,7 +1171,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }
@@ -1045,7 +1215,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }
@@ -1081,7 +1252,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }
@@ -1119,7 +1291,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }
@@ -1156,7 +1329,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }
@@ -1184,11 +1358,11 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
                 return;
             }
         }
-        #endregion
 
         private void materialTabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1196,9 +1370,11 @@ namespace UI
             {
                 try
                 {
-                    DialogResult opcion = MetroMessageBox.Show(this, "Desea cerrar la sesion?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", $"¿Esta seguro que desea cerrar sesión?", "Sí", true, "No");
+                    DialogResult result = materialDialog.ShowDialog(this);
 
-                    if (opcion == DialogResult.Yes)
+
+                    if (result == DialogResult.OK)
                     {
                         RegistrarBitacora();
                         SesionManager.Logout();
@@ -1213,10 +1389,17 @@ namespace UI
                 }
                 catch (Exception ex)
                 {
-                    MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                    materialDialog.ShowDialog(this);
                     return;
                 }
             }
         }
+
+
+
+        #endregion
+
+       
     }
 }
