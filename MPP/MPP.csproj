@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="MPPIdioma.cs" />
     <Compile Include="MPPPermiso.cs" />
+    <Compile Include="MPPProducto.cs" />
     <Compile Include="MPPProveedor.cs" />
     <Compile Include="MPPTraduccion.cs" />
     <Compile Include="StoredProcedures\BitacoraStoredProcedures.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="StoredProcedures\DigitoVerificadorVerticalStoredProcedures.cs" />
     <Compile Include="StoredProcedures\IdiomaStoredProcedures.cs" />
     <Compile Include="StoredProcedures\PermisoStoredProcedures.cs" />
+    <Compile Include="StoredProcedures\ProductoStoredProcedures.cs" />
     <Compile Include="StoredProcedures\ProveedorStoredProcedures.cs" />
     <Compile Include="StoredProcedures\UsuarioStoredProcedures.cs" />
   </ItemGroup>

@@ -50,6 +50,7 @@
     <Compile Include="BEPalabra.cs" />
     <Compile Include="BEPermiso.cs" />
     <Compile Include="BEPermisoSimple.cs" />
+    <Compile Include="BEProducto.cs" />
     <Compile Include="BETraduccion.cs" />
     <Compile Include="BEProveedor.cs" />
     <Compile Include="BEUsuario.cs" />

@@ -38,11 +38,14 @@ namespace UI
             {
                 Subscribirse();
                 Actualizar();
-                ActualizarDropDown();
+                ActualizarDDIdioma();
                 ActualizarListaIdiomas();
                 ActualizarListaUsuarios();
                 ActualizarListaProveedores();
+                ActualizarListaProductos();
                 ActualizarDGV();
+                ActualizarDDProveedores();
+
                 dgvUsuarios.DataSource = null;
                 dgvUsuarios.DataSource = BLLUsuario.Listar();
                 ddUsuarios.Items.Clear();
@@ -115,9 +118,11 @@ namespace UI
                 {
                     MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", "Proveedor agregado correctamente.", "OK");
                     materialDialog.ShowDialog(this);
+                    txtProvApellido.Text = txtProvDomicilio.Text = txtProvLocalidad.Text = txtProvMarca.Text = txtProvNombre.Text = txtProvTelefono.Text = "";
                 }
 
                 ActualizarListaProveedores();
+                ActualizarDDProveedores();
             }
             catch (Exception ex)
             {
@@ -154,6 +159,7 @@ namespace UI
                         MaterialSnackBar SnackBarMessage = new MaterialSnackBar($"Proveedor modificado con exito", 2500);
                         SnackBarMessage.Show(this);
                         ActualizarListaProveedores();
+                        ActualizarDDProveedores();
                         listaProveedores.SelectedItems.Clear();
                         txtProvApellido.Text = txtProvDomicilio.Text = txtProvLocalidad.Text = txtProvMarca.Text = txtProvNombre.Text = txtProvTelefono.Text = "";
                     }
@@ -176,7 +182,7 @@ namespace UI
                 int id = Convert.ToInt32(listaProveedores.SelectedItems[0].SubItems[0].Text);
                 
 
-                MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", $"¿Esta seguro que desea eliminar el proveedor?", "Sí, deseo eliminarlo", true, "Cancelar");
+                MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", $"¿Esta seguro que desea eliminar el proveedor y todos sus productos relacionados?", "Sí, deseo eliminarlo", true, "Cancelar");
                 DialogResult result = materialDialog.ShowDialog(this);
 
                 if (result == DialogResult.OK)
@@ -187,6 +193,8 @@ namespace UI
                         MaterialSnackBar SnackBarMessage = new MaterialSnackBar($"Proveedor eliminado con exito", 2500);
                         SnackBarMessage.Show(this);
                         ActualizarListaProveedores();
+                        ActualizarDDProveedores();
+                        ActualizarListaProductos();
                         txtProvApellido.Text = txtProvDomicilio.Text = txtProvLocalidad.Text = txtProvMarca.Text = txtProvNombre.Text = txtProvTelefono.Text = "";
                     }
                 }
@@ -216,7 +224,7 @@ namespace UI
         #endregion
 
         #region Tab Idiomas:
-        private void ActualizarDropDown()
+        private void ActualizarDDIdioma()
         {
             try
             {
@@ -405,7 +413,7 @@ namespace UI
                 {
                     MaterialDialog dialog = new MaterialDialog(this, "Éxito", "Idioma agregado correctamente", "OK");
                     dialog.ShowDialog(this);
-                    ActualizarDropDown();
+                    ActualizarDDIdioma();
                     inputNuevoIdioma.Text = "";
                 }
             }
@@ -1398,8 +1406,202 @@ namespace UI
 
 
 
+
         #endregion
 
-       
+
+        #region Tab Productos:
+        private void ActualizarDDProveedores()
+        {
+            try
+            {
+                ddProveedor.DataSource = null;
+                ddProveedor.DataSource = BLLProveedor.Listar();
+                ddProveedor.DisplayMember = "Marca";
+                ddProveedor.ValueMember = "Id";
+                ddProveedor.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
+                return;
+            }
+        }
+
+        private void ActualizarListaProductos()
+        {
+            listaProductos.Items.Clear();
+            List<BEProducto> productos = BLLProducto.Listar();
+            
+            foreach (BEProducto producto in productos)
+            {
+                string[] row =
+                {
+                        producto.Id.ToString(),
+                        producto.Codigo,
+                        producto.Nombre,
+                        BLLProveedor.BuscarProveedorXId(producto.Proveedor).Marca,
+                        producto.Descripcion,
+                        producto.Gramos.ToString() + "g",
+                        producto.Bandeja.ToString(),
+                        "$" + producto.CostoUnitario.ToString(),
+                        "$" + producto.PrecioVenta.ToString(),
+                        "$" + producto.Ganancia.ToString(),
+                        producto.Cantidad.ToString()
+                    };
+
+                var item = new ListViewItem(row);
+
+                listaProductos.Items.Add(item);
+            }
+        }
+
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txtCodProd.Text) || string.IsNullOrEmpty(txtNombreProd.Text) || string.IsNullOrEmpty(txtDescripcionProd.Text)
+                    || string.IsNullOrEmpty(txtGramosProd.Text) || string.IsNullOrEmpty(txtCostoProd.Text) || string.IsNullOrEmpty(txtPrecioProd.Text))
+                {
+                    throw new Exception("Debe ingresar los datos para poder agregar el producto.");
+                }
+
+                if (ddProveedor.SelectedIndex == -1) throw new Exception("Debe seleccionar un proveedor.");
+
+                BEProducto nuevoProducto = new BEProducto()
+                {
+                    Codigo = txtCodProd.Text,
+                    Nombre = txtNombreProd.Text,
+                    Proveedor = Convert.ToInt32(ddProveedor.SelectedValue),
+                    Descripcion = txtDescripcionProd.Text,
+                    Gramos = Convert.ToInt32(txtGramosProd.Text),
+                    Bandeja = Convert.ToInt32(txtBandejaProd.Text),
+                    CostoUnitario = Convert.ToSingle(txtCostoProd.Text),
+                    PrecioVenta = Convert.ToSingle(txtPrecioProd.Text),
+                    Cantidad = Convert.ToInt32(txtStockProd.Text),
+                };
+                bool alta = BLLProducto.Agregar(nuevoProducto);
+
+                if (alta)
+                {
+                    MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", "Producto agregado correctamente.", "OK");
+                    materialDialog.ShowDialog(this);
+                    txtCodProd.Text = txtNombreProd.Text = txtDescripcionProd.Text = txtGramosProd.Text = txtBandejaProd.Text = txtCostoProd.Text = txtPrecioProd.Text = txtStockProd.Text = "";
+                }
+
+                ActualizarListaProductos();
+                tabControlProductos.SelectedTab = tabListadoProductos;
+            }
+            catch (Exception ex)
+            {
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
+                return;
+            }
+        }
+        
+
+        private void btnModProducto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listaProductos.Items.Count <= 0) throw new Exception("No hay productos para modificar.");
+                if (listaProductos.SelectedItems.Count == 0) throw new Exception("Selecciona una fila para modificar.");
+
+                BEProducto producto = new BEProducto(Convert.ToInt16(listaProductos.SelectedItems[0].SubItems[0].Text));
+                producto.Codigo = txtModCodProd.Text;
+                producto.Nombre = txtModNombreProd.Text;
+                producto.Proveedor = ((BEProveedor)ddModProveedor.SelectedItem).Id;
+                producto.Descripcion = txtModDescProd.Text;
+                producto.Gramos = Convert.ToInt32(txtModGramosProd.Text);
+                producto.Bandeja = Convert.ToInt32(txtModBandejaProd.Text);
+                producto.CostoUnitario = Convert.ToSingle(txtModCostoProd.Text);
+                producto.PrecioVenta = Convert.ToSingle(txtModPrecioProd.Text);
+                producto.Cantidad = Convert.ToInt32(txtModStockProd.Text);
+
+                MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", "¿Esta seguro que desea modificar el producto?", "Sí, deseo modificarlo", true, "Cancelar");
+                DialogResult result = materialDialog.ShowDialog(this);
+                if (result == DialogResult.OK)
+                {
+                    bool guardado = BLLProducto.Editar(producto);
+                    if (guardado)
+                    {
+                        MaterialSnackBar SnackBarMessage = new MaterialSnackBar($"Producto modificado con exito", 2500);
+                        SnackBarMessage.Show(this);
+                        listaProductos.SelectedItems.Clear();
+                        txtModCodProd.Text = txtModNombreProd.Text = txtModDescProd.Text = txtModGramosProd.Text = txtModBandejaProd.Text = txtModCostoProd.Text = txtModPrecioProd.Text = txtModStockProd.Text = "";
+                        ddModProveedor.SelectedValue= -1;
+                    }
+                }
+                ActualizarListaProductos();
+
+            }
+            catch (Exception ex)
+            {
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
+            }
+        }
+
+        private void listaProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listaProductos.SelectedItems.Count > 0)
+            {
+                ListViewItem filaSeleccionada = listaProductos.SelectedItems[0];
+
+                txtModCodProd.Text = filaSeleccionada.SubItems[1].Text;
+                txtModNombreProd.Text = filaSeleccionada.SubItems[2].Text;
+                txtModDescProd.Text = filaSeleccionada.SubItems[4].Text;
+                txtModGramosProd.Text = filaSeleccionada.SubItems[5].Text.Replace("g", "").Trim();
+                txtModBandejaProd.Text = filaSeleccionada.SubItems[6].Text;
+                txtModCostoProd.Text = filaSeleccionada.SubItems[7].Text.Replace("$", "").Trim();
+                txtModPrecioProd.Text = filaSeleccionada.SubItems[8].Text.Replace("$", "").Trim();
+                txtModStockProd.Text = filaSeleccionada.SubItems[10].Text;
+
+                ddModProveedor.DataSource = null;
+                ddModProveedor.DataSource = BLLProveedor.Listar();
+                ddModProveedor.DisplayMember = "Marca";
+                ddModProveedor.ValueMember = "Id";
+                int idSeleccionado = BLLProveedor.BuscarProveedorXMarca(filaSeleccionada.SubItems[3].Text).Id;
+                ddModProveedor.SelectedValue = idSeleccionado;
+            }
+        }
+
+        private void btnEliminarProducto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listaProductos.Items.Count <= 0) throw new Exception("No hay productos para eliminar.");
+                if (listaProductos.SelectedItems.Count == 0) throw new Exception("Selecciona una fila para eliminar.");
+
+                int id = Convert.ToInt32(listaProductos.SelectedItems[0].SubItems[0].Text);
+
+
+                MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", $"¿Esta seguro que desea eliminar el producto?", "Sí, deseo eliminarlo", true, "Cancelar");
+                DialogResult result = materialDialog.ShowDialog(this);
+
+                if (result == DialogResult.OK)
+                {
+                    bool eliminado = BLLProducto.Eliminar(id);
+                    if (eliminado)
+                    {
+                        MaterialSnackBar SnackBarMessage = new MaterialSnackBar($"Producto eliminado con exito", 2500);
+                        SnackBarMessage.Show(this);
+                        listaProductos.SelectedItems.Clear();
+                        txtModCodProd.Text = txtModNombreProd.Text = txtModDescProd.Text = txtModGramosProd.Text = txtModBandejaProd.Text = txtModCostoProd.Text = txtModPrecioProd.Text = txtModStockProd.Text = "";
+                        ddModProveedor.SelectedValue = -1;
+                    }
+                    ActualizarListaProductos();
+                }
+            }
+            catch (Exception ex)
+            {
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
+            }
+        }
+
+        #endregion
     }
 }

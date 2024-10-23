@@ -43,5 +43,23 @@ namespace BLL
             }
             catch (Exception ex) { throw ex; }
         }
+
+        public static BEProveedor BuscarProveedorXMarca(string marca)
+        {
+            try
+            {
+                return MPPProveedor.BuscarProveedorXMarca(marca);
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        public static BEProveedor BuscarProveedorXId(int id)
+        {
+            try
+            {
+                return MPPProveedor.BuscarProveedorXId(id);
+            }
+            catch (Exception ex) { throw ex; }
+        }
     }
 }

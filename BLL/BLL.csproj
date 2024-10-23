@@ -45,6 +45,7 @@
     <Compile Include="BLLBitacora.cs" />
     <Compile Include="BLLIdioma.cs" />
     <Compile Include="BLLPermiso.cs" />
+    <Compile Include="BLLProducto.cs" />
     <Compile Include="BLLTraduccion.cs" />
     <Compile Include="BLLProveedor.cs" />
     <Compile Include="BLLUsuario.cs" />

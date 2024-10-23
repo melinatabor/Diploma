@@ -114,5 +114,59 @@ namespace MPP
             }
             catch (Exception ex) { throw ex; }
         }
+
+        public static BEProveedor BuscarProveedorXMarca(string marca)
+        {
+            try
+            {
+                Hashtable parametros = new Hashtable();
+
+                parametros.Add("@Marca", marca);
+
+                DataTable tabla = Acceso.ExecuteDataTable(ProveedorStoredProcedures.SP_BuscarProveedorXMarca, parametros, true);
+
+                if (tabla.Rows.Count > 0)
+                {
+                    foreach (DataRow fila in tabla.Rows)
+                    {
+                        BEProveedor proveedor = new BEProveedor();
+                        return Llenar(fila, proveedor);
+                    }
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static BEProveedor BuscarProveedorXId(int id)
+        {
+            try
+            {
+                Hashtable parametros = new Hashtable();
+                
+                parametros.Add("@Id", id);
+                
+                DataTable tabla = Acceso.ExecuteDataTable(ProveedorStoredProcedures.SP_BuscarProveedorXId, parametros, true);
+                
+                if (tabla.Rows.Count > 0)
+                {
+                    foreach (DataRow fila in tabla.Rows)
+                    {
+                        BEProveedor proveedor = new BEProveedor();
+                        return Llenar(fila, proveedor);
+                    }
+                }
+                
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
