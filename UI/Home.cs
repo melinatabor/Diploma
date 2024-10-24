@@ -26,6 +26,8 @@ namespace UI
         private int _pagina = 1;
         private int _rowsPerPage = 5;
         private string _paginaTag = "Página:";
+        private bool isNuevaCompra = true;
+        private int compraActualId;
 
         public Home()
         {
@@ -45,6 +47,7 @@ namespace UI
                 ActualizarListaProductos();
                 ActualizarDGV();
                 ActualizarDDProveedores();
+                ActualizarDDProductos();
 
                 dgvUsuarios.DataSource = null;
                 dgvUsuarios.DataSource = BLLUsuario.Listar();
@@ -1491,6 +1494,7 @@ namespace UI
                 }
 
                 ActualizarListaProductos();
+                ActualizarDDProductos();
                 tabControlProductos.SelectedTab = tabListadoProductos;
             }
             catch (Exception ex)
@@ -1535,6 +1539,7 @@ namespace UI
                     }
                 }
                 ActualizarListaProductos();
+                ActualizarDDProductos();
 
             }
             catch (Exception ex)
@@ -1593,6 +1598,7 @@ namespace UI
                         ddModProveedor.SelectedValue = -1;
                     }
                     ActualizarListaProductos();
+                    ActualizarDDProductos();
                 }
             }
             catch (Exception ex)
@@ -1603,5 +1609,177 @@ namespace UI
         }
 
         #endregion
+
+        #region Tab Compras:
+        private void ActualizarDDProductos()
+        {
+            try
+            {
+                ddProductos.DataSource = null;
+                ddProductos.DataSource = BLLProducto.Listar();
+                ddProductos.DisplayMember = "Nombre";
+                ddProductos.ValueMember = "Id";
+                ddProductos.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
+                return;
+            }
+        }
+
+        private void ActualizarListaDetalle()
+        {
+            listaDetalleCompras.Items.Clear();
+            List<BEDetalleCompra> detalles = BLLDetalleCompra.ListarXCompra(compraActualId);
+
+            foreach (BEDetalleCompra detalle in detalles)
+            {
+                string[] row =
+                {
+                        detalle.Id.ToString(),
+                        detalle.CompraId.ToString(),
+                        BLLProducto.BuscarProductoXId(detalle.ProductoId).Nombre,
+                        detalle.Cantidad.ToString(),
+                        detalle.Subtotal.ToString()
+                    };
+
+                var item = new ListViewItem(row);
+
+                listaDetalleCompras.Items.Add(item);
+            }
+        }
+        private void btnAgregarDetalle_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txtCantidadCompra.Text) || ddProductos.SelectedIndex == -1)
+                {
+                    MaterialDialog dialog = new MaterialDialog(this, "Error", "Debe ingresar los datos para poder agregar el producto a la compra.", "OK");
+                    dialog.ShowDialog(this);
+                    return;
+                }
+
+
+                int cantidad = Convert.ToInt32(txtCantidadCompra.Text);
+                int productoId = Convert.ToInt32(ddProductos.SelectedValue);
+                BEDetalleCompra nuevoDetalle = new BEDetalleCompra()
+                {
+                    ProductoId = productoId,
+                    Cantidad = cantidad,
+                    Subtotal = BLLProducto.CalcularSubtotal(cantidad, productoId),
+                };
+
+                if (isNuevaCompra)
+                {
+                    dateCompra.Enabled = true;
+                    BECompra nuevaCompra = new BECompra()
+                    {
+                        Fecha = dateCompra.Value,
+                        Total = 0,
+                    };
+
+                    nuevaCompra.Total += nuevoDetalle.Subtotal;
+                    bool alta = BLLCompra.Agregar(nuevaCompra);
+                    if (!alta) throw new Exception("No se pudo agregar la compra.");
+
+                    nuevaCompra = BLLCompra.ObtenerUltimaCompra();
+                    compraActualId = nuevaCompra.Id;
+                    isNuevaCompra = false;
+
+                    nuevoDetalle.CompraId = compraActualId;
+                    BLLDetalleCompra.Agregar(nuevoDetalle);
+                    nuevoDetalle.Subtotal.ToString();
+                    txtTotalCompra.Text = nuevaCompra.Total.ToString();
+                    dateCompra.Enabled = false;
+                    BLLProducto.SumarStock(nuevoDetalle.Cantidad, nuevoDetalle.ProductoId);
+                }
+
+                else
+                {
+                    BECompra compra = BLLCompra.BuscarCompraXId(compraActualId);
+
+                    nuevoDetalle.CompraId = compraActualId;
+                    compra.Total += nuevoDetalle.Subtotal;
+                    txtTotalCompra.Text = compra.Total.ToString();
+                    BLLDetalleCompra.Agregar(nuevoDetalle);
+                    BLLCompra.Editar(compra);
+                    BLLProducto.SumarStock(nuevoDetalle.Cantidad, nuevoDetalle.ProductoId);
+                    ActualizarListaProductos();
+                }
+
+                ActualizarListaDetalle();
+                txtCantidadCompra.Text = "";
+                ddProductos.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
+            }
+           
+        }
+      
+
+        private void btnFinalizarCompra_Click(object sender, EventArgs e)
+        {
+            txtTotalCompra.Text = txtCantidadCompra.Text = "";
+            ddProductos.SelectedIndex = -1;
+            btnAgregarDetalle.Enabled = false;
+        }
+
+        #endregion
+
+        private void tabControlInventario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControlInventario.SelectedTab == tabCompras)
+            {
+                btnAgregarDetalle.Enabled = true;
+                listaDetalleCompras.Items.Clear();
+                isNuevaCompra = true;
+            }
+        }
+
+        private void btnEliminarDetalle_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listaDetalleCompras.Items.Count <= 0) throw new Exception("No hay productos para eliminar.");
+                if (listaDetalleCompras.SelectedItems.Count == 0) throw new Exception("Selecciona una fila de productos para eliminar.");
+                if (listaDetalleCompras.Items.Count == 1) throw new Exception("Minimo tiene que haber un detalle en la compra.");
+
+                int id = Convert.ToInt32(listaDetalleCompras.SelectedItems[0].SubItems[0].Text);
+
+                BEDetalleCompra detalle = BLLDetalleCompra.BuscarDetalleCompraXId(id);
+
+                MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", $"¿Estas seguro que deseas eliminar el detalle de compra de estos productos?", "Sí, deseo eliminarlo", true, "Cancelar");
+                DialogResult result = materialDialog.ShowDialog(this);
+
+                if (result == DialogResult.OK)
+                {
+                    bool eliminado = BLLDetalleCompra.Eliminar(id);
+                    if (eliminado)
+                    {
+                        MaterialSnackBar SnackBarMessage = new MaterialSnackBar($"Detalle de compra eliminado con exito", 2500);
+                        SnackBarMessage.Show(this);
+                        ActualizarListaDetalle();
+
+                        BECompra compra = BLLCompra.BuscarCompraXId(compraActualId);
+
+                        compra.Total -= detalle.Subtotal;
+                        txtTotalCompra.Text = compra.Total.ToString();
+                        BLLCompra.Editar(compra);
+                        BLLProducto.RestarStock(detalle.Cantidad, detalle.ProductoId);
+                        ActualizarListaProductos();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
+            }
+        }
     }
 }

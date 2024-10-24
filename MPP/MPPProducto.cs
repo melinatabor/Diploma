@@ -130,5 +130,68 @@ namespace MPP
             }
             catch (Exception ex) { throw ex; }
         }
+
+        public static BEProducto BuscarProductoXId(int id)
+        {
+            try
+            {
+                Hashtable parametros = new Hashtable();
+
+                parametros.Add("@Id", id);
+
+                DataTable tabla = Acceso.ExecuteDataTable(ProductoStoredProcedures.SP_BuscarProductoXId, parametros, true);
+
+                if (tabla.Rows.Count > 0)
+                {
+                    foreach (DataRow fila in tabla.Rows)
+                    {
+                        BEProducto producto = new BEProducto();
+                        return Llenar(fila, producto);
+                    }
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static float CalcularSubtotal(int cantidad, int productoId)
+        {
+            BEProducto producto = BuscarProductoXId(productoId);
+            return cantidad * producto.CostoUnitario;
+        }
+
+        public static bool RestarStock(int cantidad, int productoId)
+        {
+            try
+            {
+                BEProducto producto = BuscarProductoXId(productoId);
+                producto.Cantidad -= cantidad;
+
+                return Editar(producto);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static bool SumarStock(int cantidad, int productoId)
+        {
+            try
+            {
+                BEProducto producto = BuscarProductoXId(productoId);
+                producto.Cantidad += cantidad;
+
+                return Editar(producto);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -44,5 +44,40 @@ namespace BLL
             catch (Exception ex) { throw ex; }
         }
 
+        public static BEProducto BuscarProductoXId(int id)
+        {
+            try
+            {
+                return MPPProducto.BuscarProductoXId(id);
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        public static float CalcularSubtotal(int cantidad, int id)
+        {
+            try
+            {
+                return MPPProducto.CalcularSubtotal(cantidad, id);
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        public static bool RestarStock(int cantidad, int id)
+        {
+            try
+            {
+                return MPPProducto.RestarStock(cantidad, id);
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        public static bool SumarStock(int cantidad, int id)
+        {
+            try
+            {
+                return MPPProducto.SumarStock(cantidad, id);
+            }
+            catch (Exception ex) { throw ex; }
+        }
     }
 }

@@ -29,21 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.toolTipUsuarios = new System.Windows.Forms.ToolTip(this.components);
             this.tabCerrar = new System.Windows.Forms.TabPage();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabHistorial = new System.Windows.Forms.TabPage();
@@ -125,39 +126,6 @@
             this.txtNombreModificado = new MaterialSkin.Controls.MaterialTextBox();
             this.txtApellidoModificado = new MaterialSkin.Controls.MaterialTextBox();
             this.tabSelectorUsuarios = new MaterialSkin.Controls.MaterialTabSelector();
-            this.tabInicio = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelBienvenido = new System.Windows.Forms.Label();
-            this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
-            this.tabVentas = new System.Windows.Forms.TabPage();
-            this.tabProductos = new System.Windows.Forms.TabPage();
-            this.tabControlProductos = new MaterialSkin.Controls.MaterialTabControl();
-            this.tabListadoProductos = new System.Windows.Forms.TabPage();
-            this.listaProductos = new MaterialSkin.Controls.MaterialListView();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tabNuevoProducto = new System.Windows.Forms.TabPage();
-            this.materialCard5 = new MaterialSkin.Controls.MaterialCard();
-            this.txtStockProd = new MaterialSkin.Controls.MaterialTextBox();
-            this.btnAgregarProducto = new MaterialSkin.Controls.MaterialButton();
-            this.txtPrecioProd = new MaterialSkin.Controls.MaterialTextBox();
-            this.txtCostoProd = new MaterialSkin.Controls.MaterialTextBox();
-            this.txtBandejaProd = new MaterialSkin.Controls.MaterialTextBox();
-            this.txtDescripcionProd = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
-            this.txtGramosProd = new MaterialSkin.Controls.MaterialTextBox();
-            this.ddProveedor = new MaterialSkin.Controls.MaterialComboBox();
-            this.txtCodProd = new MaterialSkin.Controls.MaterialTextBox();
-            this.txtNombreProd = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.tabProveedores = new System.Windows.Forms.TabPage();
             this.materialCard6 = new MaterialSkin.Controls.MaterialCard();
             this.btnProvEliminar = new MaterialSkin.Controls.MaterialButton();
@@ -177,8 +145,11 @@
             this.headerDomicilio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.headerLocalidad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnProvAgregar = new MaterialSkin.Controls.MaterialButton();
-            this.toolTipUsuarios = new System.Windows.Forms.ToolTip(this.components);
+            this.tabProductos = new System.Windows.Forms.TabPage();
+            this.tabControlProductos = new MaterialSkin.Controls.MaterialTabControl();
+            this.tabListadoProductos = new System.Windows.Forms.TabPage();
             this.materialCard7 = new MaterialSkin.Controls.MaterialCard();
+            this.btnEliminarProducto = new MaterialSkin.Controls.MaterialButton();
             this.txtModStockProd = new MaterialSkin.Controls.MaterialTextBox();
             this.btnModProducto = new MaterialSkin.Controls.MaterialButton();
             this.txtModPrecioProd = new MaterialSkin.Controls.MaterialTextBox();
@@ -189,9 +160,61 @@
             this.ddModProveedor = new MaterialSkin.Controls.MaterialComboBox();
             this.txtModCodProd = new MaterialSkin.Controls.MaterialTextBox();
             this.txtModNombreProd = new MaterialSkin.Controls.MaterialTextBox();
+            this.listaProductos = new MaterialSkin.Controls.MaterialListView();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabNuevoProducto = new System.Windows.Forms.TabPage();
+            this.materialCard5 = new MaterialSkin.Controls.MaterialCard();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnEliminarProducto = new MaterialSkin.Controls.MaterialButton();
+            this.txtStockProd = new MaterialSkin.Controls.MaterialTextBox();
+            this.btnAgregarProducto = new MaterialSkin.Controls.MaterialButton();
+            this.txtPrecioProd = new MaterialSkin.Controls.MaterialTextBox();
+            this.txtCostoProd = new MaterialSkin.Controls.MaterialTextBox();
+            this.txtBandejaProd = new MaterialSkin.Controls.MaterialTextBox();
+            this.txtDescripcionProd = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
+            this.txtGramosProd = new MaterialSkin.Controls.MaterialTextBox();
+            this.ddProveedor = new MaterialSkin.Controls.MaterialComboBox();
+            this.txtCodProd = new MaterialSkin.Controls.MaterialTextBox();
+            this.txtNombreProd = new MaterialSkin.Controls.MaterialTextBox();
+            this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.tabClientes = new System.Windows.Forms.TabPage();
+            this.tabVentas = new System.Windows.Forms.TabPage();
+            this.tabInicio = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelBienvenido = new System.Windows.Forms.Label();
+            this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
+            this.tabInventario = new System.Windows.Forms.TabPage();
+            this.tabControlInventario = new MaterialSkin.Controls.MaterialTabControl();
+            this.tabStock = new System.Windows.Forms.TabPage();
+            this.tabCompras = new System.Windows.Forms.TabPage();
+            this.materialCard8 = new MaterialSkin.Controls.MaterialCard();
+            this.listaDetalleCompras = new MaterialSkin.Controls.MaterialListView();
+            this.btnFinalizarCompra = new MaterialSkin.Controls.MaterialButton();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnAgregarDetalle = new MaterialSkin.Controls.MaterialButton();
+            this.dateCompra = new MetroFramework.Controls.MetroDateTime();
+            this.txtCantidadCompra = new MaterialSkin.Controls.MaterialTextBox();
+            this.ddProductos = new MaterialSkin.Controls.MaterialComboBox();
+            this.materialTabSelector2 = new MaterialSkin.Controls.MaterialTabSelector();
+            this.txtTotalCompra = new MaterialSkin.Controls.MaterialTextBox();
+            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnEliminarDetalle = new MaterialSkin.Controls.MaterialButton();
+            this.label6 = new System.Windows.Forms.Label();
+            this.materialListView1 = new MaterialSkin.Controls.MaterialListView();
             this.tabCerrar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabHistorial.SuspendLayout();
@@ -216,17 +239,22 @@
             this.materialCard2.SuspendLayout();
             this.tabModificar.SuspendLayout();
             this.materialCard1.SuspendLayout();
-            this.tabInicio.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.materialTabControl1.SuspendLayout();
+            this.tabProveedores.SuspendLayout();
+            this.materialCard6.SuspendLayout();
             this.tabProductos.SuspendLayout();
             this.tabControlProductos.SuspendLayout();
             this.tabListadoProductos.SuspendLayout();
+            this.materialCard7.SuspendLayout();
             this.tabNuevoProducto.SuspendLayout();
             this.materialCard5.SuspendLayout();
-            this.tabProveedores.SuspendLayout();
-            this.materialCard6.SuspendLayout();
-            this.materialCard7.SuspendLayout();
+            this.tabInicio.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.materialTabControl1.SuspendLayout();
+            this.tabInventario.SuspendLayout();
+            this.tabControlInventario.SuspendLayout();
+            this.tabStock.SuspendLayout();
+            this.tabCompras.SuspendLayout();
+            this.materialCard8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabCerrar
@@ -451,23 +479,23 @@
             this.gridBitacora.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridBitacora.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridBitacora.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(65)))), ((int)(((byte)(153)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(73)))), ((int)(((byte)(173)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridBitacora.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(65)))), ((int)(((byte)(153)))));
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(73)))), ((int)(((byte)(173)))));
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridBitacora.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
             this.gridBitacora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(73)))), ((int)(((byte)(173)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridBitacora.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(73)))), ((int)(((byte)(173)))));
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridBitacora.DefaultCellStyle = dataGridViewCellStyle32;
             this.gridBitacora.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.gridBitacora.EnableHeadersVisualStyles = false;
             this.gridBitacora.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -477,14 +505,14 @@
             this.gridBitacora.MultiSelect = false;
             this.gridBitacora.Name = "gridBitacora";
             this.gridBitacora.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(65)))), ((int)(((byte)(153)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(73)))), ((int)(((byte)(173)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridBitacora.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(65)))), ((int)(((byte)(153)))));
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(73)))), ((int)(((byte)(173)))));
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridBitacora.RowHeadersDefaultCellStyle = dataGridViewCellStyle33;
             this.gridBitacora.RowHeadersWidth = 82;
             this.gridBitacora.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridBitacora.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -589,23 +617,23 @@
             this.dgvUsuariosHistoricos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUsuariosHistoricos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvUsuariosHistoricos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsuariosHistoricos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsuariosHistoricos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
             this.dgvUsuariosHistoricos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUsuariosHistoricos.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUsuariosHistoricos.DefaultCellStyle = dataGridViewCellStyle35;
             this.dgvUsuariosHistoricos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvUsuariosHistoricos.EnableHeadersVisualStyles = false;
             this.dgvUsuariosHistoricos.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -615,14 +643,14 @@
             this.dgvUsuariosHistoricos.Name = "dgvUsuariosHistoricos";
             this.dgvUsuariosHistoricos.ReadOnly = true;
             this.dgvUsuariosHistoricos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsuariosHistoricos.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsuariosHistoricos.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
             this.dgvUsuariosHistoricos.RowHeadersWidth = 82;
             this.dgvUsuariosHistoricos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvUsuariosHistoricos.RowTemplate.Height = 33;
@@ -736,23 +764,23 @@
             this.dgvUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUsuarios.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvUsuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUsuarios.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUsuarios.DefaultCellStyle = dataGridViewCellStyle38;
             this.dgvUsuarios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvUsuarios.EnableHeadersVisualStyles = false;
             this.dgvUsuarios.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -763,14 +791,14 @@
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
             this.dgvUsuarios.RowHeadersWidth = 82;
             this.dgvUsuarios.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvUsuarios.RowTemplate.Height = 33;
@@ -851,23 +879,23 @@
             this.dgvFamilia.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvFamilia.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvFamilia.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFamilia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFamilia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle40;
             this.dgvFamilia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFamilia.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFamilia.DefaultCellStyle = dataGridViewCellStyle41;
             this.dgvFamilia.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvFamilia.EnableHeadersVisualStyles = false;
             this.dgvFamilia.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -876,14 +904,14 @@
             this.dgvFamilia.Margin = new System.Windows.Forms.Padding(2);
             this.dgvFamilia.Name = "dgvFamilia";
             this.dgvFamilia.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFamilia.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFamilia.RowHeadersDefaultCellStyle = dataGridViewCellStyle42;
             this.dgvFamilia.RowHeadersWidth = 82;
             this.dgvFamilia.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvFamilia.RowTemplate.Height = 33;
@@ -957,23 +985,23 @@
             this.dgvPermisos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPermisos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvPermisos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPermisos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle43.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPermisos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle43;
             this.dgvPermisos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPermisos.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPermisos.DefaultCellStyle = dataGridViewCellStyle44;
             this.dgvPermisos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvPermisos.EnableHeadersVisualStyles = false;
             this.dgvPermisos.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -984,14 +1012,14 @@
             this.dgvPermisos.Name = "dgvPermisos";
             this.dgvPermisos.ReadOnly = true;
             this.dgvPermisos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPermisos.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle45.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle45.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPermisos.RowHeadersDefaultCellStyle = dataGridViewCellStyle45;
             this.dgvPermisos.RowHeadersWidth = 82;
             this.dgvPermisos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvPermisos.RowTemplate.Height = 33;
@@ -1173,16 +1201,19 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Tag";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader2.Width = 170;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Neutro";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader3.Width = 356;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Traducción";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader4.Width = 333;
             // 
             // btnCambiarIdioma
@@ -1330,31 +1361,37 @@
             // Nombre
             // 
             this.Nombre.Text = "Nombre";
+            this.Nombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.Nombre.Width = 124;
             // 
             // Apellido
             // 
             this.Apellido.Text = "Apellido";
+            this.Apellido.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.Apellido.Width = 138;
             // 
             // Email
             // 
             this.Email.Text = "Email";
+            this.Email.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.Email.Width = 193;
             // 
             // Username
             // 
             this.Username.Text = "Usuario";
+            this.Username.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.Username.Width = 131;
             // 
             // Contraseña
             // 
             this.Contraseña.Text = "Contraseña";
+            this.Contraseña.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.Contraseña.Width = 231;
             // 
             // Activo
             // 
             this.Activo.Text = "Activo";
+            this.Activo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.Activo.Width = 102;
             // 
             // btnAgregarUsuario
@@ -1437,7 +1474,7 @@
             this.tabRegistrar.Location = new System.Drawing.Point(4, 22);
             this.tabRegistrar.Name = "tabRegistrar";
             this.tabRegistrar.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRegistrar.Size = new System.Drawing.Size(1059, 457);
+            this.tabRegistrar.Size = new System.Drawing.Size(1358, 572);
             this.tabRegistrar.TabIndex = 0;
             this.tabRegistrar.Text = "Registrar";
             // 
@@ -1458,7 +1495,7 @@
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard2.Size = new System.Drawing.Size(1053, 451);
+            this.materialCard2.Size = new System.Drawing.Size(1352, 566);
             this.materialCard2.TabIndex = 23;
             // 
             // btnRegistro
@@ -1470,7 +1507,7 @@
             this.btnRegistro.Depth = 0;
             this.btnRegistro.HighEmphasis = true;
             this.btnRegistro.Icon = null;
-            this.btnRegistro.Location = new System.Drawing.Point(190, 364);
+            this.btnRegistro.Location = new System.Drawing.Point(340, 479);
             this.btnRegistro.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnRegistro.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnRegistro.Name = "btnRegistro";
@@ -1493,7 +1530,7 @@
             this.txtPsw.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtPsw.Hint = "Contraseña";
             this.txtPsw.LeadingIcon = global::UI.Properties.Resources.Password;
-            this.txtPsw.Location = new System.Drawing.Point(545, 261);
+            this.txtPsw.Location = new System.Drawing.Point(695, 261);
             this.txtPsw.MaxLength = 50;
             this.txtPsw.MouseState = MaterialSkin.MouseState.OUT;
             this.txtPsw.Multiline = false;
@@ -1515,7 +1552,7 @@
             this.txtNombre.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtNombre.Hint = "Nombre";
             this.txtNombre.LeadingIcon = null;
-            this.txtNombre.Location = new System.Drawing.Point(190, 79);
+            this.txtNombre.Location = new System.Drawing.Point(340, 79);
             this.txtNombre.MaxLength = 50;
             this.txtNombre.MouseState = MaterialSkin.MouseState.OUT;
             this.txtNombre.Multiline = false;
@@ -1536,7 +1573,7 @@
             this.txtUsername.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtUsername.Hint = "Usuario";
             this.txtUsername.LeadingIcon = global::UI.Properties.Resources.Username;
-            this.txtUsername.Location = new System.Drawing.Point(190, 261);
+            this.txtUsername.Location = new System.Drawing.Point(340, 261);
             this.txtUsername.MaxLength = 50;
             this.txtUsername.MouseState = MaterialSkin.MouseState.OUT;
             this.txtUsername.Multiline = false;
@@ -1557,7 +1594,7 @@
             this.txtApellido.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtApellido.Hint = "Apellido";
             this.txtApellido.LeadingIcon = null;
-            this.txtApellido.Location = new System.Drawing.Point(545, 79);
+            this.txtApellido.Location = new System.Drawing.Point(695, 79);
             this.txtApellido.MaxLength = 50;
             this.txtApellido.MouseState = MaterialSkin.MouseState.OUT;
             this.txtApellido.Multiline = false;
@@ -1578,7 +1615,7 @@
             this.txtEmail.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtEmail.Hint = "Email";
             this.txtEmail.LeadingIcon = global::UI.Properties.Resources.Correo;
-            this.txtEmail.Location = new System.Drawing.Point(190, 168);
+            this.txtEmail.Location = new System.Drawing.Point(340, 168);
             this.txtEmail.MaxLength = 50;
             this.txtEmail.MouseState = MaterialSkin.MouseState.OUT;
             this.txtEmail.Multiline = false;
@@ -1597,7 +1634,7 @@
             this.tabModificar.Location = new System.Drawing.Point(4, 22);
             this.tabModificar.Name = "tabModificar";
             this.tabModificar.Padding = new System.Windows.Forms.Padding(3);
-            this.tabModificar.Size = new System.Drawing.Size(1059, 457);
+            this.tabModificar.Size = new System.Drawing.Size(1358, 572);
             this.tabModificar.TabIndex = 2;
             this.tabModificar.Text = "Modificar";
             this.tabModificar.UseVisualStyleBackColor = true;
@@ -1619,7 +1656,7 @@
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(1053, 451);
+            this.materialCard1.Size = new System.Drawing.Size(1352, 566);
             this.materialCard1.TabIndex = 24;
             // 
             // btnModificar
@@ -1631,7 +1668,7 @@
             this.btnModificar.Depth = 0;
             this.btnModificar.HighEmphasis = true;
             this.btnModificar.Icon = null;
-            this.btnModificar.Location = new System.Drawing.Point(190, 364);
+            this.btnModificar.Location = new System.Drawing.Point(340, 479);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnModificar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnModificar.Name = "btnModificar";
@@ -1655,7 +1692,7 @@
             this.txtPswModificada.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txtPswModificada.Hint = "Contraseña";
             this.txtPswModificada.LeadingIcon = global::UI.Properties.Resources.Password;
-            this.txtPswModificada.Location = new System.Drawing.Point(545, 263);
+            this.txtPswModificada.Location = new System.Drawing.Point(695, 263);
             this.txtPswModificada.MaxLength = 50;
             this.txtPswModificada.MouseState = MaterialSkin.MouseState.OUT;
             this.txtPswModificada.Multiline = false;
@@ -1675,7 +1712,7 @@
             this.txtUsuarioModificado.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtUsuarioModificado.Hint = "Usuario";
             this.txtUsuarioModificado.LeadingIcon = global::UI.Properties.Resources.Username;
-            this.txtUsuarioModificado.Location = new System.Drawing.Point(190, 263);
+            this.txtUsuarioModificado.Location = new System.Drawing.Point(340, 263);
             this.txtUsuarioModificado.MaxLength = 50;
             this.txtUsuarioModificado.MouseState = MaterialSkin.MouseState.OUT;
             this.txtUsuarioModificado.Multiline = false;
@@ -1696,7 +1733,7 @@
             this.txtEmailModificado.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtEmailModificado.Hint = "Email";
             this.txtEmailModificado.LeadingIcon = global::UI.Properties.Resources.Correo;
-            this.txtEmailModificado.Location = new System.Drawing.Point(190, 175);
+            this.txtEmailModificado.Location = new System.Drawing.Point(340, 175);
             this.txtEmailModificado.MaxLength = 50;
             this.txtEmailModificado.MouseState = MaterialSkin.MouseState.OUT;
             this.txtEmailModificado.Multiline = false;
@@ -1717,7 +1754,7 @@
             this.txtNombreModificado.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtNombreModificado.Hint = "Nombre";
             this.txtNombreModificado.LeadingIcon = null;
-            this.txtNombreModificado.Location = new System.Drawing.Point(190, 81);
+            this.txtNombreModificado.Location = new System.Drawing.Point(340, 81);
             this.txtNombreModificado.MaxLength = 50;
             this.txtNombreModificado.MouseState = MaterialSkin.MouseState.OUT;
             this.txtNombreModificado.Multiline = false;
@@ -1738,7 +1775,7 @@
             this.txtApellidoModificado.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtApellidoModificado.Hint = "Apellido";
             this.txtApellidoModificado.LeadingIcon = null;
-            this.txtApellidoModificado.Location = new System.Drawing.Point(545, 81);
+            this.txtApellidoModificado.Location = new System.Drawing.Point(695, 81);
             this.txtApellidoModificado.MaxLength = 50;
             this.txtApellidoModificado.MouseState = MaterialSkin.MouseState.OUT;
             this.txtApellidoModificado.Multiline = false;
@@ -1763,471 +1800,6 @@
             this.tabSelectorUsuarios.Size = new System.Drawing.Size(1366, 58);
             this.tabSelectorUsuarios.TabIndex = 14;
             this.tabSelectorUsuarios.Text = "materialTabSelector1";
-            // 
-            // tabInicio
-            // 
-            this.tabInicio.Controls.Add(this.pictureBox1);
-            this.tabInicio.Controls.Add(this.labelBienvenido);
-            this.tabInicio.ImageIndex = 0;
-            this.tabInicio.Location = new System.Drawing.Point(4, 22);
-            this.tabInicio.Name = "tabInicio";
-            this.tabInicio.Size = new System.Drawing.Size(1372, 662);
-            this.tabInicio.TabIndex = 6;
-            this.tabInicio.Tag = "tabInicio";
-            this.tabInicio.Text = "Inicio";
-            this.tabInicio.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::UI.Properties.Resources.DistribuidoraLogo;
-            this.pictureBox1.Location = new System.Drawing.Point(418, 104);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(241, 254);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // labelBienvenido
-            // 
-            this.labelBienvenido.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
-            this.labelBienvenido.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelBienvenido.AutoSize = true;
-            this.labelBienvenido.Font = new System.Drawing.Font("Open Sans Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBienvenido.ForeColor = System.Drawing.Color.Gray;
-            this.labelBienvenido.Location = new System.Drawing.Point(482, 361);
-            this.labelBienvenido.Name = "labelBienvenido";
-            this.labelBienvenido.Size = new System.Drawing.Size(119, 31);
-            this.labelBienvenido.TabIndex = 1;
-            this.labelBienvenido.Text = "Bienvenido";
-            this.labelBienvenido.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // materialTabControl1
-            // 
-            this.materialTabControl1.Controls.Add(this.tabInicio);
-            this.materialTabControl1.Controls.Add(this.tabClientes);
-            this.materialTabControl1.Controls.Add(this.tabVentas);
-            this.materialTabControl1.Controls.Add(this.tabProductos);
-            this.materialTabControl1.Controls.Add(this.tabProveedores);
-            this.materialTabControl1.Controls.Add(this.tabUsuarios);
-            this.materialTabControl1.Controls.Add(this.tabIdiomas);
-            this.materialTabControl1.Controls.Add(this.tabPermisos);
-            this.materialTabControl1.Controls.Add(this.tabRestaurar);
-            this.materialTabControl1.Controls.Add(this.tabHistorial);
-            this.materialTabControl1.Controls.Add(this.tabCerrar);
-            this.materialTabControl1.Depth = 0;
-            this.materialTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialTabControl1.Location = new System.Drawing.Point(3, 64);
-            this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialTabControl1.Multiline = true;
-            this.materialTabControl1.Name = "materialTabControl1";
-            this.materialTabControl1.SelectedIndex = 0;
-            this.materialTabControl1.Size = new System.Drawing.Size(1380, 688);
-            this.materialTabControl1.TabIndex = 0;
-            this.materialTabControl1.SelectedIndexChanged += new System.EventHandler(this.materialTabControl1_SelectedIndexChanged);
-            // 
-            // tabVentas
-            // 
-            this.tabVentas.Location = new System.Drawing.Point(4, 22);
-            this.tabVentas.Name = "tabVentas";
-            this.tabVentas.Size = new System.Drawing.Size(1372, 662);
-            this.tabVentas.TabIndex = 9;
-            this.tabVentas.Text = "Ventas";
-            this.tabVentas.UseVisualStyleBackColor = true;
-            // 
-            // tabProductos
-            // 
-            this.tabProductos.Controls.Add(this.tabControlProductos);
-            this.tabProductos.Controls.Add(this.materialTabSelector1);
-            this.tabProductos.Location = new System.Drawing.Point(4, 22);
-            this.tabProductos.Name = "tabProductos";
-            this.tabProductos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProductos.Size = new System.Drawing.Size(1372, 662);
-            this.tabProductos.TabIndex = 7;
-            this.tabProductos.Text = "Productos";
-            this.tabProductos.UseVisualStyleBackColor = true;
-            // 
-            // tabControlProductos
-            // 
-            this.tabControlProductos.Controls.Add(this.tabListadoProductos);
-            this.tabControlProductos.Controls.Add(this.tabNuevoProducto);
-            this.tabControlProductos.Depth = 0;
-            this.tabControlProductos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlProductos.Location = new System.Drawing.Point(3, 51);
-            this.tabControlProductos.MouseState = MaterialSkin.MouseState.HOVER;
-            this.tabControlProductos.Multiline = true;
-            this.tabControlProductos.Name = "tabControlProductos";
-            this.tabControlProductos.SelectedIndex = 0;
-            this.tabControlProductos.Size = new System.Drawing.Size(1366, 608);
-            this.tabControlProductos.TabIndex = 1;
-            // 
-            // tabListadoProductos
-            // 
-            this.tabListadoProductos.Controls.Add(this.materialCard7);
-            this.tabListadoProductos.Controls.Add(this.listaProductos);
-            this.tabListadoProductos.Location = new System.Drawing.Point(4, 22);
-            this.tabListadoProductos.Name = "tabListadoProductos";
-            this.tabListadoProductos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabListadoProductos.Size = new System.Drawing.Size(1358, 582);
-            this.tabListadoProductos.TabIndex = 0;
-            this.tabListadoProductos.Text = "Listado Productos";
-            this.tabListadoProductos.UseVisualStyleBackColor = true;
-            // 
-            // listaProductos
-            // 
-            this.listaProductos.AutoSizeTable = false;
-            this.listaProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.listaProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listaProductos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8,
-            this.columnHeader9,
-            this.columnHeader10,
-            this.columnHeader11,
-            this.columnHeader12,
-            this.columnHeader13,
-            this.columnHeader14,
-            this.columnHeader15});
-            this.listaProductos.Depth = 0;
-            this.listaProductos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.listaProductos.FullRowSelect = true;
-            this.listaProductos.HideSelection = false;
-            this.listaProductos.Location = new System.Drawing.Point(3, 3);
-            this.listaProductos.MinimumSize = new System.Drawing.Size(200, 100);
-            this.listaProductos.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.listaProductos.MouseState = MaterialSkin.MouseState.OUT;
-            this.listaProductos.Name = "listaProductos";
-            this.listaProductos.OwnerDraw = true;
-            this.listaProductos.Size = new System.Drawing.Size(1352, 255);
-            this.listaProductos.TabIndex = 0;
-            this.listaProductos.UseCompatibleStateImageBehavior = false;
-            this.listaProductos.View = System.Windows.Forms.View.Details;
-            this.listaProductos.SelectedIndexChanged += new System.EventHandler(this.listaProductos_SelectedIndexChanged);
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Id";
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Código artículo";
-            this.columnHeader6.Width = 146;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Nombre";
-            this.columnHeader7.Width = 141;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Proveedor";
-            this.columnHeader8.Width = 136;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Descripcion";
-            this.columnHeader9.Width = 158;
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.Text = "Gramos";
-            this.columnHeader10.Width = 87;
-            // 
-            // columnHeader11
-            // 
-            this.columnHeader11.Text = "Bandeja";
-            this.columnHeader11.Width = 87;
-            // 
-            // columnHeader12
-            // 
-            this.columnHeader12.Text = "Costo unitario";
-            this.columnHeader12.Width = 124;
-            // 
-            // columnHeader13
-            // 
-            this.columnHeader13.Text = "Precio venta";
-            this.columnHeader13.Width = 131;
-            // 
-            // columnHeader14
-            // 
-            this.columnHeader14.Text = "Ganancia";
-            this.columnHeader14.Width = 125;
-            // 
-            // columnHeader15
-            // 
-            this.columnHeader15.Text = "Stock";
-            this.columnHeader15.Width = 153;
-            // 
-            // tabNuevoProducto
-            // 
-            this.tabNuevoProducto.Controls.Add(this.materialCard5);
-            this.tabNuevoProducto.Location = new System.Drawing.Point(4, 22);
-            this.tabNuevoProducto.Name = "tabNuevoProducto";
-            this.tabNuevoProducto.Padding = new System.Windows.Forms.Padding(3);
-            this.tabNuevoProducto.Size = new System.Drawing.Size(1358, 582);
-            this.tabNuevoProducto.TabIndex = 1;
-            this.tabNuevoProducto.Text = "Nuevo Producto";
-            this.tabNuevoProducto.UseVisualStyleBackColor = true;
-            // 
-            // materialCard5
-            // 
-            this.materialCard5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard5.Controls.Add(this.label3);
-            this.materialCard5.Controls.Add(this.txtStockProd);
-            this.materialCard5.Controls.Add(this.btnAgregarProducto);
-            this.materialCard5.Controls.Add(this.txtPrecioProd);
-            this.materialCard5.Controls.Add(this.txtCostoProd);
-            this.materialCard5.Controls.Add(this.txtBandejaProd);
-            this.materialCard5.Controls.Add(this.txtDescripcionProd);
-            this.materialCard5.Controls.Add(this.txtGramosProd);
-            this.materialCard5.Controls.Add(this.ddProveedor);
-            this.materialCard5.Controls.Add(this.txtCodProd);
-            this.materialCard5.Controls.Add(this.txtNombreProd);
-            this.materialCard5.Depth = 0;
-            this.materialCard5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialCard5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard5.Location = new System.Drawing.Point(3, 3);
-            this.materialCard5.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard5.Name = "materialCard5";
-            this.materialCard5.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard5.Size = new System.Drawing.Size(1352, 576);
-            this.materialCard5.TabIndex = 12;
-            // 
-            // txtStockProd
-            // 
-            this.txtStockProd.AnimateReadOnly = false;
-            this.txtStockProd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtStockProd.Depth = 0;
-            this.txtStockProd.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtStockProd.Hint = "Stock";
-            this.txtStockProd.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtStockProd.LeadingIcon = null;
-            this.txtStockProd.Location = new System.Drawing.Point(609, 219);
-            this.txtStockProd.MaxLength = 50;
-            this.txtStockProd.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtStockProd.Multiline = false;
-            this.txtStockProd.Name = "txtStockProd";
-            this.txtStockProd.Size = new System.Drawing.Size(119, 50);
-            this.txtStockProd.TabIndex = 19;
-            this.txtStockProd.Tag = "txtStockProd";
-            this.txtStockProd.Text = "";
-            this.txtStockProd.TrailingIcon = null;
-            this.txtStockProd.UseAccent = false;
-            // 
-            // btnAgregarProducto
-            // 
-            this.btnAgregarProducto.AutoSize = false;
-            this.btnAgregarProducto.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAgregarProducto.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnAgregarProducto.Depth = 0;
-            this.btnAgregarProducto.HighEmphasis = true;
-            this.btnAgregarProducto.Icon = null;
-            this.btnAgregarProducto.Location = new System.Drawing.Point(33, 378);
-            this.btnAgregarProducto.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnAgregarProducto.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnAgregarProducto.Name = "btnAgregarProducto";
-            this.btnAgregarProducto.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnAgregarProducto.Size = new System.Drawing.Size(695, 83);
-            this.btnAgregarProducto.TabIndex = 18;
-            this.btnAgregarProducto.Tag = "btnAgregarProducto";
-            this.btnAgregarProducto.Text = "Agregar producto";
-            this.btnAgregarProducto.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnAgregarProducto.UseAccentColor = false;
-            this.btnAgregarProducto.UseVisualStyleBackColor = true;
-            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
-            // 
-            // txtPrecioProd
-            // 
-            this.txtPrecioProd.AnimateReadOnly = false;
-            this.txtPrecioProd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPrecioProd.Depth = 0;
-            this.txtPrecioProd.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtPrecioProd.Hint = "Precio de venta";
-            this.txtPrecioProd.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtPrecioProd.LeadingIcon = null;
-            this.txtPrecioProd.Location = new System.Drawing.Point(240, 294);
-            this.txtPrecioProd.MaxLength = 50;
-            this.txtPrecioProd.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtPrecioProd.Multiline = false;
-            this.txtPrecioProd.Name = "txtPrecioProd";
-            this.txtPrecioProd.Size = new System.Drawing.Size(225, 50);
-            this.txtPrecioProd.TabIndex = 17;
-            this.txtPrecioProd.Tag = "txtPrecioProd";
-            this.txtPrecioProd.Text = "";
-            this.txtPrecioProd.TrailingIcon = null;
-            this.txtPrecioProd.UseAccent = false;
-            // 
-            // txtCostoProd
-            // 
-            this.txtCostoProd.AnimateReadOnly = false;
-            this.txtCostoProd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCostoProd.Depth = 0;
-            this.txtCostoProd.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtCostoProd.Hint = "Costo unitario";
-            this.txtCostoProd.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtCostoProd.LeadingIcon = null;
-            this.txtCostoProd.Location = new System.Drawing.Point(33, 294);
-            this.txtCostoProd.MaxLength = 50;
-            this.txtCostoProd.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtCostoProd.Multiline = false;
-            this.txtCostoProd.Name = "txtCostoProd";
-            this.txtCostoProd.Size = new System.Drawing.Size(201, 50);
-            this.txtCostoProd.TabIndex = 16;
-            this.txtCostoProd.Tag = "txtCostoProd";
-            this.txtCostoProd.Text = "";
-            this.txtCostoProd.TrailingIcon = null;
-            this.txtCostoProd.UseAccent = false;
-            // 
-            // txtBandejaProd
-            // 
-            this.txtBandejaProd.AnimateReadOnly = false;
-            this.txtBandejaProd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBandejaProd.Depth = 0;
-            this.txtBandejaProd.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtBandejaProd.Hint = "Cantidad por bandeja";
-            this.txtBandejaProd.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtBandejaProd.LeadingIcon = null;
-            this.txtBandejaProd.Location = new System.Drawing.Point(530, 294);
-            this.txtBandejaProd.MaxLength = 50;
-            this.txtBandejaProd.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtBandejaProd.Multiline = false;
-            this.txtBandejaProd.Name = "txtBandejaProd";
-            this.txtBandejaProd.Size = new System.Drawing.Size(198, 50);
-            this.txtBandejaProd.TabIndex = 15;
-            this.txtBandejaProd.Tag = "txtBandejaProd";
-            this.txtBandejaProd.Text = "";
-            this.txtBandejaProd.TrailingIcon = null;
-            this.txtBandejaProd.UseAccent = false;
-            // 
-            // txtDescripcionProd
-            // 
-            this.txtDescripcionProd.AnimateReadOnly = false;
-            this.txtDescripcionProd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.txtDescripcionProd.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtDescripcionProd.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtDescripcionProd.Depth = 0;
-            this.txtDescripcionProd.HideSelection = true;
-            this.txtDescripcionProd.Hint = "Descripción del producto";
-            this.txtDescripcionProd.Location = new System.Drawing.Point(33, 163);
-            this.txtDescripcionProd.MaxLength = 32767;
-            this.txtDescripcionProd.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtDescripcionProd.Name = "txtDescripcionProd";
-            this.txtDescripcionProd.PasswordChar = '\0';
-            this.txtDescripcionProd.ReadOnly = false;
-            this.txtDescripcionProd.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtDescripcionProd.SelectedText = "";
-            this.txtDescripcionProd.SelectionLength = 0;
-            this.txtDescripcionProd.SelectionStart = 0;
-            this.txtDescripcionProd.ShortcutsEnabled = true;
-            this.txtDescripcionProd.Size = new System.Drawing.Size(570, 106);
-            this.txtDescripcionProd.TabIndex = 14;
-            this.txtDescripcionProd.TabStop = false;
-            this.txtDescripcionProd.Tag = "txtDescripcionProd";
-            this.txtDescripcionProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtDescripcionProd.UseSystemPasswordChar = false;
-            // 
-            // txtGramosProd
-            // 
-            this.txtGramosProd.AnimateReadOnly = false;
-            this.txtGramosProd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtGramosProd.Depth = 0;
-            this.txtGramosProd.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtGramosProd.Hint = "Gramos";
-            this.txtGramosProd.LeadingIcon = null;
-            this.txtGramosProd.Location = new System.Drawing.Point(609, 163);
-            this.txtGramosProd.MaxLength = 50;
-            this.txtGramosProd.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtGramosProd.Multiline = false;
-            this.txtGramosProd.Name = "txtGramosProd";
-            this.txtGramosProd.Size = new System.Drawing.Size(119, 50);
-            this.txtGramosProd.TabIndex = 13;
-            this.txtGramosProd.Tag = "txtGramosProd";
-            this.txtGramosProd.Text = "";
-            this.txtGramosProd.TrailingIcon = null;
-            this.txtGramosProd.UseAccent = false;
-            // 
-            // ddProveedor
-            // 
-            this.ddProveedor.AutoResize = false;
-            this.ddProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ddProveedor.Depth = 0;
-            this.ddProveedor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.ddProveedor.DropDownHeight = 174;
-            this.ddProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddProveedor.DropDownWidth = 121;
-            this.ddProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.ddProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ddProveedor.FormattingEnabled = true;
-            this.ddProveedor.Hint = "Proveedor";
-            this.ddProveedor.IntegralHeight = false;
-            this.ddProveedor.ItemHeight = 43;
-            this.ddProveedor.Location = new System.Drawing.Point(444, 98);
-            this.ddProveedor.MaxDropDownItems = 4;
-            this.ddProveedor.MouseState = MaterialSkin.MouseState.OUT;
-            this.ddProveedor.Name = "ddProveedor";
-            this.ddProveedor.Size = new System.Drawing.Size(284, 49);
-            this.ddProveedor.StartIndex = 0;
-            this.ddProveedor.TabIndex = 12;
-            this.ddProveedor.Tag = "ddProveedor";
-            // 
-            // txtCodProd
-            // 
-            this.txtCodProd.AnimateReadOnly = false;
-            this.txtCodProd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCodProd.Depth = 0;
-            this.txtCodProd.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtCodProd.Hint = "Código articulo";
-            this.txtCodProd.LeadingIcon = null;
-            this.txtCodProd.Location = new System.Drawing.Point(33, 98);
-            this.txtCodProd.MaxLength = 50;
-            this.txtCodProd.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtCodProd.Multiline = false;
-            this.txtCodProd.Name = "txtCodProd";
-            this.txtCodProd.Size = new System.Drawing.Size(145, 50);
-            this.txtCodProd.TabIndex = 10;
-            this.txtCodProd.Tag = "txtCodProd";
-            this.txtCodProd.Text = "";
-            this.txtCodProd.TrailingIcon = null;
-            this.txtCodProd.UseAccent = false;
-            // 
-            // txtNombreProd
-            // 
-            this.txtNombreProd.AnimateReadOnly = false;
-            this.txtNombreProd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNombreProd.Depth = 0;
-            this.txtNombreProd.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtNombreProd.Hint = "Nombre";
-            this.txtNombreProd.LeadingIcon = null;
-            this.txtNombreProd.Location = new System.Drawing.Point(184, 98);
-            this.txtNombreProd.MaxLength = 50;
-            this.txtNombreProd.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtNombreProd.Multiline = false;
-            this.txtNombreProd.Name = "txtNombreProd";
-            this.txtNombreProd.Size = new System.Drawing.Size(254, 50);
-            this.txtNombreProd.TabIndex = 11;
-            this.txtNombreProd.Tag = "txtNombreProd";
-            this.txtNombreProd.Text = "";
-            this.txtNombreProd.TrailingIcon = null;
-            this.txtNombreProd.UseAccent = false;
-            // 
-            // materialTabSelector1
-            // 
-            this.materialTabSelector1.BaseTabControl = this.tabControlProductos;
-            this.materialTabSelector1.CharacterCasing = MaterialSkin.Controls.MaterialTabSelector.CustomCharacterCasing.Normal;
-            this.materialTabSelector1.Depth = 0;
-            this.materialTabSelector1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.materialTabSelector1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTabSelector1.Location = new System.Drawing.Point(3, 3);
-            this.materialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialTabSelector1.Name = "materialTabSelector1";
-            this.materialTabSelector1.Size = new System.Drawing.Size(1366, 48);
-            this.materialTabSelector1.TabIndex = 0;
-            this.materialTabSelector1.Text = "materialTabSelector1";
             // 
             // tabProveedores
             // 
@@ -2521,6 +2093,44 @@
             this.btnProvAgregar.UseVisualStyleBackColor = true;
             this.btnProvAgregar.Click += new System.EventHandler(this.btnAgregarProveedor_Click);
             // 
+            // tabProductos
+            // 
+            this.tabProductos.Controls.Add(this.tabControlProductos);
+            this.tabProductos.Controls.Add(this.materialTabSelector1);
+            this.tabProductos.Location = new System.Drawing.Point(4, 22);
+            this.tabProductos.Name = "tabProductos";
+            this.tabProductos.Padding = new System.Windows.Forms.Padding(3);
+            this.tabProductos.Size = new System.Drawing.Size(1372, 662);
+            this.tabProductos.TabIndex = 7;
+            this.tabProductos.Text = "Productos";
+            this.tabProductos.UseVisualStyleBackColor = true;
+            // 
+            // tabControlProductos
+            // 
+            this.tabControlProductos.Controls.Add(this.tabListadoProductos);
+            this.tabControlProductos.Controls.Add(this.tabNuevoProducto);
+            this.tabControlProductos.Depth = 0;
+            this.tabControlProductos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlProductos.Location = new System.Drawing.Point(3, 51);
+            this.tabControlProductos.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tabControlProductos.Multiline = true;
+            this.tabControlProductos.Name = "tabControlProductos";
+            this.tabControlProductos.SelectedIndex = 0;
+            this.tabControlProductos.Size = new System.Drawing.Size(1366, 608);
+            this.tabControlProductos.TabIndex = 1;
+            // 
+            // tabListadoProductos
+            // 
+            this.tabListadoProductos.Controls.Add(this.materialCard7);
+            this.tabListadoProductos.Controls.Add(this.listaProductos);
+            this.tabListadoProductos.Location = new System.Drawing.Point(4, 22);
+            this.tabListadoProductos.Name = "tabListadoProductos";
+            this.tabListadoProductos.Padding = new System.Windows.Forms.Padding(3);
+            this.tabListadoProductos.Size = new System.Drawing.Size(1358, 582);
+            this.tabListadoProductos.TabIndex = 0;
+            this.tabListadoProductos.Text = "Listado Productos";
+            this.tabListadoProductos.UseVisualStyleBackColor = true;
+            // 
             // materialCard7
             // 
             this.materialCard7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -2546,12 +2156,34 @@
             this.materialCard7.Size = new System.Drawing.Size(1352, 322);
             this.materialCard7.TabIndex = 1;
             // 
+            // btnEliminarProducto
+            // 
+            this.btnEliminarProducto.AutoSize = false;
+            this.btnEliminarProducto.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnEliminarProducto.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnEliminarProducto.Depth = 0;
+            this.btnEliminarProducto.HighEmphasis = true;
+            this.btnEliminarProducto.Icon = null;
+            this.btnEliminarProducto.Location = new System.Drawing.Point(718, 142);
+            this.btnEliminarProducto.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnEliminarProducto.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnEliminarProducto.Name = "btnEliminarProducto";
+            this.btnEliminarProducto.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnEliminarProducto.Size = new System.Drawing.Size(271, 71);
+            this.btnEliminarProducto.TabIndex = 30;
+            this.btnEliminarProducto.Tag = "btnEliminarProducto";
+            this.btnEliminarProducto.Text = "Eliminar";
+            this.btnEliminarProducto.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.btnEliminarProducto.UseAccentColor = false;
+            this.btnEliminarProducto.UseVisualStyleBackColor = true;
+            this.btnEliminarProducto.Click += new System.EventHandler(this.btnEliminarProducto_Click);
+            // 
             // txtModStockProd
             // 
             this.txtModStockProd.AnimateReadOnly = false;
             this.txtModStockProd.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtModStockProd.Depth = 0;
-            this.txtModStockProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtModStockProd.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtModStockProd.Hint = "Stock";
             this.txtModStockProd.ImeMode = System.Windows.Forms.ImeMode.On;
             this.txtModStockProd.LeadingIcon = null;
@@ -2595,7 +2227,7 @@
             this.txtModPrecioProd.AnimateReadOnly = false;
             this.txtModPrecioProd.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtModPrecioProd.Depth = 0;
-            this.txtModPrecioProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtModPrecioProd.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtModPrecioProd.Hint = "Precio de venta";
             this.txtModPrecioProd.ImeMode = System.Windows.Forms.ImeMode.On;
             this.txtModPrecioProd.LeadingIcon = null;
@@ -2616,7 +2248,7 @@
             this.txtModCostoProd.AnimateReadOnly = false;
             this.txtModCostoProd.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtModCostoProd.Depth = 0;
-            this.txtModCostoProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtModCostoProd.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtModCostoProd.Hint = "Costo unitario";
             this.txtModCostoProd.ImeMode = System.Windows.Forms.ImeMode.On;
             this.txtModCostoProd.LeadingIcon = null;
@@ -2637,7 +2269,7 @@
             this.txtModBandejaProd.AnimateReadOnly = false;
             this.txtModBandejaProd.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtModBandejaProd.Depth = 0;
-            this.txtModBandejaProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtModBandejaProd.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtModBandejaProd.Hint = "Cantidad por bandeja";
             this.txtModBandejaProd.ImeMode = System.Windows.Forms.ImeMode.On;
             this.txtModBandejaProd.LeadingIcon = null;
@@ -2685,7 +2317,7 @@
             this.txtModGramosProd.AnimateReadOnly = false;
             this.txtModGramosProd.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtModGramosProd.Depth = 0;
-            this.txtModGramosProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtModGramosProd.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtModGramosProd.Hint = "Gramos";
             this.txtModGramosProd.LeadingIcon = null;
             this.txtModGramosProd.Location = new System.Drawing.Point(336, 107);
@@ -2729,7 +2361,7 @@
             this.txtModCodProd.AnimateReadOnly = false;
             this.txtModCodProd.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtModCodProd.Depth = 0;
-            this.txtModCodProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtModCodProd.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtModCodProd.Hint = "Código articulo";
             this.txtModCodProd.LeadingIcon = null;
             this.txtModCodProd.Location = new System.Drawing.Point(16, 51);
@@ -2749,7 +2381,7 @@
             this.txtModNombreProd.AnimateReadOnly = false;
             this.txtModNombreProd.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtModNombreProd.Depth = 0;
-            this.txtModNombreProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtModNombreProd.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtModNombreProd.Hint = "Nombre";
             this.txtModNombreProd.LeadingIcon = null;
             this.txtModNombreProd.Location = new System.Drawing.Point(167, 51);
@@ -2764,6 +2396,129 @@
             this.txtModNombreProd.TrailingIcon = null;
             this.txtModNombreProd.UseAccent = false;
             // 
+            // listaProductos
+            // 
+            this.listaProductos.AutoSizeTable = false;
+            this.listaProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.listaProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listaProductos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9,
+            this.columnHeader10,
+            this.columnHeader11,
+            this.columnHeader12,
+            this.columnHeader13,
+            this.columnHeader14,
+            this.columnHeader15});
+            this.listaProductos.Depth = 0;
+            this.listaProductos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.listaProductos.FullRowSelect = true;
+            this.listaProductos.HideSelection = false;
+            this.listaProductos.Location = new System.Drawing.Point(3, 3);
+            this.listaProductos.MinimumSize = new System.Drawing.Size(200, 100);
+            this.listaProductos.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.listaProductos.MouseState = MaterialSkin.MouseState.OUT;
+            this.listaProductos.Name = "listaProductos";
+            this.listaProductos.OwnerDraw = true;
+            this.listaProductos.Size = new System.Drawing.Size(1352, 255);
+            this.listaProductos.TabIndex = 0;
+            this.listaProductos.UseCompatibleStateImageBehavior = false;
+            this.listaProductos.View = System.Windows.Forms.View.Details;
+            this.listaProductos.SelectedIndexChanged += new System.EventHandler(this.listaProductos_SelectedIndexChanged);
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Id";
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Código artículo";
+            this.columnHeader6.Width = 146;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Nombre";
+            this.columnHeader7.Width = 141;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Proveedor";
+            this.columnHeader8.Width = 136;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Descripcion";
+            this.columnHeader9.Width = 158;
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Gramos";
+            this.columnHeader10.Width = 87;
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "Bandeja";
+            this.columnHeader11.Width = 87;
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "Costo unitario";
+            this.columnHeader12.Width = 124;
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "Precio venta";
+            this.columnHeader13.Width = 131;
+            // 
+            // columnHeader14
+            // 
+            this.columnHeader14.Text = "Ganancia";
+            this.columnHeader14.Width = 125;
+            // 
+            // columnHeader15
+            // 
+            this.columnHeader15.Text = "Stock";
+            this.columnHeader15.Width = 153;
+            // 
+            // tabNuevoProducto
+            // 
+            this.tabNuevoProducto.Controls.Add(this.materialCard5);
+            this.tabNuevoProducto.Location = new System.Drawing.Point(4, 22);
+            this.tabNuevoProducto.Name = "tabNuevoProducto";
+            this.tabNuevoProducto.Padding = new System.Windows.Forms.Padding(3);
+            this.tabNuevoProducto.Size = new System.Drawing.Size(1358, 582);
+            this.tabNuevoProducto.TabIndex = 1;
+            this.tabNuevoProducto.Text = "Nuevo Producto";
+            this.tabNuevoProducto.UseVisualStyleBackColor = true;
+            // 
+            // materialCard5
+            // 
+            this.materialCard5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard5.Controls.Add(this.label3);
+            this.materialCard5.Controls.Add(this.txtStockProd);
+            this.materialCard5.Controls.Add(this.btnAgregarProducto);
+            this.materialCard5.Controls.Add(this.txtPrecioProd);
+            this.materialCard5.Controls.Add(this.txtCostoProd);
+            this.materialCard5.Controls.Add(this.txtBandejaProd);
+            this.materialCard5.Controls.Add(this.txtDescripcionProd);
+            this.materialCard5.Controls.Add(this.txtGramosProd);
+            this.materialCard5.Controls.Add(this.ddProveedor);
+            this.materialCard5.Controls.Add(this.txtCodProd);
+            this.materialCard5.Controls.Add(this.txtNombreProd);
+            this.materialCard5.Depth = 0;
+            this.materialCard5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialCard5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard5.Location = new System.Drawing.Point(3, 3);
+            this.materialCard5.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard5.Name = "materialCard5";
+            this.materialCard5.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard5.Size = new System.Drawing.Size(1352, 576);
+            this.materialCard5.TabIndex = 12;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -2774,27 +2529,236 @@
             this.label3.TabIndex = 20;
             this.label3.Text = "Agregar nuevo producto";
             // 
-            // btnEliminarProducto
+            // txtStockProd
             // 
-            this.btnEliminarProducto.AutoSize = false;
-            this.btnEliminarProducto.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnEliminarProducto.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnEliminarProducto.Depth = 0;
-            this.btnEliminarProducto.HighEmphasis = true;
-            this.btnEliminarProducto.Icon = null;
-            this.btnEliminarProducto.Location = new System.Drawing.Point(718, 142);
-            this.btnEliminarProducto.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnEliminarProducto.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnEliminarProducto.Name = "btnEliminarProducto";
-            this.btnEliminarProducto.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnEliminarProducto.Size = new System.Drawing.Size(271, 71);
-            this.btnEliminarProducto.TabIndex = 30;
-            this.btnEliminarProducto.Tag = "btnEliminarProducto";
-            this.btnEliminarProducto.Text = "Eliminar";
-            this.btnEliminarProducto.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
-            this.btnEliminarProducto.UseAccentColor = false;
-            this.btnEliminarProducto.UseVisualStyleBackColor = true;
-            this.btnEliminarProducto.Click += new System.EventHandler(this.btnEliminarProducto_Click);
+            this.txtStockProd.AnimateReadOnly = false;
+            this.txtStockProd.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtStockProd.Depth = 0;
+            this.txtStockProd.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtStockProd.Hint = "Stock";
+            this.txtStockProd.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtStockProd.LeadingIcon = null;
+            this.txtStockProd.Location = new System.Drawing.Point(609, 219);
+            this.txtStockProd.MaxLength = 50;
+            this.txtStockProd.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtStockProd.Multiline = false;
+            this.txtStockProd.Name = "txtStockProd";
+            this.txtStockProd.Size = new System.Drawing.Size(119, 50);
+            this.txtStockProd.TabIndex = 19;
+            this.txtStockProd.Tag = "txtStockProd";
+            this.txtStockProd.Text = "";
+            this.txtStockProd.TrailingIcon = null;
+            this.txtStockProd.UseAccent = false;
+            // 
+            // btnAgregarProducto
+            // 
+            this.btnAgregarProducto.AutoSize = false;
+            this.btnAgregarProducto.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnAgregarProducto.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnAgregarProducto.Depth = 0;
+            this.btnAgregarProducto.HighEmphasis = true;
+            this.btnAgregarProducto.Icon = null;
+            this.btnAgregarProducto.Location = new System.Drawing.Point(33, 378);
+            this.btnAgregarProducto.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnAgregarProducto.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnAgregarProducto.Name = "btnAgregarProducto";
+            this.btnAgregarProducto.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnAgregarProducto.Size = new System.Drawing.Size(695, 83);
+            this.btnAgregarProducto.TabIndex = 18;
+            this.btnAgregarProducto.Tag = "btnAgregarProducto";
+            this.btnAgregarProducto.Text = "Agregar producto";
+            this.btnAgregarProducto.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnAgregarProducto.UseAccentColor = false;
+            this.btnAgregarProducto.UseVisualStyleBackColor = true;
+            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
+            // 
+            // txtPrecioProd
+            // 
+            this.txtPrecioProd.AnimateReadOnly = false;
+            this.txtPrecioProd.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPrecioProd.Depth = 0;
+            this.txtPrecioProd.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtPrecioProd.Hint = "Precio de venta";
+            this.txtPrecioProd.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtPrecioProd.LeadingIcon = null;
+            this.txtPrecioProd.Location = new System.Drawing.Point(240, 294);
+            this.txtPrecioProd.MaxLength = 50;
+            this.txtPrecioProd.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtPrecioProd.Multiline = false;
+            this.txtPrecioProd.Name = "txtPrecioProd";
+            this.txtPrecioProd.Size = new System.Drawing.Size(225, 50);
+            this.txtPrecioProd.TabIndex = 17;
+            this.txtPrecioProd.Tag = "txtPrecioProd";
+            this.txtPrecioProd.Text = "";
+            this.txtPrecioProd.TrailingIcon = null;
+            this.txtPrecioProd.UseAccent = false;
+            // 
+            // txtCostoProd
+            // 
+            this.txtCostoProd.AnimateReadOnly = false;
+            this.txtCostoProd.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCostoProd.Depth = 0;
+            this.txtCostoProd.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtCostoProd.Hint = "Costo unitario";
+            this.txtCostoProd.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtCostoProd.LeadingIcon = null;
+            this.txtCostoProd.Location = new System.Drawing.Point(33, 294);
+            this.txtCostoProd.MaxLength = 50;
+            this.txtCostoProd.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtCostoProd.Multiline = false;
+            this.txtCostoProd.Name = "txtCostoProd";
+            this.txtCostoProd.Size = new System.Drawing.Size(201, 50);
+            this.txtCostoProd.TabIndex = 16;
+            this.txtCostoProd.Tag = "txtCostoProd";
+            this.txtCostoProd.Text = "";
+            this.txtCostoProd.TrailingIcon = null;
+            this.txtCostoProd.UseAccent = false;
+            // 
+            // txtBandejaProd
+            // 
+            this.txtBandejaProd.AnimateReadOnly = false;
+            this.txtBandejaProd.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBandejaProd.Depth = 0;
+            this.txtBandejaProd.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtBandejaProd.Hint = "Cantidad por bandeja";
+            this.txtBandejaProd.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtBandejaProd.LeadingIcon = null;
+            this.txtBandejaProd.Location = new System.Drawing.Point(530, 294);
+            this.txtBandejaProd.MaxLength = 50;
+            this.txtBandejaProd.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtBandejaProd.Multiline = false;
+            this.txtBandejaProd.Name = "txtBandejaProd";
+            this.txtBandejaProd.Size = new System.Drawing.Size(198, 50);
+            this.txtBandejaProd.TabIndex = 15;
+            this.txtBandejaProd.Tag = "txtBandejaProd";
+            this.txtBandejaProd.Text = "";
+            this.txtBandejaProd.TrailingIcon = null;
+            this.txtBandejaProd.UseAccent = false;
+            // 
+            // txtDescripcionProd
+            // 
+            this.txtDescripcionProd.AnimateReadOnly = false;
+            this.txtDescripcionProd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtDescripcionProd.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtDescripcionProd.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtDescripcionProd.Depth = 0;
+            this.txtDescripcionProd.HideSelection = true;
+            this.txtDescripcionProd.Hint = "Descripción del producto";
+            this.txtDescripcionProd.Location = new System.Drawing.Point(33, 163);
+            this.txtDescripcionProd.MaxLength = 32767;
+            this.txtDescripcionProd.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtDescripcionProd.Name = "txtDescripcionProd";
+            this.txtDescripcionProd.PasswordChar = '\0';
+            this.txtDescripcionProd.ReadOnly = false;
+            this.txtDescripcionProd.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtDescripcionProd.SelectedText = "";
+            this.txtDescripcionProd.SelectionLength = 0;
+            this.txtDescripcionProd.SelectionStart = 0;
+            this.txtDescripcionProd.ShortcutsEnabled = true;
+            this.txtDescripcionProd.Size = new System.Drawing.Size(570, 106);
+            this.txtDescripcionProd.TabIndex = 14;
+            this.txtDescripcionProd.TabStop = false;
+            this.txtDescripcionProd.Tag = "txtDescripcionProd";
+            this.txtDescripcionProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtDescripcionProd.UseSystemPasswordChar = false;
+            // 
+            // txtGramosProd
+            // 
+            this.txtGramosProd.AnimateReadOnly = false;
+            this.txtGramosProd.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtGramosProd.Depth = 0;
+            this.txtGramosProd.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtGramosProd.Hint = "Gramos";
+            this.txtGramosProd.LeadingIcon = null;
+            this.txtGramosProd.Location = new System.Drawing.Point(609, 163);
+            this.txtGramosProd.MaxLength = 50;
+            this.txtGramosProd.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtGramosProd.Multiline = false;
+            this.txtGramosProd.Name = "txtGramosProd";
+            this.txtGramosProd.Size = new System.Drawing.Size(119, 50);
+            this.txtGramosProd.TabIndex = 13;
+            this.txtGramosProd.Tag = "txtGramosProd";
+            this.txtGramosProd.Text = "";
+            this.txtGramosProd.TrailingIcon = null;
+            this.txtGramosProd.UseAccent = false;
+            // 
+            // ddProveedor
+            // 
+            this.ddProveedor.AutoResize = false;
+            this.ddProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ddProveedor.Depth = 0;
+            this.ddProveedor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.ddProveedor.DropDownHeight = 174;
+            this.ddProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddProveedor.DropDownWidth = 121;
+            this.ddProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.ddProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ddProveedor.FormattingEnabled = true;
+            this.ddProveedor.Hint = "Proveedor";
+            this.ddProveedor.IntegralHeight = false;
+            this.ddProveedor.ItemHeight = 43;
+            this.ddProveedor.Location = new System.Drawing.Point(444, 98);
+            this.ddProveedor.MaxDropDownItems = 4;
+            this.ddProveedor.MouseState = MaterialSkin.MouseState.OUT;
+            this.ddProveedor.Name = "ddProveedor";
+            this.ddProveedor.Size = new System.Drawing.Size(284, 49);
+            this.ddProveedor.StartIndex = 0;
+            this.ddProveedor.TabIndex = 12;
+            this.ddProveedor.Tag = "ddProveedor";
+            // 
+            // txtCodProd
+            // 
+            this.txtCodProd.AnimateReadOnly = false;
+            this.txtCodProd.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCodProd.Depth = 0;
+            this.txtCodProd.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtCodProd.Hint = "Código articulo";
+            this.txtCodProd.LeadingIcon = null;
+            this.txtCodProd.Location = new System.Drawing.Point(33, 98);
+            this.txtCodProd.MaxLength = 50;
+            this.txtCodProd.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtCodProd.Multiline = false;
+            this.txtCodProd.Name = "txtCodProd";
+            this.txtCodProd.Size = new System.Drawing.Size(145, 50);
+            this.txtCodProd.TabIndex = 10;
+            this.txtCodProd.Tag = "txtCodProd";
+            this.txtCodProd.Text = "";
+            this.txtCodProd.TrailingIcon = null;
+            this.txtCodProd.UseAccent = false;
+            // 
+            // txtNombreProd
+            // 
+            this.txtNombreProd.AnimateReadOnly = false;
+            this.txtNombreProd.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNombreProd.Depth = 0;
+            this.txtNombreProd.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtNombreProd.Hint = "Nombre";
+            this.txtNombreProd.LeadingIcon = null;
+            this.txtNombreProd.Location = new System.Drawing.Point(184, 98);
+            this.txtNombreProd.MaxLength = 50;
+            this.txtNombreProd.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtNombreProd.Multiline = false;
+            this.txtNombreProd.Name = "txtNombreProd";
+            this.txtNombreProd.Size = new System.Drawing.Size(254, 50);
+            this.txtNombreProd.TabIndex = 11;
+            this.txtNombreProd.Tag = "txtNombreProd";
+            this.txtNombreProd.Text = "";
+            this.txtNombreProd.TrailingIcon = null;
+            this.txtNombreProd.UseAccent = false;
+            // 
+            // materialTabSelector1
+            // 
+            this.materialTabSelector1.BaseTabControl = this.tabControlProductos;
+            this.materialTabSelector1.CharacterCasing = MaterialSkin.Controls.MaterialTabSelector.CustomCharacterCasing.Normal;
+            this.materialTabSelector1.Depth = 0;
+            this.materialTabSelector1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.materialTabSelector1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialTabSelector1.Location = new System.Drawing.Point(3, 3);
+            this.materialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialTabSelector1.Name = "materialTabSelector1";
+            this.materialTabSelector1.Size = new System.Drawing.Size(1366, 48);
+            this.materialTabSelector1.TabIndex = 0;
+            this.materialTabSelector1.Text = "materialTabSelector1";
             // 
             // tabClientes
             // 
@@ -2804,6 +2768,404 @@
             this.tabClientes.TabIndex = 10;
             this.tabClientes.Text = "Clientes";
             this.tabClientes.UseVisualStyleBackColor = true;
+            // 
+            // tabVentas
+            // 
+            this.tabVentas.Location = new System.Drawing.Point(4, 22);
+            this.tabVentas.Name = "tabVentas";
+            this.tabVentas.Size = new System.Drawing.Size(1372, 662);
+            this.tabVentas.TabIndex = 9;
+            this.tabVentas.Text = "Ventas";
+            this.tabVentas.UseVisualStyleBackColor = true;
+            // 
+            // tabInicio
+            // 
+            this.tabInicio.Controls.Add(this.pictureBox1);
+            this.tabInicio.Controls.Add(this.labelBienvenido);
+            this.tabInicio.ImageIndex = 0;
+            this.tabInicio.Location = new System.Drawing.Point(4, 22);
+            this.tabInicio.Name = "tabInicio";
+            this.tabInicio.Size = new System.Drawing.Size(1372, 662);
+            this.tabInicio.TabIndex = 6;
+            this.tabInicio.Tag = "tabInicio";
+            this.tabInicio.Text = "Inicio";
+            this.tabInicio.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::UI.Properties.Resources.DistribuidoraLogo;
+            this.pictureBox1.Location = new System.Drawing.Point(418, 104);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(241, 254);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // labelBienvenido
+            // 
+            this.labelBienvenido.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
+            this.labelBienvenido.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelBienvenido.AutoSize = true;
+            this.labelBienvenido.Font = new System.Drawing.Font("Open Sans Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBienvenido.ForeColor = System.Drawing.Color.Gray;
+            this.labelBienvenido.Location = new System.Drawing.Point(482, 361);
+            this.labelBienvenido.Name = "labelBienvenido";
+            this.labelBienvenido.Size = new System.Drawing.Size(119, 31);
+            this.labelBienvenido.TabIndex = 1;
+            this.labelBienvenido.Text = "Bienvenido";
+            this.labelBienvenido.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // materialTabControl1
+            // 
+            this.materialTabControl1.Controls.Add(this.tabInicio);
+            this.materialTabControl1.Controls.Add(this.tabInventario);
+            this.materialTabControl1.Controls.Add(this.tabVentas);
+            this.materialTabControl1.Controls.Add(this.tabClientes);
+            this.materialTabControl1.Controls.Add(this.tabProductos);
+            this.materialTabControl1.Controls.Add(this.tabProveedores);
+            this.materialTabControl1.Controls.Add(this.tabUsuarios);
+            this.materialTabControl1.Controls.Add(this.tabIdiomas);
+            this.materialTabControl1.Controls.Add(this.tabPermisos);
+            this.materialTabControl1.Controls.Add(this.tabRestaurar);
+            this.materialTabControl1.Controls.Add(this.tabHistorial);
+            this.materialTabControl1.Controls.Add(this.tabCerrar);
+            this.materialTabControl1.Depth = 0;
+            this.materialTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialTabControl1.Location = new System.Drawing.Point(3, 64);
+            this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialTabControl1.Multiline = true;
+            this.materialTabControl1.Name = "materialTabControl1";
+            this.materialTabControl1.SelectedIndex = 0;
+            this.materialTabControl1.Size = new System.Drawing.Size(1380, 688);
+            this.materialTabControl1.TabIndex = 0;
+            this.materialTabControl1.SelectedIndexChanged += new System.EventHandler(this.materialTabControl1_SelectedIndexChanged);
+            // 
+            // tabInventario
+            // 
+            this.tabInventario.Controls.Add(this.tabControlInventario);
+            this.tabInventario.Controls.Add(this.materialTabSelector2);
+            this.tabInventario.Location = new System.Drawing.Point(4, 22);
+            this.tabInventario.Name = "tabInventario";
+            this.tabInventario.Size = new System.Drawing.Size(1372, 662);
+            this.tabInventario.TabIndex = 11;
+            this.tabInventario.Text = "Inventario";
+            this.tabInventario.UseVisualStyleBackColor = true;
+            // 
+            // tabControlInventario
+            // 
+            this.tabControlInventario.Controls.Add(this.tabStock);
+            this.tabControlInventario.Controls.Add(this.tabCompras);
+            this.tabControlInventario.Depth = 0;
+            this.tabControlInventario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlInventario.Location = new System.Drawing.Point(0, 48);
+            this.tabControlInventario.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tabControlInventario.Multiline = true;
+            this.tabControlInventario.Name = "tabControlInventario";
+            this.tabControlInventario.SelectedIndex = 0;
+            this.tabControlInventario.Size = new System.Drawing.Size(1372, 614);
+            this.tabControlInventario.TabIndex = 1;
+            this.tabControlInventario.SelectedIndexChanged += new System.EventHandler(this.tabControlInventario_SelectedIndexChanged);
+            // 
+            // tabStock
+            // 
+            this.tabStock.Controls.Add(this.materialListView1);
+            this.tabStock.Controls.Add(this.label6);
+            this.tabStock.Location = new System.Drawing.Point(4, 22);
+            this.tabStock.Name = "tabStock";
+            this.tabStock.Padding = new System.Windows.Forms.Padding(3);
+            this.tabStock.Size = new System.Drawing.Size(1364, 588);
+            this.tabStock.TabIndex = 0;
+            this.tabStock.Text = "Stock";
+            this.tabStock.UseVisualStyleBackColor = true;
+            // 
+            // tabCompras
+            // 
+            this.tabCompras.Controls.Add(this.materialCard8);
+            this.tabCompras.Location = new System.Drawing.Point(4, 22);
+            this.tabCompras.Name = "tabCompras";
+            this.tabCompras.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCompras.Size = new System.Drawing.Size(1364, 588);
+            this.tabCompras.TabIndex = 1;
+            this.tabCompras.Text = "Nueva Compra";
+            this.tabCompras.UseVisualStyleBackColor = true;
+            // 
+            // materialCard8
+            // 
+            this.materialCard8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard8.Controls.Add(this.btnEliminarDetalle);
+            this.materialCard8.Controls.Add(this.label4);
+            this.materialCard8.Controls.Add(this.txtTotalCompra);
+            this.materialCard8.Controls.Add(this.listaDetalleCompras);
+            this.materialCard8.Controls.Add(this.btnFinalizarCompra);
+            this.materialCard8.Controls.Add(this.label5);
+            this.materialCard8.Controls.Add(this.btnAgregarDetalle);
+            this.materialCard8.Controls.Add(this.dateCompra);
+            this.materialCard8.Controls.Add(this.txtCantidadCompra);
+            this.materialCard8.Controls.Add(this.ddProductos);
+            this.materialCard8.Depth = 0;
+            this.materialCard8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialCard8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard8.Location = new System.Drawing.Point(3, 3);
+            this.materialCard8.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard8.Name = "materialCard8";
+            this.materialCard8.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard8.Size = new System.Drawing.Size(1358, 582);
+            this.materialCard8.TabIndex = 0;
+            // 
+            // listaDetalleCompras
+            // 
+            this.listaDetalleCompras.AutoSizeTable = false;
+            this.listaDetalleCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.listaDetalleCompras.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listaDetalleCompras.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader16,
+            this.columnHeader17,
+            this.columnHeader18,
+            this.columnHeader19,
+            this.columnHeader20});
+            this.listaDetalleCompras.Depth = 0;
+            this.listaDetalleCompras.FullRowSelect = true;
+            this.listaDetalleCompras.HideSelection = false;
+            this.listaDetalleCompras.Location = new System.Drawing.Point(46, 237);
+            this.listaDetalleCompras.MinimumSize = new System.Drawing.Size(200, 100);
+            this.listaDetalleCompras.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.listaDetalleCompras.MouseState = MaterialSkin.MouseState.OUT;
+            this.listaDetalleCompras.Name = "listaDetalleCompras";
+            this.listaDetalleCompras.OwnerDraw = true;
+            this.listaDetalleCompras.Size = new System.Drawing.Size(569, 309);
+            this.listaDetalleCompras.TabIndex = 35;
+            this.listaDetalleCompras.UseCompatibleStateImageBehavior = false;
+            this.listaDetalleCompras.View = System.Windows.Forms.View.Details;
+            // 
+            // btnFinalizarCompra
+            // 
+            this.btnFinalizarCompra.AutoSize = false;
+            this.btnFinalizarCompra.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnFinalizarCompra.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnFinalizarCompra.Depth = 0;
+            this.btnFinalizarCompra.HighEmphasis = true;
+            this.btnFinalizarCompra.Icon = null;
+            this.btnFinalizarCompra.Location = new System.Drawing.Point(627, 496);
+            this.btnFinalizarCompra.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnFinalizarCompra.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnFinalizarCompra.Name = "btnFinalizarCompra";
+            this.btnFinalizarCompra.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnFinalizarCompra.Size = new System.Drawing.Size(405, 50);
+            this.btnFinalizarCompra.TabIndex = 34;
+            this.btnFinalizarCompra.Tag = "btnAgregarProducto";
+            this.btnFinalizarCompra.Text = "Finalizar compra";
+            this.btnFinalizarCompra.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnFinalizarCompra.UseAccentColor = false;
+            this.btnFinalizarCompra.UseVisualStyleBackColor = true;
+            this.btnFinalizarCompra.Click += new System.EventHandler(this.btnFinalizarCompra_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(621, 448);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(74, 31);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Total:";
+            // 
+            // btnAgregarDetalle
+            // 
+            this.btnAgregarDetalle.AutoSize = false;
+            this.btnAgregarDetalle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnAgregarDetalle.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnAgregarDetalle.Depth = 0;
+            this.btnAgregarDetalle.HighEmphasis = true;
+            this.btnAgregarDetalle.Icon = null;
+            this.btnAgregarDetalle.Location = new System.Drawing.Point(455, 152);
+            this.btnAgregarDetalle.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnAgregarDetalle.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnAgregarDetalle.Name = "btnAgregarDetalle";
+            this.btnAgregarDetalle.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnAgregarDetalle.Size = new System.Drawing.Size(173, 50);
+            this.btnAgregarDetalle.TabIndex = 31;
+            this.btnAgregarDetalle.Tag = "btnAgregarDetalle";
+            this.btnAgregarDetalle.Text = "Agregar productos";
+            this.btnAgregarDetalle.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnAgregarDetalle.UseAccentColor = false;
+            this.btnAgregarDetalle.UseVisualStyleBackColor = true;
+            this.btnAgregarDetalle.Click += new System.EventHandler(this.btnAgregarDetalle_Click);
+            // 
+            // dateCompra
+            // 
+            this.dateCompra.Location = new System.Drawing.Point(46, 102);
+            this.dateCompra.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dateCompra.Name = "dateCompra";
+            this.dateCompra.Size = new System.Drawing.Size(362, 29);
+            this.dateCompra.TabIndex = 29;
+            // 
+            // txtCantidadCompra
+            // 
+            this.txtCantidadCompra.AnimateReadOnly = false;
+            this.txtCantidadCompra.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCantidadCompra.Depth = 0;
+            this.txtCantidadCompra.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtCantidadCompra.Hint = "Cantidad";
+            this.txtCantidadCompra.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtCantidadCompra.LeadingIcon = null;
+            this.txtCantidadCompra.Location = new System.Drawing.Point(311, 152);
+            this.txtCantidadCompra.MaxLength = 50;
+            this.txtCantidadCompra.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtCantidadCompra.Multiline = false;
+            this.txtCantidadCompra.Name = "txtCantidadCompra";
+            this.txtCantidadCompra.Size = new System.Drawing.Size(97, 50);
+            this.txtCantidadCompra.TabIndex = 28;
+            this.txtCantidadCompra.Tag = "txtCostoProd";
+            this.txtCantidadCompra.Text = "";
+            this.txtCantidadCompra.TrailingIcon = null;
+            this.txtCantidadCompra.UseAccent = false;
+            // 
+            // ddProductos
+            // 
+            this.ddProductos.AutoResize = false;
+            this.ddProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ddProductos.Depth = 0;
+            this.ddProductos.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.ddProductos.DropDownHeight = 174;
+            this.ddProductos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddProductos.DropDownWidth = 121;
+            this.ddProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.ddProductos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ddProductos.FormattingEnabled = true;
+            this.ddProductos.Hint = "Selecciona el producto";
+            this.ddProductos.IntegralHeight = false;
+            this.ddProductos.ItemHeight = 43;
+            this.ddProductos.Location = new System.Drawing.Point(46, 152);
+            this.ddProductos.MaxDropDownItems = 4;
+            this.ddProductos.MouseState = MaterialSkin.MouseState.OUT;
+            this.ddProductos.Name = "ddProductos";
+            this.ddProductos.Size = new System.Drawing.Size(244, 49);
+            this.ddProductos.StartIndex = 0;
+            this.ddProductos.TabIndex = 0;
+            // 
+            // materialTabSelector2
+            // 
+            this.materialTabSelector2.BaseTabControl = this.tabControlInventario;
+            this.materialTabSelector2.CharacterCasing = MaterialSkin.Controls.MaterialTabSelector.CustomCharacterCasing.Normal;
+            this.materialTabSelector2.Depth = 0;
+            this.materialTabSelector2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.materialTabSelector2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialTabSelector2.Location = new System.Drawing.Point(0, 0);
+            this.materialTabSelector2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialTabSelector2.Name = "materialTabSelector2";
+            this.materialTabSelector2.Size = new System.Drawing.Size(1372, 48);
+            this.materialTabSelector2.TabIndex = 0;
+            this.materialTabSelector2.Text = "materialTabSelector2";
+            // 
+            // txtTotalCompra
+            // 
+            this.txtTotalCompra.AnimateReadOnly = false;
+            this.txtTotalCompra.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTotalCompra.Depth = 0;
+            this.txtTotalCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtTotalCompra.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtTotalCompra.LeadingIcon = null;
+            this.txtTotalCompra.Location = new System.Drawing.Point(738, 429);
+            this.txtTotalCompra.MaxLength = 50;
+            this.txtTotalCompra.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtTotalCompra.Multiline = false;
+            this.txtTotalCompra.Name = "txtTotalCompra";
+            this.txtTotalCompra.Size = new System.Drawing.Size(294, 50);
+            this.txtTotalCompra.TabIndex = 37;
+            this.txtTotalCompra.Tag = "txtCostoProd";
+            this.txtTotalCompra.Text = "";
+            this.txtTotalCompra.TrailingIcon = null;
+            this.txtTotalCompra.UseAccent = false;
+            // 
+            // columnHeader16
+            // 
+            this.columnHeader16.Text = "Id";
+            this.columnHeader16.Width = 58;
+            // 
+            // columnHeader17
+            // 
+            this.columnHeader17.Text = "CompraId";
+            this.columnHeader17.Width = 95;
+            // 
+            // columnHeader18
+            // 
+            this.columnHeader18.Text = "Producto";
+            this.columnHeader18.Width = 109;
+            // 
+            // columnHeader19
+            // 
+            this.columnHeader19.Text = "Cantidad";
+            this.columnHeader19.Width = 117;
+            // 
+            // columnHeader20
+            // 
+            this.columnHeader20.Text = "Subtotal";
+            this.columnHeader20.Width = 177;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(40, 34);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(182, 31);
+            this.label4.TabIndex = 38;
+            this.label4.Text = "Nueva compra:";
+            // 
+            // btnEliminarDetalle
+            // 
+            this.btnEliminarDetalle.AutoSize = false;
+            this.btnEliminarDetalle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnEliminarDetalle.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnEliminarDetalle.Depth = 0;
+            this.btnEliminarDetalle.HighEmphasis = true;
+            this.btnEliminarDetalle.Icon = null;
+            this.btnEliminarDetalle.Location = new System.Drawing.Point(636, 152);
+            this.btnEliminarDetalle.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnEliminarDetalle.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnEliminarDetalle.Name = "btnEliminarDetalle";
+            this.btnEliminarDetalle.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnEliminarDetalle.Size = new System.Drawing.Size(173, 50);
+            this.btnEliminarDetalle.TabIndex = 39;
+            this.btnEliminarDetalle.Tag = "btnAgregarProducto";
+            this.btnEliminarDetalle.Text = "Eliminar productos";
+            this.btnEliminarDetalle.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.btnEliminarDetalle.UseAccentColor = false;
+            this.btnEliminarDetalle.UseVisualStyleBackColor = true;
+            this.btnEliminarDetalle.Click += new System.EventHandler(this.btnEliminarDetalle_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(24, 21);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(235, 31);
+            this.label6.TabIndex = 39;
+            this.label6.Text = "Listado de compras:";
+            // 
+            // materialListView1
+            // 
+            this.materialListView1.AutoSizeTable = false;
+            this.materialListView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialListView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialListView1.Depth = 0;
+            this.materialListView1.FullRowSelect = true;
+            this.materialListView1.HideSelection = false;
+            this.materialListView1.Location = new System.Drawing.Point(30, 70);
+            this.materialListView1.MinimumSize = new System.Drawing.Size(200, 100);
+            this.materialListView1.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialListView1.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialListView1.Name = "materialListView1";
+            this.materialListView1.OwnerDraw = true;
+            this.materialListView1.Size = new System.Drawing.Size(831, 410);
+            this.materialListView1.TabIndex = 40;
+            this.materialListView1.UseCompatibleStateImageBehavior = false;
+            this.materialListView1.View = System.Windows.Forms.View.Details;
             // 
             // Home
             // 
@@ -2844,29 +3206,81 @@
             this.materialCard2.ResumeLayout(false);
             this.tabModificar.ResumeLayout(false);
             this.materialCard1.ResumeLayout(false);
+            this.tabProveedores.ResumeLayout(false);
+            this.materialCard6.ResumeLayout(false);
+            this.tabProductos.ResumeLayout(false);
+            this.tabControlProductos.ResumeLayout(false);
+            this.tabListadoProductos.ResumeLayout(false);
+            this.materialCard7.ResumeLayout(false);
+            this.tabNuevoProducto.ResumeLayout(false);
+            this.materialCard5.ResumeLayout(false);
+            this.materialCard5.PerformLayout();
             this.tabInicio.ResumeLayout(false);
             this.tabInicio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.materialTabControl1.ResumeLayout(false);
-            this.tabProductos.ResumeLayout(false);
-            this.tabControlProductos.ResumeLayout(false);
-            this.tabListadoProductos.ResumeLayout(false);
-            this.tabNuevoProducto.ResumeLayout(false);
-            this.materialCard5.ResumeLayout(false);
-            this.materialCard5.PerformLayout();
-            this.tabProveedores.ResumeLayout(false);
-            this.materialCard6.ResumeLayout(false);
-            this.materialCard7.ResumeLayout(false);
+            this.tabInventario.ResumeLayout(false);
+            this.tabControlInventario.ResumeLayout(false);
+            this.tabStock.ResumeLayout(false);
+            this.tabStock.PerformLayout();
+            this.tabCompras.ResumeLayout(false);
+            this.materialCard8.ResumeLayout(false);
+            this.materialCard8.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+        private System.Windows.Forms.ToolTip toolTipUsuarios;
         private System.Windows.Forms.TabPage tabCerrar;
+        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TabPage tabHistorial;
+        private MaterialSkin.Controls.MaterialCard materialCard4;
+        private MaterialSkin.Controls.MaterialButton btnFiltrar;
+        private MaterialSkin.Controls.MaterialButton btnLeft;
+        private MaterialSkin.Controls.MaterialButton btnRight;
+        private MaterialSkin.Controls.MaterialComboBox comboBoxUsuario;
+        private MaterialSkin.Controls.MaterialComboBox comboBoxTipo;
+        private MetroFramework.Controls.MetroDateTime dtTo;
+        private MetroFramework.Controls.MetroDateTime dtFrom;
+        private System.Windows.Forms.Label labelPagina;
+        private MetroFramework.Controls.MetroGrid gridBitacora;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabRestaurar;
+        private MetroFramework.Controls.MetroComboBox ddUsuarios;
+        private MaterialSkin.Controls.MaterialButton btnRestaurarVersion;
+        private MaterialSkin.Controls.MaterialButton btnBuscarVersiones;
+        private MetroFramework.Controls.MetroGrid dgvUsuariosHistoricos;
         private System.Windows.Forms.TabPage tabPermisos;
+        private System.Windows.Forms.TreeView treeViewPermUsuario;
+        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private MaterialSkin.Controls.MaterialButton btnEliminarPermisos;
+        private MaterialSkin.Controls.MaterialButton btnAsignarPermisoUsuario;
+        private MetroFramework.Controls.MetroGrid dgvUsuarios;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private MaterialSkin.Controls.MaterialButton btnEliminarFamilia;
+        private MaterialSkin.Controls.MaterialButton btnAgregarPermiso;
+        private MetroFramework.Controls.MetroGrid dgvFamilia;
+        private MaterialSkin.Controls.MaterialTextBox txtFamilia;
+        private MaterialSkin.Controls.MaterialButton btnAgregarFamilia;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private MetroFramework.Controls.MetroGrid dgvPermisos;
         private System.Windows.Forms.TabPage tabIdiomas;
+        private MaterialSkin.Controls.MaterialCard materialCard3;
+        private MaterialSkin.Controls.MaterialButton btnAgregarIdioma;
+        private MaterialSkin.Controls.MaterialTextBox inputNuevoIdioma;
+        private MaterialSkin.Controls.MaterialButton btnModificarTraduccion;
+        private MaterialSkin.Controls.MaterialTextBox txtTraduccion;
+        private System.Windows.Forms.Label labelTag;
+        private MaterialSkin.Controls.MaterialListView listaIdiomas;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private MaterialSkin.Controls.MaterialButton btnCambiarIdioma;
+        private MaterialSkin.Controls.MaterialComboBox ddIdiomas;
         private System.Windows.Forms.TabPage tabUsuarios;
         private System.Windows.Forms.Panel panel1;
         private MaterialSkin.Controls.MaterialTabControl tabControlUsuarios;
@@ -2890,11 +3304,6 @@
         private MaterialSkin.Controls.MaterialTextBox txtUsername;
         private MaterialSkin.Controls.MaterialTextBox txtApellido;
         private MaterialSkin.Controls.MaterialTextBox txtEmail;
-        private MaterialSkin.Controls.MaterialTabSelector tabSelectorUsuarios;
-        private System.Windows.Forms.TabPage tabInicio;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private MaterialSkin.Controls.MaterialTabControl materialTabControl1;
-        private System.Windows.Forms.ToolTip toolTipUsuarios;
         private System.Windows.Forms.TabPage tabModificar;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialButton btnModificar;
@@ -2903,64 +3312,9 @@
         private MaterialSkin.Controls.MaterialTextBox txtEmailModificado;
         private MaterialSkin.Controls.MaterialTextBox txtNombreModificado;
         private MaterialSkin.Controls.MaterialTextBox txtApellidoModificado;
-        private MaterialSkin.Controls.MaterialCard materialCard3;
-        private MaterialSkin.Controls.MaterialComboBox ddIdiomas;
-        private MaterialSkin.Controls.MaterialButton btnCambiarIdioma;
-        private MaterialSkin.Controls.MaterialListView listaIdiomas;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private MaterialSkin.Controls.MaterialButton btnAgregarIdioma;
-        private MaterialSkin.Controls.MaterialTextBox inputNuevoIdioma;
-        private MaterialSkin.Controls.MaterialButton btnModificarTraduccion;
-        private MaterialSkin.Controls.MaterialTextBox txtTraduccion;
-        private System.Windows.Forms.Label labelTag;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private MetroFramework.Controls.MetroGrid dgvPermisos;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private MaterialSkin.Controls.MaterialButton btnEliminarFamilia;
-        private MaterialSkin.Controls.MaterialButton btnAgregarPermiso;
-        private MetroFramework.Controls.MetroGrid dgvFamilia;
-        private MaterialSkin.Controls.MaterialTextBox txtFamilia;
-        private MaterialSkin.Controls.MaterialButton btnAgregarFamilia;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private MaterialSkin.Controls.MaterialButton btnEliminarPermisos;
-        private MaterialSkin.Controls.MaterialButton btnAsignarPermisoUsuario;
-        private MetroFramework.Controls.MetroGrid dgvUsuarios;
-        private System.Windows.Forms.TreeView treeViewPermUsuario;
-        private System.Windows.Forms.TreeView treeView1;
-        private MetroFramework.Controls.MetroComboBox ddUsuarios;
-        private MaterialSkin.Controls.MaterialButton btnRestaurarVersion;
-        private MaterialSkin.Controls.MaterialButton btnBuscarVersiones;
-        private MetroFramework.Controls.MetroGrid dgvUsuariosHistoricos;
-        private MaterialSkin.Controls.MaterialCard materialCard4;
-        private MaterialSkin.Controls.MaterialButton btnFiltrar;
-        private MaterialSkin.Controls.MaterialButton btnLeft;
-        private MaterialSkin.Controls.MaterialButton btnRight;
-        private MaterialSkin.Controls.MaterialComboBox comboBoxUsuario;
-        private MaterialSkin.Controls.MaterialComboBox comboBoxTipo;
-        private MetroFramework.Controls.MetroDateTime dtTo;
-        private MetroFramework.Controls.MetroDateTime dtFrom;
-        private System.Windows.Forms.Label labelPagina;
-        private MetroFramework.Controls.MetroGrid gridBitacora;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label labelBienvenido;
-        private System.Windows.Forms.TabPage tabProductos;
-        private System.Windows.Forms.TabPage tabVentas;
+        private MaterialSkin.Controls.MaterialTabSelector tabSelectorUsuarios;
         private System.Windows.Forms.TabPage tabProveedores;
-        private MaterialSkin.Controls.MaterialListView listaProveedores;
-        private System.Windows.Forms.ColumnHeader headerId;
-        private System.Windows.Forms.ColumnHeader headerMarca;
-        private System.Windows.Forms.ColumnHeader headerNombre;
-        private System.Windows.Forms.ColumnHeader headerApellido;
-        private System.Windows.Forms.ColumnHeader headerTelefono;
-        private System.Windows.Forms.ColumnHeader headerDomicilio;
-        private System.Windows.Forms.ColumnHeader headerLocalidad;
         private MaterialSkin.Controls.MaterialCard materialCard6;
-        private MaterialSkin.Controls.MaterialButton btnProvAgregar;
         private MaterialSkin.Controls.MaterialButton btnProvEliminar;
         private MaterialSkin.Controls.MaterialButton btnProvModificar;
         private MaterialSkin.Controls.MaterialTextBox txtProvLocalidad;
@@ -2969,21 +3323,30 @@
         private MaterialSkin.Controls.MaterialTextBox txtProvMarca;
         private MaterialSkin.Controls.MaterialTextBox txtProvNombre;
         private MaterialSkin.Controls.MaterialTextBox txtProvApellido;
+        private MaterialSkin.Controls.MaterialListView listaProveedores;
+        private System.Windows.Forms.ColumnHeader headerId;
+        private System.Windows.Forms.ColumnHeader headerMarca;
+        private System.Windows.Forms.ColumnHeader headerNombre;
+        private System.Windows.Forms.ColumnHeader headerApellido;
+        private System.Windows.Forms.ColumnHeader headerTelefono;
+        private System.Windows.Forms.ColumnHeader headerDomicilio;
+        private System.Windows.Forms.ColumnHeader headerLocalidad;
+        private MaterialSkin.Controls.MaterialButton btnProvAgregar;
+        private System.Windows.Forms.TabPage tabProductos;
         private MaterialSkin.Controls.MaterialTabControl tabControlProductos;
         private System.Windows.Forms.TabPage tabListadoProductos;
-        private System.Windows.Forms.TabPage tabNuevoProducto;
-        private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
-        private MaterialSkin.Controls.MaterialCard materialCard5;
-        private MaterialSkin.Controls.MaterialTextBox txtCodProd;
-        private MaterialSkin.Controls.MaterialTextBox txtNombreProd;
-        private MaterialSkin.Controls.MaterialTextBox txtBandejaProd;
-        private MaterialSkin.Controls.MaterialMultiLineTextBox2 txtDescripcionProd;
-        private MaterialSkin.Controls.MaterialTextBox txtGramosProd;
-        private MaterialSkin.Controls.MaterialComboBox ddProveedor;
-        private MaterialSkin.Controls.MaterialTextBox txtPrecioProd;
-        private MaterialSkin.Controls.MaterialTextBox txtCostoProd;
-        private MaterialSkin.Controls.MaterialButton btnAgregarProducto;
-        private MaterialSkin.Controls.MaterialTextBox txtStockProd;
+        private MaterialSkin.Controls.MaterialCard materialCard7;
+        private MaterialSkin.Controls.MaterialButton btnEliminarProducto;
+        private MaterialSkin.Controls.MaterialTextBox txtModStockProd;
+        private MaterialSkin.Controls.MaterialButton btnModProducto;
+        private MaterialSkin.Controls.MaterialTextBox txtModPrecioProd;
+        private MaterialSkin.Controls.MaterialTextBox txtModCostoProd;
+        private MaterialSkin.Controls.MaterialTextBox txtModBandejaProd;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox2 txtModDescProd;
+        private MaterialSkin.Controls.MaterialTextBox txtModGramosProd;
+        private MaterialSkin.Controls.MaterialComboBox ddModProveedor;
+        private MaterialSkin.Controls.MaterialTextBox txtModCodProd;
+        private MaterialSkin.Controls.MaterialTextBox txtModNombreProd;
         private MaterialSkin.Controls.MaterialListView listaProductos;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
@@ -2996,19 +3359,48 @@
         private System.Windows.Forms.ColumnHeader columnHeader13;
         private System.Windows.Forms.ColumnHeader columnHeader14;
         private System.Windows.Forms.ColumnHeader columnHeader15;
-        private MaterialSkin.Controls.MaterialCard materialCard7;
-        private MaterialSkin.Controls.MaterialTextBox txtModStockProd;
-        private MaterialSkin.Controls.MaterialButton btnModProducto;
-        private MaterialSkin.Controls.MaterialTextBox txtModPrecioProd;
-        private MaterialSkin.Controls.MaterialTextBox txtModCostoProd;
-        private MaterialSkin.Controls.MaterialTextBox txtModBandejaProd;
-        private MaterialSkin.Controls.MaterialMultiLineTextBox2 txtModDescProd;
-        private MaterialSkin.Controls.MaterialTextBox txtModGramosProd;
-        private MaterialSkin.Controls.MaterialComboBox ddModProveedor;
-        private MaterialSkin.Controls.MaterialTextBox txtModCodProd;
-        private MaterialSkin.Controls.MaterialTextBox txtModNombreProd;
+        private System.Windows.Forms.TabPage tabNuevoProducto;
+        private MaterialSkin.Controls.MaterialCard materialCard5;
         private System.Windows.Forms.Label label3;
-        private MaterialSkin.Controls.MaterialButton btnEliminarProducto;
+        private MaterialSkin.Controls.MaterialTextBox txtStockProd;
+        private MaterialSkin.Controls.MaterialButton btnAgregarProducto;
+        private MaterialSkin.Controls.MaterialTextBox txtPrecioProd;
+        private MaterialSkin.Controls.MaterialTextBox txtCostoProd;
+        private MaterialSkin.Controls.MaterialTextBox txtBandejaProd;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox2 txtDescripcionProd;
+        private MaterialSkin.Controls.MaterialTextBox txtGramosProd;
+        private MaterialSkin.Controls.MaterialComboBox ddProveedor;
+        private MaterialSkin.Controls.MaterialTextBox txtCodProd;
+        private MaterialSkin.Controls.MaterialTextBox txtNombreProd;
+        private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
         private System.Windows.Forms.TabPage tabClientes;
+        private System.Windows.Forms.TabPage tabVentas;
+        private System.Windows.Forms.TabPage tabInicio;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label labelBienvenido;
+        private MaterialSkin.Controls.MaterialTabControl materialTabControl1;
+        private System.Windows.Forms.TabPage tabInventario;
+        private MaterialSkin.Controls.MaterialTabControl tabControlInventario;
+        private System.Windows.Forms.TabPage tabStock;
+        private System.Windows.Forms.TabPage tabCompras;
+        private MaterialSkin.Controls.MaterialCard materialCard8;
+        private MaterialSkin.Controls.MaterialComboBox ddProductos;
+        private MaterialSkin.Controls.MaterialTabSelector materialTabSelector2;
+        private System.Windows.Forms.Label label5;
+        private MaterialSkin.Controls.MaterialButton btnAgregarDetalle;
+        private MetroFramework.Controls.MetroDateTime dateCompra;
+        private MaterialSkin.Controls.MaterialTextBox txtCantidadCompra;
+        private MaterialSkin.Controls.MaterialButton btnFinalizarCompra;
+        private MaterialSkin.Controls.MaterialListView listaDetalleCompras;
+        private MaterialSkin.Controls.MaterialTextBox txtTotalCompra;
+        private System.Windows.Forms.ColumnHeader columnHeader16;
+        private System.Windows.Forms.ColumnHeader columnHeader17;
+        private System.Windows.Forms.ColumnHeader columnHeader18;
+        private System.Windows.Forms.ColumnHeader columnHeader19;
+        private System.Windows.Forms.ColumnHeader columnHeader20;
+        private System.Windows.Forms.Label label4;
+        private MaterialSkin.Controls.MaterialButton btnEliminarDetalle;
+        private System.Windows.Forms.Label label6;
+        private MaterialSkin.Controls.MaterialListView materialListView1;
     }
 }

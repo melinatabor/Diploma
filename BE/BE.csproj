@@ -45,11 +45,13 @@
     <Compile Include="BEBitacora.cs" />
     <Compile Include="BEBitacoraCriteria.cs" />
     <Compile Include="BEBitacoraFiltrada.cs" />
+    <Compile Include="BEDetalleCompra.cs" />
     <Compile Include="BEFamilia.cs" />
     <Compile Include="BEIdioma.cs" />
     <Compile Include="BEPalabra.cs" />
     <Compile Include="BEPermiso.cs" />
     <Compile Include="BEPermisoSimple.cs" />
+    <Compile Include="BECompra.cs" />
     <Compile Include="BEProducto.cs" />
     <Compile Include="BETraduccion.cs" />
     <Compile Include="BEProveedor.cs" />
