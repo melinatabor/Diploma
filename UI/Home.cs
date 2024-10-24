@@ -48,6 +48,7 @@ namespace UI
                 ActualizarDGV();
                 ActualizarDDProveedores();
                 ActualizarDDProductos();
+                ActualizarListaInventario();
 
                 dgvUsuarios.DataSource = null;
                 dgvUsuarios.DataSource = BLLUsuario.Listar();
@@ -1706,9 +1707,10 @@ namespace UI
                     BLLDetalleCompra.Agregar(nuevoDetalle);
                     BLLCompra.Editar(compra);
                     BLLProducto.SumarStock(nuevoDetalle.Cantidad, nuevoDetalle.ProductoId);
-                    ActualizarListaProductos();
+                    
                 }
-
+                ActualizarListaProductos();
+                ActualizarListaInventario();
                 ActualizarListaDetalle();
                 txtCantidadCompra.Text = "";
                 ddProductos.SelectedIndex = -1;
@@ -1727,18 +1729,6 @@ namespace UI
             txtTotalCompra.Text = txtCantidadCompra.Text = "";
             ddProductos.SelectedIndex = -1;
             btnAgregarDetalle.Enabled = false;
-        }
-
-        #endregion
-
-        private void tabControlInventario_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tabControlInventario.SelectedTab == tabCompras)
-            {
-                btnAgregarDetalle.Enabled = true;
-                listaDetalleCompras.Items.Clear();
-                isNuevaCompra = true;
-            }
         }
 
         private void btnEliminarDetalle_Click(object sender, EventArgs e)
@@ -1772,6 +1762,7 @@ namespace UI
                         BLLCompra.Editar(compra);
                         BLLProducto.RestarStock(detalle.Cantidad, detalle.ProductoId);
                         ActualizarListaProductos();
+                        ActualizarListaInventario();
                     }
                 }
             }
@@ -1781,5 +1772,43 @@ namespace UI
                 materialDialog.ShowDialog(this);
             }
         }
+        #endregion
+
+        #region Tab Inventario:
+        private void tabControlInventario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControlInventario.SelectedTab == tabCompras)
+            {
+                btnAgregarDetalle.Enabled = true;
+                listaDetalleCompras.Items.Clear();
+                isNuevaCompra = true;
+            }
+        }
+        private void ActualizarListaInventario()
+        {
+            listaInventario.Items.Clear();
+            List<BEInventario> inventarios = BLLProducto.ListarInventario();
+
+            foreach (BEInventario producto in inventarios)
+            {
+                string[] row =
+                {
+                        producto.Id.ToString(),
+                        producto.Nombre,
+                        producto.Marca,
+                        producto.Stock.ToString(),
+                        producto.CostoUnitario.ToString(),
+                        producto.PrecioVenta.ToString(),
+                        producto.GananciaXUnidad.ToString(),
+                        producto.GananciaTotal.ToString()
+                    };
+
+                var item = new ListViewItem(row);
+
+                listaInventario.Items.Add(item);
+            }
+        }
+        #endregion
+        
     }
 }

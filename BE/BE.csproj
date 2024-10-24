@@ -52,6 +52,7 @@
     <Compile Include="BEPermiso.cs" />
     <Compile Include="BEPermisoSimple.cs" />
     <Compile Include="BECompra.cs" />
+    <Compile Include="BEInventario.cs" />
     <Compile Include="BEProducto.cs" />
     <Compile Include="BETraduccion.cs" />
     <Compile Include="BEProveedor.cs" />

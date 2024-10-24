@@ -193,5 +193,39 @@ namespace MPP
                 throw ex;
             }
         }
+
+        public static List<BEInventario> ListarInventario()
+        {
+            try
+            {
+                List<BEInventario> lista = new List<BEInventario>();
+
+                DataTable table = Acceso.ExecuteDataTable(ProductoStoredProcedures.SP_ListarInventario, null, true);
+
+                if (table.Rows.Count > 0)
+                {
+                    foreach (DataRow fila in table.Rows)
+                    {
+                        BEInventario inventario = new BEInventario();
+                        inventario.Id = Convert.ToInt32(fila["Id"].ToString());
+                        inventario.Nombre = fila["Nombre"].ToString();
+                        inventario.Marca = fila["Marca"].ToString();
+                        inventario.Stock = Convert.ToInt32(fila["Stock"].ToString());
+                        inventario.CostoUnitario = Convert.ToSingle(fila["CostoUnitario"].ToString());
+                        inventario.PrecioVenta = Convert.ToSingle(fila["PrecioVenta"].ToString());
+                        inventario.GananciaXUnidad = Convert.ToSingle(fila["GananciaXUnidad"].ToString());
+                        inventario.GananciaTotal = Convert.ToSingle(fila["GananciaTotal"].ToString());
+                        lista.Add(inventario);
+                    }
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
     }
 }

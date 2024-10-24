@@ -79,5 +79,14 @@ namespace BLL
             }
             catch (Exception ex) { throw ex; }
         }
+
+        public static List<BEInventario> ListarInventario()
+        {
+            try
+            {
+                return MPPProducto.ListarInventario();
+            }
+            catch (Exception ex) { throw ex; }
+        }
     }
 }

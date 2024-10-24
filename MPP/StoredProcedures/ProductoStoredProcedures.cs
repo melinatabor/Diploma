@@ -8,5 +8,6 @@ namespace MPP
         public const string SP_AgregarProducto      = "SP_Agregar_Producto";
         public const string SP_EliminarProducto      = "SP_Eliminar_Producto";
         public const string SP_BuscarProductoXId      = "SP_Buscar_Producto_X_Id";
+        public const string SP_ListarInventario      = "SP_Listar_Inventario";
     }
 }
