@@ -45,6 +45,9 @@
     <Compile Include="BEBitacora.cs" />
     <Compile Include="BEBitacoraCriteria.cs" />
     <Compile Include="BEBitacoraFiltrada.cs" />
+    <Compile Include="BECliente.cs" />
+    <Compile Include="BEDetalleVenta.cs" />
+    <Compile Include="BEVenta.cs" />
     <Compile Include="BEDetalleCompra.cs" />
     <Compile Include="BEFamilia.cs" />
     <Compile Include="BEIdioma.cs" />

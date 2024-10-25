@@ -49,7 +49,7 @@ namespace UI
                 ActualizarDDProveedores();
                 ActualizarDDProductos();
                 ActualizarListaInventario();
-
+                ActualizarListaClientes();
                 dgvUsuarios.DataSource = null;
                 dgvUsuarios.DataSource = BLLUsuario.Listar();
                 ddUsuarios.Items.Clear();
@@ -1809,6 +1809,160 @@ namespace UI
             }
         }
         #endregion
-        
+
+        #region Tab Clientes:
+        private void ActualizarListaClientes()
+        {
+            listaClientes.Items.Clear();
+            List<BECliente> clientes = BLLCliente.Listar();
+
+            foreach (BECliente cliente in clientes)
+            {
+                string[] row =
+                {
+                        cliente.Id.ToString(),
+                        cliente.Nombre,
+                        cliente.Domicilio,
+                        cliente.Localidad,
+                        cliente.Telefono.ToString(),
+                    };
+
+                var item = new ListViewItem(row);
+
+                listaClientes.Items.Add(item);
+            }
+        }
+       
+
+        private void btnAgregarCliente_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txtNombreCliente.Text) || string.IsNullOrEmpty(txtDomicilioCliente.Text) || string.IsNullOrEmpty(txtTelefonoCliente.Text) || string.IsNullOrEmpty(txtLocalidadCliente.Text))
+                {
+                    MaterialDialog dialog = new MaterialDialog(this, "Error", "Debe ingresar los datos para poder agregar el cliente.", "OK");
+                    dialog.ShowDialog(this);
+                    return;
+                }
+
+                if (listaClientes.SelectedItems.Count != 0)
+                {
+                    listaClientes.SelectedItems.Clear();
+                    txtNombreCliente.Text = txtDomicilioCliente.Text = txtLocalidadCliente.Text = txtTelefonoCliente.Text = "";
+                    throw new Exception("No se puede agregar un cliente si hay uno seleccionado.");
+                }
+                BECliente nuevoCliente = new BECliente()
+                {
+                    Nombre = txtNombreCliente.Text,
+                    Domicilio = txtDomicilioCliente.Text,
+                    Telefono = Convert.ToInt32(txtTelefonoCliente.Text),
+                    Localidad = txtLocalidadCliente.Text,
+                };
+                bool alta = BLLCliente.Agregar(nuevoCliente);
+
+                if (alta)
+                {
+                    MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", "Cliente agregado correctamente.", "OK");
+                    materialDialog.ShowDialog(this);
+                    txtNombreCliente.Text = txtDomicilioCliente.Text = txtLocalidadCliente.Text = txtTelefonoCliente.Text = "";
+                }
+
+                ActualizarListaClientes();
+            }
+            catch (Exception ex)
+            {
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
+                return;
+            }
+        }
+
+        private void btnModificarCliente_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listaClientes.Items.Count <= 0) throw new Exception("No hay clientes para modificar.");
+                if (listaClientes.SelectedItems.Count == 0) throw new Exception("Selecciona una fila para modificar.");
+
+                BECliente cliente = new BECliente(Convert.ToInt16(listaClientes.SelectedItems[0].SubItems[0].Text));
+                cliente.Nombre = txtNombreCliente.Text;
+                cliente.Domicilio = txtDomicilioCliente.Text;
+                cliente.Localidad = txtLocalidadCliente.Text;
+                cliente.Telefono = Convert.ToInt32(txtTelefonoCliente.Text);
+
+                MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", $"¿Esta seguro que desea modificar el cliente {cliente.Nombre}?", "Sí, deseo modificarlo", true, "Cancelar");
+                DialogResult result = materialDialog.ShowDialog(this);
+                if (result == DialogResult.OK)
+                {
+                    bool guardado = BLLCliente.Editar(cliente);
+                    if (guardado)
+                    {
+                        MaterialSnackBar SnackBarMessage = new MaterialSnackBar($"Cliente modificado con exito", 2500);
+                        SnackBarMessage.Show(this);
+                        ActualizarListaClientes();
+                        listaClientes.SelectedItems.Clear();
+                        txtNombreCliente.Text = txtDomicilioCliente.Text = txtLocalidadCliente.Text = txtTelefonoCliente.Text = "";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
+            }
+        }
+
+        private void btnEliminarCliente_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listaClientes.Items.Count <= 0) throw new Exception("No hay clientes para eliminar.");
+                if (listaClientes.SelectedItems.Count == 0) throw new Exception("Selecciona una fila para eliminar.");
+
+                int id = Convert.ToInt32(listaClientes.SelectedItems[0].SubItems[0].Text);
+
+
+                MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", $"¿Esta seguro que desea eliminar el cliente?", "Sí, deseo eliminarlo", true, "Cancelar");
+                DialogResult result = materialDialog.ShowDialog(this);
+
+                if (result == DialogResult.OK)
+                {
+                    bool eliminado = BLLCliente.Baja(id);
+                    if (eliminado)
+                    {
+                        MaterialSnackBar SnackBarMessage = new MaterialSnackBar($"Cliente eliminado con exito", 2500);
+                        SnackBarMessage.Show(this);
+                        ActualizarListaClientes();
+                        txtNombreCliente.Text = txtDomicilioCliente.Text = txtLocalidadCliente.Text = txtTelefonoCliente.Text = "";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
+            }
+        }
+
+        private void listaClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listaClientes.SelectedItems.Count > 0)
+            {
+                ListViewItem filaSeleccionada = listaClientes.SelectedItems[0];
+
+                txtNombreCliente.Text = filaSeleccionada.SubItems[1].Text;
+                txtDomicilioCliente.Text = filaSeleccionada.SubItems[2].Text;
+                txtLocalidadCliente.Text = filaSeleccionada.SubItems[3].Text;
+                txtTelefonoCliente.Text = filaSeleccionada.SubItems[4].Text;
+            }
+        }
+        private void btnLimpiarClientes_Click(object sender, EventArgs e)
+        {
+            txtNombreCliente.Text = txtDomicilioCliente.Text = txtLocalidadCliente.Text = txtTelefonoCliente.Text = "";
+            listaClientes.SelectedItems.Clear();
+        }
+        #endregion
+
+
     }
 }

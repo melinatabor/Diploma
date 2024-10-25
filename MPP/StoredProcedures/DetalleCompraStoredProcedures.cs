@@ -1,11 +1,11 @@
 ﻿
 namespace MPP
 {
-    internal static class DetalleCompraStoredProcedures
+    internal static class DetalleVentaStoredProcedures
     {
-        public const string SP_AgregarDetalleCompra           = "SP_Agregar_Detalle_Compra";
-        public const string SP_EliminarDetalleCompra          = "SP_Eliminar_Detalle_Compra";
-        public const string SP_ListarXCompra          = "SP_Listar_X_Compra";
-        public const string SP_BuscarDetalleXId         = "SP_Buscar_Detalle_X_Id";
+        public const string SP_AgregarDetalleVenta          = "SP_Agregar_Detalle_Venta";
+        public const string SP_EliminarDetalleVenta         = "SP_Eliminar_Detalle_Venta";
+        public const string SP_ListarXVenta                 = "SP_Listar_X_Venta";
+        public const string SP_BuscarDetalleVentaXId         = "SP_Buscar_Detalle_Venta_X_Id";
     }
 }
