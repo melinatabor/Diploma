@@ -473,5 +473,29 @@ namespace MPP
                 throw ex;
             }
         }
+
+        public static bool RealizarBackup(string backupPath)
+        {
+            try
+            {
+                return Acceso.Backup(backupPath);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static bool RestaurarBackup(string backupPath)
+        {
+            try
+            {
+                return Acceso.Restore(backupPath);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

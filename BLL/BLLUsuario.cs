@@ -6,6 +6,7 @@ using System;
 using Servicios.SesionManager;
 using static BE.BEBitacora;
 using Servicios.DigitoVerificador;
+using Abstraccion;
 
 namespace BLL
 {
@@ -192,6 +193,24 @@ namespace BLL
             try
             {
                 return MPPUsuario.EliminarPermisos(usuario);
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        public static bool RealizarBackup(string backupPath)
+        {
+            try
+            {
+                return MPPUsuario.RealizarBackup(backupPath);
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        public static bool RestaurarBackup(string rutaBackup)
+        {
+            try
+            {
+                return MPPUsuario.RestaurarBackup(rutaBackup);
             }
             catch (Exception ex) { throw ex; }
         }

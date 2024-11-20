@@ -20,6 +20,8 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace UI
 {
@@ -231,6 +233,66 @@ namespace UI
             }
 
         }
+
+        private void btnExportarPdf_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF files (.pdf)|*.pdf";
+            saveFileDialog.Title = "Guardar listado de proveedores como PDF";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                List<BEProveedor> proveedores = BLLProveedor.Listar();
+
+                using (var stream = new FileStream(saveFileDialog.FileName, FileMode.Create))
+                {
+                    Document pdfDoc = new Document(PageSize.A4);
+                    PdfWriter.GetInstance(pdfDoc, stream);
+                    pdfDoc.Open();
+
+                    pdfDoc.Add(new Paragraph("Listado de Proveedores", FontFactory.GetFont("Arial", 16)));
+                    pdfDoc.Add(new Paragraph($"Fecha de exportación: {DateTime.Now.ToString("dd/MM/yyyy")}\n\n"));
+
+                    if (proveedores != null && proveedores.Count > 0)
+                    {
+                        PdfPTable table = new PdfPTable(7);
+                        table.WidthPercentage = 100;
+                        table.SetWidths(new float[] { 1.5f, 2f, 2f, 2f, 2f, 3f, 3f });
+
+                        table.AddCell(new PdfPCell(new Phrase("ID", FontFactory.GetFont("Arial", 10))) { HorizontalAlignment = Element.ALIGN_CENTER });
+                        table.AddCell(new PdfPCell(new Phrase("Marca", FontFactory.GetFont("Arial", 10))) { HorizontalAlignment = Element.ALIGN_CENTER });
+                        table.AddCell(new PdfPCell(new Phrase("Nombre", FontFactory.GetFont("Arial", 10))) { HorizontalAlignment = Element.ALIGN_CENTER });
+                        table.AddCell(new PdfPCell(new Phrase("Apellido", FontFactory.GetFont("Arial", 10))) { HorizontalAlignment = Element.ALIGN_CENTER });
+                        table.AddCell(new PdfPCell(new Phrase("Teléfono", FontFactory.GetFont("Arial", 10))) { HorizontalAlignment = Element.ALIGN_CENTER });
+                        table.AddCell(new PdfPCell(new Phrase("Domicilio", FontFactory.GetFont("Arial", 10))) { HorizontalAlignment = Element.ALIGN_CENTER });
+                        table.AddCell(new PdfPCell(new Phrase("Localidad", FontFactory.GetFont("Arial", 10))) { HorizontalAlignment = Element.ALIGN_CENTER });
+
+                        foreach (var proveedor in proveedores)
+                        {
+                            table.AddCell(new PdfPCell(new Phrase(proveedor.Id.ToString())) { HorizontalAlignment = Element.ALIGN_CENTER });
+                            table.AddCell(new PdfPCell(new Phrase(proveedor.Marca)) { HorizontalAlignment = Element.ALIGN_CENTER });
+                            table.AddCell(new PdfPCell(new Phrase(proveedor.Nombre)) { HorizontalAlignment = Element.ALIGN_CENTER });
+                            table.AddCell(new PdfPCell(new Phrase(proveedor.Apellido)) { HorizontalAlignment = Element.ALIGN_CENTER });
+                            table.AddCell(new PdfPCell(new Phrase(proveedor.Telefono)) { HorizontalAlignment = Element.ALIGN_CENTER });
+                            table.AddCell(new PdfPCell(new Phrase(proveedor.Domicilio)) { HorizontalAlignment = Element.ALIGN_CENTER });
+                            table.AddCell(new PdfPCell(new Phrase(proveedor.Localidad)) { HorizontalAlignment = Element.ALIGN_CENTER });
+                        }
+
+                        pdfDoc.Add(table);
+                    }
+                    else
+                    {
+                        pdfDoc.Add(new Paragraph("No hay proveedores disponibles.", FontFactory.GetFont("Arial", 12)));
+                    }
+
+                    pdfDoc.Close();
+                }
+
+                MaterialDialog materialDialog = new MaterialDialog(this, "Éxito", "Listado de proveedores descargado correctamente como PDF.", "OK");
+                materialDialog.ShowDialog(this);
+            }
+        }
+
         #endregion
 
         #region Tab Idiomas:
@@ -1515,6 +1577,51 @@ namespace UI
                 }
             }
         }
+
+        private void btnImportarProductos_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Archivo XML (*.xml)|*.xml",
+                FileName = "ListadoProductos.xml"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    List<BEProducto> productos = XMLHelper.DeserializarListaDeProductos(openFileDialog.FileName);
+                    listaProductosImportados.Items.Clear();
+
+                    foreach (BEProducto producto in productos)
+                    {
+                        string[] row =
+                        {
+                        producto.Id.ToString(),
+                        producto.Codigo,
+                        producto.Nombre,
+                        BLLProveedor.BuscarProveedorXId(producto.Proveedor).Marca,
+                        producto.Descripcion,
+                        producto.Gramos.ToString() + "g",
+                        producto.Bandeja.ToString(),
+                        "$" + producto.CostoUnitario.ToString(),
+                        "$" + producto.PrecioVenta.ToString(),
+                        "$" + producto.Ganancia.ToString(),
+                        producto.Cantidad.ToString()
+                    };
+
+                        var item = new ListViewItem(row);
+
+                        listaProductosImportados.Items.Add(item);
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
             try
@@ -1886,8 +1993,41 @@ namespace UI
                 listaClientes.Items.Add(item);
             }
         }
-       
 
+        private void btnModCliente_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listaClientes.Items.Count <= 0) throw new Exception("No hay clientes para modificar.");
+                if (listaClientes.SelectedItems.Count == 0) throw new Exception("Selecciona una fila para modificar.");
+
+                BECliente cliente = new BECliente(Convert.ToInt16(listaClientes.SelectedItems[0].SubItems[0].Text));
+                cliente.Nombre = txtNombreCliente.Text;
+                cliente.Domicilio = txtDomicilioCliente.Text;
+                cliente.Localidad = txtLocalidadCliente.Text;
+                cliente.Telefono = Convert.ToInt32(txtTelefonoCliente.Text);
+
+                MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", $"¿Esta seguro que desea modificar el cliente {cliente.Nombre}?", "Sí, deseo modificarlo", true, "Cancelar");
+                DialogResult result = materialDialog.ShowDialog(this);
+                if (result == DialogResult.OK)
+                {
+                    bool guardado = BLLCliente.Editar(cliente);
+                    if (guardado)
+                    {
+                        MaterialSnackBar SnackBarMessage = new MaterialSnackBar($"Cliente modificado con exito", 2500);
+                        SnackBarMessage.Show(this);
+                        ActualizarListaClientes();
+                        listaClientes.SelectedItems.Clear();
+                        txtNombreCliente.Text = txtDomicilioCliente.Text = txtLocalidadCliente.Text = txtTelefonoCliente.Text = "";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
+            }
+        }
         private void btnAgregarCliente_Click(object sender, EventArgs e)
         {
             try
@@ -2019,150 +2159,76 @@ namespace UI
 
         #endregion
 
-        private void btnImportarProductos_Click(object sender, EventArgs e)
+        private void btnBackupBD_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Archivos de backup (*.bak)|*.bak";
+                saveFileDialog.Title = "Seleccionar ubicación para el backup";
+                saveFileDialog.FileName = "Backup_DistribuidoraDelHaras_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".bak";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string backupPath = saveFileDialog.FileName;
+
+                    try
+                    {
+
+                        bool response = BLLUsuario.RealizarBackup(backupPath);
+                        if (response)
+                        {
+                            MaterialSnackBar SnackBarMessage = new MaterialSnackBar($"Backup exitoso", 2500);
+                            SnackBarMessage.Show(this);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                        materialDialog.ShowDialog(this);
+                    }
+                }
+            }
+        }
+
+        private void btnRestoreBD_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
-                Filter = "Archivo XML (*.xml)|*.xml",
-                FileName = "ListadoProductos.xml"
+                Filter = "Archivos de Backup (*.bak)|*.bak",
+                Title = "Seleccionar Backup para Restaurar"
             };
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                try
-                {
-                    List<BEProducto> productos = XMLHelper.DeserializarListaDeProductos(openFileDialog.FileName);
-                    listaProductosImportados.Items.Clear();
+                string rutaBackup = openFileDialog.FileName;
 
-                    foreach (BEProducto producto in productos)
+                DialogResult confirmacion = MessageBox.Show(
+                    "¿Está seguro de que desea restaurar este backup? Se perderán los datos actuales.",
+                    "Confirmación de Restauración",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (confirmacion == DialogResult.Yes)
+                {
+                    try
                     {
-                        string[] row =
+                        if (BLLUsuario.RestaurarBackup(rutaBackup))
                         {
-                        producto.Id.ToString(),
-                        producto.Codigo,
-                        producto.Nombre,
-                        BLLProveedor.BuscarProveedorXId(producto.Proveedor).Marca,
-                        producto.Descripcion,
-                        producto.Gramos.ToString() + "g",
-                        producto.Bandeja.ToString(),
-                        "$" + producto.CostoUnitario.ToString(),
-                        "$" + producto.PrecioVenta.ToString(),
-                        "$" + producto.Ganancia.ToString(),
-                        producto.Cantidad.ToString()
-                    };
-
-                        var item = new ListViewItem(row);
-
-                        listaProductosImportados.Items.Add(item);
-                    }
-
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-            }
-        }
-
-        private void btnExportarPdf_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "PDF files (.pdf)|*.pdf";
-            saveFileDialog.Title = "Guardar listado de proveedores como PDF";
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                List<BEProveedor> proveedores = BLLProveedor.Listar();
-
-                using (var stream = new FileStream(saveFileDialog.FileName, FileMode.Create))
-                {
-                    Document pdfDoc = new Document(PageSize.A4);
-                    PdfWriter.GetInstance(pdfDoc, stream);
-                    pdfDoc.Open();
-
-                    // Título
-                    pdfDoc.Add(new Paragraph("Listado de Proveedores", FontFactory.GetFont("Arial", 16)));
-                    pdfDoc.Add(new Paragraph($"Fecha de exportación: {DateTime.Now.ToString("dd/MM/yyyy")}\n\n"));
-
-                    if (proveedores != null && proveedores.Count > 0)
-                    {
-                        PdfPTable table = new PdfPTable(7);
-                        table.WidthPercentage = 100;
-                        table.SetWidths(new float[] { 1.5f, 2f, 2f, 2f, 2f, 3f, 3f });
-
-                        table.AddCell(new PdfPCell(new Phrase("ID", FontFactory.GetFont("Arial", 10))) { HorizontalAlignment = Element.ALIGN_CENTER });
-                        table.AddCell(new PdfPCell(new Phrase("Marca", FontFactory.GetFont("Arial", 10))) { HorizontalAlignment = Element.ALIGN_CENTER });
-                        table.AddCell(new PdfPCell(new Phrase("Nombre", FontFactory.GetFont("Arial", 10))) { HorizontalAlignment = Element.ALIGN_CENTER });
-                        table.AddCell(new PdfPCell(new Phrase("Apellido", FontFactory.GetFont("Arial", 10))) { HorizontalAlignment = Element.ALIGN_CENTER });
-                        table.AddCell(new PdfPCell(new Phrase("Teléfono", FontFactory.GetFont("Arial", 10))) { HorizontalAlignment = Element.ALIGN_CENTER });
-                        table.AddCell(new PdfPCell(new Phrase("Domicilio", FontFactory.GetFont("Arial", 10))) { HorizontalAlignment = Element.ALIGN_CENTER });
-                        table.AddCell(new PdfPCell(new Phrase("Localidad", FontFactory.GetFont("Arial", 10))) { HorizontalAlignment = Element.ALIGN_CENTER });
-
-                        foreach (var proveedor in proveedores)
-                        {
-                            table.AddCell(new PdfPCell(new Phrase(proveedor.Id.ToString())) { HorizontalAlignment = Element.ALIGN_CENTER });
-                            table.AddCell(new PdfPCell(new Phrase(proveedor.Marca)) { HorizontalAlignment = Element.ALIGN_CENTER });
-                            table.AddCell(new PdfPCell(new Phrase(proveedor.Nombre)) { HorizontalAlignment = Element.ALIGN_CENTER });
-                            table.AddCell(new PdfPCell(new Phrase(proveedor.Apellido)) { HorizontalAlignment = Element.ALIGN_CENTER });
-                            table.AddCell(new PdfPCell(new Phrase(proveedor.Telefono)) { HorizontalAlignment = Element.ALIGN_CENTER });
-                            table.AddCell(new PdfPCell(new Phrase(proveedor.Domicilio)) { HorizontalAlignment = Element.ALIGN_CENTER });
-                            table.AddCell(new PdfPCell(new Phrase(proveedor.Localidad)) { HorizontalAlignment = Element.ALIGN_CENTER });
+                            MessageBox.Show("Restauración realizada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Application.Restart();
                         }
-
-                        pdfDoc.Add(table);
+                        else
+                        {
+                            MessageBox.Show("Error al restaurar la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        pdfDoc.Add(new Paragraph("No hay proveedores disponibles.", FontFactory.GetFont("Arial", 12)));
-                    }
-
-                    pdfDoc.Close();
-                }
-
-                // Confirmación
-                MaterialDialog materialDialog = new MaterialDialog(this, "Éxito", "Listado de proveedores descargado correctamente como PDF.", "OK");
-                materialDialog.ShowDialog(this);
-            }
-        }
-
-        private void btnModCliente_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (listaClientes.Items.Count <= 0) throw new Exception("No hay clientes para modificar.");
-                if (listaClientes.SelectedItems.Count == 0) throw new Exception("Selecciona una fila para modificar.");
-
-                BECliente cliente = new BECliente(Convert.ToInt16(listaClientes.SelectedItems[0].SubItems[0].Text));
-                cliente.Nombre = txtNombreCliente.Text;
-                cliente.Domicilio = txtDomicilioCliente.Text;
-                cliente.Localidad = txtLocalidadCliente.Text;
-                cliente.Telefono = Convert.ToInt32(txtTelefonoCliente.Text);
-
-                MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", $"¿Esta seguro que desea modificar el cliente {cliente.Nombre}?", "Sí, deseo modificarlo", true, "Cancelar");
-                DialogResult result = materialDialog.ShowDialog(this);
-                if (result == DialogResult.OK)
-                {
-                    bool guardado = BLLCliente.Editar(cliente);
-                    if (guardado)
-                    {
-                        MaterialSnackBar SnackBarMessage = new MaterialSnackBar($"Cliente modificado con exito", 2500);
-                        SnackBarMessage.Show(this);
-                        ActualizarListaClientes();
-                        listaClientes.SelectedItems.Clear();
-                        txtNombreCliente.Text = txtDomicilioCliente.Text = txtLocalidadCliente.Text = txtTelefonoCliente.Text = "";
+                        MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
-                materialDialog.ShowDialog(this);
-            }
-        }
-
-        private void materialCard8_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

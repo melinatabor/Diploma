@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -11,6 +12,70 @@ namespace DAL
         private static SqlConnection _connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DistribuidoraDelHaras"].ConnectionString);
         private static SqlCommand _command;
         private static SqlTransaction _transaction;
+
+        public static bool Backup(string rutaBackup)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DistribuidoraDelHaras"].ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand backupCmd = new SqlCommand("BACKUP DATABASE [DistribuidoraDelHaras] TO DISK = @RutaBackup WITH FORMAT, INIT, NAME = 'Backup de Distribuidora del Haras';", connection))
+                    {
+                        backupCmd.Parameters.AddWithValue("@RutaBackup", rutaBackup);
+                        backupCmd.ExecuteNonQuery();
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al realizar backup de la base de datos: {ex.Message}", ex);
+            }
+            finally
+            {
+                if (_connection.State != ConnectionState.Closed) _connection.Close();
+            }
+        }
+
+        public static bool Restore(string backupPath)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DistribuidoraDelHaras"].ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand singleUserCmd = new SqlCommand("USE master; ALTER DATABASE [DistribuidoraDelHaras] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;", connection))
+                    {
+                        singleUserCmd.ExecuteNonQuery();
+                    }
+
+                    using (SqlCommand restoreCmd = new SqlCommand("USE master; RESTORE DATABASE [DistribuidoraDelHaras] FROM DISK = @RutaBackup WITH REPLACE;", connection))
+                    {
+                        restoreCmd.Parameters.AddWithValue("@RutaBackup", backupPath);
+                        restoreCmd.ExecuteNonQuery();
+                    }
+
+                    using (SqlCommand multiUserCmd = new SqlCommand("USE master; ALTER DATABASE [DistribuidoraDelHaras] SET MULTI_USER;", connection))
+                    {
+                        multiUserCmd.ExecuteNonQuery();
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al restaurar la base de datos: {ex.Message}", ex);
+            }
+            finally
+            {
+                if (_connection.State != ConnectionState.Closed) _connection.Close();
+            }
+        }
 
         public static DataTable ExecuteDataTable(string query, Hashtable parametros, bool isStoredProcedure = false)
         {
@@ -135,5 +200,7 @@ namespace DAL
                 if (_connection.State != ConnectionState.Closed) _connection.Close();
             }
         }
+
+      
     }
 }
