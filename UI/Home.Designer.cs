@@ -128,6 +128,7 @@
             this.tabSelectorUsuarios = new MaterialSkin.Controls.MaterialTabSelector();
             this.tabProveedores = new System.Windows.Forms.TabPage();
             this.materialCard6 = new MaterialSkin.Controls.MaterialCard();
+            this.btnExportarPdf = new MaterialSkin.Controls.MaterialButton();
             this.btnProvEliminar = new MaterialSkin.Controls.MaterialButton();
             this.btnProvModificar = new MaterialSkin.Controls.MaterialButton();
             this.txtProvLocalidad = new MaterialSkin.Controls.MaterialTextBox();
@@ -149,6 +150,7 @@
             this.tabControlProductos = new MaterialSkin.Controls.MaterialTabControl();
             this.tabListadoProductos = new System.Windows.Forms.TabPage();
             this.materialCard7 = new MaterialSkin.Controls.MaterialCard();
+            this.btnExportarListadoProductos = new MaterialSkin.Controls.MaterialButton();
             this.btnEliminarProducto = new MaterialSkin.Controls.MaterialButton();
             this.txtModStockProd = new MaterialSkin.Controls.MaterialTextBox();
             this.btnModProducto = new MaterialSkin.Controls.MaterialButton();
@@ -185,9 +187,24 @@
             this.ddProveedor = new MaterialSkin.Controls.MaterialComboBox();
             this.txtCodProd = new MaterialSkin.Controls.MaterialTextBox();
             this.txtNombreProd = new MaterialSkin.Controls.MaterialTextBox();
+            this.tabImportarProductos = new System.Windows.Forms.TabPage();
+            this.listaProductosImportados = new MaterialSkin.Controls.MaterialListView();
+            this.columnHeader34 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader35 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader36 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader37 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader38 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader39 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader40 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader41 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader42 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader43 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader44 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnImportarProductos = new MaterialSkin.Controls.MaterialButton();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.tabClientes = new System.Windows.Forms.TabPage();
             this.materialCard10 = new MaterialSkin.Controls.MaterialCard();
+            this.btnModCliente = new MaterialSkin.Controls.MaterialButton();
             this.btnLimpiarClientes = new MaterialSkin.Controls.MaterialButton();
             this.btnEliminarCliente = new MaterialSkin.Controls.MaterialButton();
             this.btnModificarCliente = new MaterialSkin.Controls.MaterialButton();
@@ -238,23 +255,6 @@
             this.txtCantidadCompra = new MaterialSkin.Controls.MaterialTextBox();
             this.ddProductos = new MaterialSkin.Controls.MaterialComboBox();
             this.materialTabSelector2 = new MaterialSkin.Controls.MaterialTabSelector();
-            this.btnExportarListadoProductos = new MaterialSkin.Controls.MaterialButton();
-            this.tabImportarProductos = new System.Windows.Forms.TabPage();
-            this.listaProductosImportados = new MaterialSkin.Controls.MaterialListView();
-            this.columnHeader34 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader35 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader36 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader37 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader38 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader39 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader40 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader41 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader42 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader43 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader44 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnImportarProductos = new MaterialSkin.Controls.MaterialButton();
-            this.btnExportarPdf = new MaterialSkin.Controls.MaterialButton();
-            this.btnModCliente = new MaterialSkin.Controls.MaterialButton();
             this.tabCerrar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabHistorial.SuspendLayout();
@@ -287,6 +287,7 @@
             this.materialCard7.SuspendLayout();
             this.tabNuevoProducto.SuspendLayout();
             this.materialCard5.SuspendLayout();
+            this.tabImportarProductos.SuspendLayout();
             this.tabClientes.SuspendLayout();
             this.materialCard10.SuspendLayout();
             this.tabInicio.SuspendLayout();
@@ -298,7 +299,6 @@
             this.materialCard9.SuspendLayout();
             this.tabCompras.SuspendLayout();
             this.materialCard8.SuspendLayout();
-            this.tabImportarProductos.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabCerrar
@@ -306,7 +306,7 @@
             this.tabCerrar.Controls.Add(this.pictureBox2);
             this.tabCerrar.Location = new System.Drawing.Point(4, 22);
             this.tabCerrar.Name = "tabCerrar";
-            this.tabCerrar.Size = new System.Drawing.Size(1372, 662);
+            this.tabCerrar.Size = new System.Drawing.Size(1030, 662);
             this.tabCerrar.TabIndex = 5;
             this.tabCerrar.Tag = "tabCerrar";
             this.tabCerrar.Text = "Cerrar Sesión";
@@ -330,7 +330,7 @@
             this.tabHistorial.Controls.Add(this.materialCard4);
             this.tabHistorial.Location = new System.Drawing.Point(4, 22);
             this.tabHistorial.Name = "tabHistorial";
-            this.tabHistorial.Size = new System.Drawing.Size(1372, 662);
+            this.tabHistorial.Size = new System.Drawing.Size(1030, 662);
             this.tabHistorial.TabIndex = 4;
             this.tabHistorial.Tag = "tabHistorial";
             this.tabHistorial.Text = "Historial";
@@ -358,7 +358,7 @@
             this.materialCard4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard4.Name = "materialCard4";
             this.materialCard4.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard4.Size = new System.Drawing.Size(1372, 662);
+            this.materialCard4.Size = new System.Drawing.Size(1030, 662);
             this.materialCard4.TabIndex = 0;
             // 
             // btnFiltrar
@@ -370,7 +370,7 @@
             this.btnFiltrar.Depth = 0;
             this.btnFiltrar.HighEmphasis = true;
             this.btnFiltrar.Icon = global::UI.Properties.Resources.Filtrar;
-            this.btnFiltrar.Location = new System.Drawing.Point(778, 39);
+            this.btnFiltrar.Location = new System.Drawing.Point(436, 39);
             this.btnFiltrar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnFiltrar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnFiltrar.Name = "btnFiltrar";
@@ -394,7 +394,7 @@
             this.btnLeft.Enabled = false;
             this.btnLeft.HighEmphasis = true;
             this.btnLeft.Icon = global::UI.Properties.Resources.Left;
-            this.btnLeft.Location = new System.Drawing.Point(500, 435);
+            this.btnLeft.Location = new System.Drawing.Point(329, 435);
             this.btnLeft.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnLeft.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnLeft.Name = "btnLeft";
@@ -415,7 +415,7 @@
             this.btnRight.Depth = 0;
             this.btnRight.HighEmphasis = true;
             this.btnRight.Icon = global::UI.Properties.Resources.Right;
-            this.btnRight.Location = new System.Drawing.Point(723, 435);
+            this.btnRight.Location = new System.Drawing.Point(552, 435);
             this.btnRight.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnRight.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnRight.Name = "btnRight";
@@ -504,7 +504,7 @@
             this.labelPagina.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.labelPagina.AutoSize = true;
             this.labelPagina.Font = new System.Drawing.Font("Segoe UI Semilight", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPagina.Location = new System.Drawing.Point(563, 435);
+            this.labelPagina.Location = new System.Drawing.Point(392, 435);
             this.labelPagina.Name = "labelPagina";
             this.labelPagina.Size = new System.Drawing.Size(87, 30);
             this.labelPagina.TabIndex = 27;
@@ -560,7 +560,7 @@
             this.gridBitacora.RowHeadersWidth = 82;
             this.gridBitacora.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridBitacora.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridBitacora.Size = new System.Drawing.Size(1196, 213);
+            this.gridBitacora.Size = new System.Drawing.Size(854, 213);
             this.gridBitacora.Style = MetroFramework.MetroColorStyle.Purple;
             this.gridBitacora.TabIndex = 24;
             // 
@@ -592,7 +592,7 @@
             this.tabRestaurar.Controls.Add(this.dgvUsuariosHistoricos);
             this.tabRestaurar.Location = new System.Drawing.Point(4, 22);
             this.tabRestaurar.Name = "tabRestaurar";
-            this.tabRestaurar.Size = new System.Drawing.Size(1372, 662);
+            this.tabRestaurar.Size = new System.Drawing.Size(1030, 662);
             this.tabRestaurar.TabIndex = 3;
             this.tabRestaurar.Tag = "tabRestaurar";
             this.tabRestaurar.Text = "Restaurar";
@@ -712,7 +712,7 @@
             this.tabPermisos.Location = new System.Drawing.Point(4, 22);
             this.tabPermisos.Name = "tabPermisos";
             this.tabPermisos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPermisos.Size = new System.Drawing.Size(1372, 662);
+            this.tabPermisos.Size = new System.Drawing.Size(1030, 662);
             this.tabPermisos.TabIndex = 2;
             this.tabPermisos.Tag = "tabPermisos";
             this.tabPermisos.Text = "Permisos";
@@ -1077,7 +1077,7 @@
             this.tabIdiomas.Location = new System.Drawing.Point(4, 22);
             this.tabIdiomas.Name = "tabIdiomas";
             this.tabIdiomas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabIdiomas.Size = new System.Drawing.Size(1372, 662);
+            this.tabIdiomas.Size = new System.Drawing.Size(1030, 662);
             this.tabIdiomas.TabIndex = 1;
             this.tabIdiomas.Tag = "tabIdiomas";
             this.tabIdiomas.Text = "Idiomas";
@@ -1102,7 +1102,7 @@
             this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard3.Name = "materialCard3";
             this.materialCard3.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard3.Size = new System.Drawing.Size(1366, 656);
+            this.materialCard3.Size = new System.Drawing.Size(1024, 656);
             this.materialCard3.TabIndex = 3;
             // 
             // btnAgregarIdioma
@@ -1114,7 +1114,7 @@
             this.btnAgregarIdioma.Depth = 0;
             this.btnAgregarIdioma.HighEmphasis = true;
             this.btnAgregarIdioma.Icon = global::UI.Properties.Resources.Right;
-            this.btnAgregarIdioma.Location = new System.Drawing.Point(1098, 180);
+            this.btnAgregarIdioma.Location = new System.Drawing.Point(756, 180);
             this.btnAgregarIdioma.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAgregarIdioma.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAgregarIdioma.Name = "btnAgregarIdioma";
@@ -1143,7 +1143,7 @@
             this.inputNuevoIdioma.MouseState = MaterialSkin.MouseState.OUT;
             this.inputNuevoIdioma.Multiline = false;
             this.inputNuevoIdioma.Name = "inputNuevoIdioma";
-            this.inputNuevoIdioma.Size = new System.Drawing.Size(299, 50);
+            this.inputNuevoIdioma.Size = new System.Drawing.Size(0, 50);
             this.inputNuevoIdioma.TabIndex = 16;
             this.inputNuevoIdioma.Tag = "nuevoIdioma";
             this.inputNuevoIdioma.Text = "";
@@ -1158,7 +1158,7 @@
             this.btnModificarTraduccion.Depth = 0;
             this.btnModificarTraduccion.HighEmphasis = true;
             this.btnModificarTraduccion.Icon = global::UI.Properties.Resources.Right;
-            this.btnModificarTraduccion.Location = new System.Drawing.Point(1098, 379);
+            this.btnModificarTraduccion.Location = new System.Drawing.Point(756, 379);
             this.btnModificarTraduccion.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnModificarTraduccion.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnModificarTraduccion.Name = "btnModificarTraduccion";
@@ -1180,7 +1180,7 @@
             this.txtTraduccion.Depth = 0;
             this.txtTraduccion.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtTraduccion.LeadingIcon = null;
-            this.txtTraduccion.Location = new System.Drawing.Point(1098, 329);
+            this.txtTraduccion.Location = new System.Drawing.Point(756, 329);
             this.txtTraduccion.MaxLength = 50;
             this.txtTraduccion.MouseState = MaterialSkin.MouseState.OUT;
             this.txtTraduccion.Multiline = false;
@@ -1196,7 +1196,7 @@
             this.labelTag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTag.AutoSize = true;
             this.labelTag.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTag.Location = new System.Drawing.Point(1095, 301);
+            this.labelTag.Location = new System.Drawing.Point(753, 301);
             this.labelTag.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTag.Name = "labelTag";
             this.labelTag.Size = new System.Drawing.Size(51, 25);
@@ -1231,7 +1231,7 @@
             this.listaIdiomas.Name = "listaIdiomas";
             this.listaIdiomas.OwnerDraw = true;
             this.listaIdiomas.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.listaIdiomas.Size = new System.Drawing.Size(985, 494);
+            this.listaIdiomas.Size = new System.Drawing.Size(643, 494);
             this.listaIdiomas.TabIndex = 12;
             this.listaIdiomas.UseCompatibleStateImageBehavior = false;
             this.listaIdiomas.View = System.Windows.Forms.View.Details;
@@ -1316,7 +1316,7 @@
             this.tabUsuarios.Location = new System.Drawing.Point(4, 22);
             this.tabUsuarios.Name = "tabUsuarios";
             this.tabUsuarios.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUsuarios.Size = new System.Drawing.Size(1372, 662);
+            this.tabUsuarios.Size = new System.Drawing.Size(1030, 662);
             this.tabUsuarios.TabIndex = 0;
             this.tabUsuarios.Tag = "tabUsuarios";
             this.tabUsuarios.Text = "Usuarios";
@@ -1329,7 +1329,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1366, 656);
+            this.panel1.Size = new System.Drawing.Size(1024, 656);
             this.panel1.TabIndex = 14;
             // 
             // tabControlUsuarios
@@ -1344,7 +1344,7 @@
             this.tabControlUsuarios.Multiline = true;
             this.tabControlUsuarios.Name = "tabControlUsuarios";
             this.tabControlUsuarios.SelectedIndex = 0;
-            this.tabControlUsuarios.Size = new System.Drawing.Size(1366, 598);
+            this.tabControlUsuarios.Size = new System.Drawing.Size(1024, 598);
             this.tabControlUsuarios.TabIndex = 15;
             // 
             // tabListaUsuarios
@@ -1357,7 +1357,7 @@
             this.tabListaUsuarios.Location = new System.Drawing.Point(4, 22);
             this.tabListaUsuarios.Name = "tabListaUsuarios";
             this.tabListaUsuarios.Padding = new System.Windows.Forms.Padding(3);
-            this.tabListaUsuarios.Size = new System.Drawing.Size(1358, 572);
+            this.tabListaUsuarios.Size = new System.Drawing.Size(1016, 572);
             this.tabListaUsuarios.TabIndex = 1;
             this.tabListaUsuarios.Text = "Listado";
             // 
@@ -1391,7 +1391,7 @@
             this.listaUsuarios.Name = "listaUsuarios";
             this.listaUsuarios.OwnerDraw = true;
             this.listaUsuarios.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.listaUsuarios.Size = new System.Drawing.Size(1358, 374);
+            this.listaUsuarios.Size = new System.Drawing.Size(1016, 374);
             this.listaUsuarios.TabIndex = 0;
             this.listaUsuarios.UseCompatibleStateImageBehavior = false;
             this.listaUsuarios.View = System.Windows.Forms.View.Details;
@@ -1449,7 +1449,7 @@
             this.btnAgregarUsuario.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnAgregarUsuario.HighEmphasis = true;
             this.btnAgregarUsuario.Icon = null;
-            this.btnAgregarUsuario.Location = new System.Drawing.Point(154, 411);
+            this.btnAgregarUsuario.Location = new System.Drawing.Point(-17, 411);
             this.btnAgregarUsuario.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAgregarUsuario.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAgregarUsuario.Name = "btnAgregarUsuario";
@@ -1472,7 +1472,7 @@
             this.btnModificarUsuario.Depth = 0;
             this.btnModificarUsuario.HighEmphasis = true;
             this.btnModificarUsuario.Icon = null;
-            this.btnModificarUsuario.Location = new System.Drawing.Point(525, 413);
+            this.btnModificarUsuario.Location = new System.Drawing.Point(354, 413);
             this.btnModificarUsuario.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnModificarUsuario.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnModificarUsuario.Name = "btnModificarUsuario";
@@ -1497,7 +1497,7 @@
             this.btnEliminarUsuario.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnEliminarUsuario.HighEmphasis = true;
             this.btnEliminarUsuario.Icon = null;
-            this.btnEliminarUsuario.Location = new System.Drawing.Point(885, 411);
+            this.btnEliminarUsuario.Location = new System.Drawing.Point(714, 411);
             this.btnEliminarUsuario.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnEliminarUsuario.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnEliminarUsuario.Name = "btnEliminarUsuario";
@@ -1841,7 +1841,7 @@
             this.tabSelectorUsuarios.Location = new System.Drawing.Point(0, 0);
             this.tabSelectorUsuarios.MouseState = MaterialSkin.MouseState.HOVER;
             this.tabSelectorUsuarios.Name = "tabSelectorUsuarios";
-            this.tabSelectorUsuarios.Size = new System.Drawing.Size(1366, 58);
+            this.tabSelectorUsuarios.Size = new System.Drawing.Size(1024, 58);
             this.tabSelectorUsuarios.TabIndex = 14;
             this.tabSelectorUsuarios.Text = "materialTabSelector1";
             // 
@@ -1852,6 +1852,7 @@
             this.tabProveedores.Name = "tabProveedores";
             this.tabProveedores.Size = new System.Drawing.Size(1030, 662);
             this.tabProveedores.TabIndex = 8;
+            this.tabProveedores.Tag = "tabProveedores";
             this.tabProveedores.Text = "Proveedores";
             this.tabProveedores.UseVisualStyleBackColor = true;
             // 
@@ -1879,6 +1880,29 @@
             this.materialCard6.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard6.Size = new System.Drawing.Size(1030, 662);
             this.materialCard6.TabIndex = 2;
+            // 
+            // btnExportarPdf
+            // 
+            this.btnExportarPdf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExportarPdf.AutoSize = false;
+            this.btnExportarPdf.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnExportarPdf.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnExportarPdf.Depth = 0;
+            this.btnExportarPdf.HighEmphasis = true;
+            this.btnExportarPdf.Icon = null;
+            this.btnExportarPdf.Location = new System.Drawing.Point(600, 610);
+            this.btnExportarPdf.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnExportarPdf.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnExportarPdf.Name = "btnExportarPdf";
+            this.btnExportarPdf.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnExportarPdf.Size = new System.Drawing.Size(245, 32);
+            this.btnExportarPdf.TabIndex = 11;
+            this.btnExportarPdf.Tag = "btnProvModificar";
+            this.btnExportarPdf.Text = "Exportar pdf";
+            this.btnExportarPdf.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnExportarPdf.UseAccentColor = false;
+            this.btnExportarPdf.UseVisualStyleBackColor = true;
+            this.btnExportarPdf.Click += new System.EventHandler(this.btnExportarPdf_Click);
             // 
             // btnProvEliminar
             // 
@@ -2148,6 +2172,7 @@
             this.tabProductos.Padding = new System.Windows.Forms.Padding(3);
             this.tabProductos.Size = new System.Drawing.Size(1030, 662);
             this.tabProductos.TabIndex = 7;
+            this.tabProductos.Tag = "tabProductos";
             this.tabProductos.Text = "Productos";
             this.tabProductos.UseVisualStyleBackColor = true;
             // 
@@ -2203,6 +2228,29 @@
             this.materialCard7.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard7.Size = new System.Drawing.Size(1010, 322);
             this.materialCard7.TabIndex = 1;
+            // 
+            // btnExportarListadoProductos
+            // 
+            this.btnExportarListadoProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExportarListadoProductos.AutoSize = false;
+            this.btnExportarListadoProductos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnExportarListadoProductos.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnExportarListadoProductos.Depth = 0;
+            this.btnExportarListadoProductos.HighEmphasis = true;
+            this.btnExportarListadoProductos.Icon = null;
+            this.btnExportarListadoProductos.Location = new System.Drawing.Point(718, 225);
+            this.btnExportarListadoProductos.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnExportarListadoProductos.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnExportarListadoProductos.Name = "btnExportarListadoProductos";
+            this.btnExportarListadoProductos.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnExportarListadoProductos.Size = new System.Drawing.Size(271, 39);
+            this.btnExportarListadoProductos.TabIndex = 31;
+            this.btnExportarListadoProductos.Tag = "btnModProducto";
+            this.btnExportarListadoProductos.Text = "Exportar listado";
+            this.btnExportarListadoProductos.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnExportarListadoProductos.UseAccentColor = false;
+            this.btnExportarListadoProductos.UseVisualStyleBackColor = true;
+            this.btnExportarListadoProductos.Click += new System.EventHandler(this.btnExportarListadoProductos_Click);
             // 
             // btnEliminarProducto
             // 
@@ -2794,6 +2842,126 @@
             this.txtNombreProd.TrailingIcon = null;
             this.txtNombreProd.UseAccent = false;
             // 
+            // tabImportarProductos
+            // 
+            this.tabImportarProductos.Controls.Add(this.listaProductosImportados);
+            this.tabImportarProductos.Controls.Add(this.btnImportarProductos);
+            this.tabImportarProductos.Location = new System.Drawing.Point(4, 22);
+            this.tabImportarProductos.Name = "tabImportarProductos";
+            this.tabImportarProductos.Size = new System.Drawing.Size(1016, 582);
+            this.tabImportarProductos.TabIndex = 2;
+            this.tabImportarProductos.Text = "Importar Productos";
+            this.tabImportarProductos.UseVisualStyleBackColor = true;
+            // 
+            // listaProductosImportados
+            // 
+            this.listaProductosImportados.AutoSizeTable = false;
+            this.listaProductosImportados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.listaProductosImportados.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listaProductosImportados.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader34,
+            this.columnHeader35,
+            this.columnHeader36,
+            this.columnHeader37,
+            this.columnHeader38,
+            this.columnHeader39,
+            this.columnHeader40,
+            this.columnHeader41,
+            this.columnHeader42,
+            this.columnHeader43,
+            this.columnHeader44});
+            this.listaProductosImportados.Depth = 0;
+            this.listaProductosImportados.Dock = System.Windows.Forms.DockStyle.Top;
+            this.listaProductosImportados.FullRowSelect = true;
+            this.listaProductosImportados.HideSelection = false;
+            this.listaProductosImportados.Location = new System.Drawing.Point(0, 0);
+            this.listaProductosImportados.MinimumSize = new System.Drawing.Size(200, 100);
+            this.listaProductosImportados.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.listaProductosImportados.MouseState = MaterialSkin.MouseState.OUT;
+            this.listaProductosImportados.Name = "listaProductosImportados";
+            this.listaProductosImportados.OwnerDraw = true;
+            this.listaProductosImportados.Size = new System.Drawing.Size(1016, 255);
+            this.listaProductosImportados.TabIndex = 32;
+            this.listaProductosImportados.UseCompatibleStateImageBehavior = false;
+            this.listaProductosImportados.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader34
+            // 
+            this.columnHeader34.Text = "Id";
+            // 
+            // columnHeader35
+            // 
+            this.columnHeader35.Text = "Código artículo";
+            this.columnHeader35.Width = 146;
+            // 
+            // columnHeader36
+            // 
+            this.columnHeader36.Text = "Nombre";
+            this.columnHeader36.Width = 141;
+            // 
+            // columnHeader37
+            // 
+            this.columnHeader37.Text = "Proveedor";
+            this.columnHeader37.Width = 136;
+            // 
+            // columnHeader38
+            // 
+            this.columnHeader38.Text = "Descripcion";
+            this.columnHeader38.Width = 158;
+            // 
+            // columnHeader39
+            // 
+            this.columnHeader39.Text = "Gramos";
+            this.columnHeader39.Width = 87;
+            // 
+            // columnHeader40
+            // 
+            this.columnHeader40.Text = "Bandeja";
+            this.columnHeader40.Width = 87;
+            // 
+            // columnHeader41
+            // 
+            this.columnHeader41.Text = "Costo unitario";
+            this.columnHeader41.Width = 124;
+            // 
+            // columnHeader42
+            // 
+            this.columnHeader42.Text = "Precio venta";
+            this.columnHeader42.Width = 131;
+            // 
+            // columnHeader43
+            // 
+            this.columnHeader43.Text = "Ganancia";
+            this.columnHeader43.Width = 125;
+            // 
+            // columnHeader44
+            // 
+            this.columnHeader44.Text = "Stock";
+            this.columnHeader44.Width = 153;
+            // 
+            // btnImportarProductos
+            // 
+            this.btnImportarProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnImportarProductos.AutoSize = false;
+            this.btnImportarProductos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnImportarProductos.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnImportarProductos.Depth = 0;
+            this.btnImportarProductos.HighEmphasis = true;
+            this.btnImportarProductos.Icon = null;
+            this.btnImportarProductos.Location = new System.Drawing.Point(579, 315);
+            this.btnImportarProductos.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnImportarProductos.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnImportarProductos.Name = "btnImportarProductos";
+            this.btnImportarProductos.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnImportarProductos.Size = new System.Drawing.Size(271, 39);
+            this.btnImportarProductos.TabIndex = 33;
+            this.btnImportarProductos.Tag = "btnModProducto";
+            this.btnImportarProductos.Text = "Importar listado productos";
+            this.btnImportarProductos.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnImportarProductos.UseAccentColor = false;
+            this.btnImportarProductos.UseVisualStyleBackColor = true;
+            this.btnImportarProductos.Click += new System.EventHandler(this.btnImportarProductos_Click);
+            // 
             // materialTabSelector1
             // 
             this.materialTabSelector1.BaseTabControl = this.tabControlProductos;
@@ -2815,6 +2983,7 @@
             this.tabClientes.Name = "tabClientes";
             this.tabClientes.Size = new System.Drawing.Size(1030, 662);
             this.tabClientes.TabIndex = 10;
+            this.tabClientes.Tag = "tabClientes";
             this.tabClientes.Text = "Clientes";
             this.tabClientes.UseVisualStyleBackColor = true;
             // 
@@ -2841,6 +3010,28 @@
             this.materialCard10.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard10.Size = new System.Drawing.Size(1030, 662);
             this.materialCard10.TabIndex = 3;
+            // 
+            // btnModCliente
+            // 
+            this.btnModCliente.AutoSize = false;
+            this.btnModCliente.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnModCliente.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnModCliente.Depth = 0;
+            this.btnModCliente.HighEmphasis = true;
+            this.btnModCliente.Icon = null;
+            this.btnModCliente.Location = new System.Drawing.Point(554, 390);
+            this.btnModCliente.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnModCliente.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnModCliente.Name = "btnModCliente";
+            this.btnModCliente.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnModCliente.Size = new System.Drawing.Size(167, 78);
+            this.btnModCliente.TabIndex = 12;
+            this.btnModCliente.Tag = "btnProvAgregar";
+            this.btnModCliente.Text = "Modificar";
+            this.btnModCliente.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnModCliente.UseAccentColor = false;
+            this.btnModCliente.UseVisualStyleBackColor = true;
+            this.btnModCliente.Click += new System.EventHandler(this.btnModCliente_Click);
             // 
             // btnLimpiarClientes
             // 
@@ -3065,8 +3256,9 @@
             // 
             this.tabVentas.Location = new System.Drawing.Point(4, 22);
             this.tabVentas.Name = "tabVentas";
-            this.tabVentas.Size = new System.Drawing.Size(1372, 662);
+            this.tabVentas.Size = new System.Drawing.Size(1030, 662);
             this.tabVentas.TabIndex = 9;
+            this.tabVentas.Tag = "tabVentas";
             this.tabVentas.Text = "Ventas";
             this.tabVentas.UseVisualStyleBackColor = true;
             // 
@@ -3143,6 +3335,7 @@
             this.tabInventario.Name = "tabInventario";
             this.tabInventario.Size = new System.Drawing.Size(1030, 662);
             this.tabInventario.TabIndex = 11;
+            this.tabInventario.Tag = "tabInventario";
             this.tabInventario.Text = "Inventario";
             this.tabInventario.UseVisualStyleBackColor = true;
             // 
@@ -3516,194 +3709,6 @@
             this.materialTabSelector2.TabIndex = 0;
             this.materialTabSelector2.Text = "materialTabSelector2";
             // 
-            // btnExportarListadoProductos
-            // 
-            this.btnExportarListadoProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnExportarListadoProductos.AutoSize = false;
-            this.btnExportarListadoProductos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnExportarListadoProductos.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnExportarListadoProductos.Depth = 0;
-            this.btnExportarListadoProductos.HighEmphasis = true;
-            this.btnExportarListadoProductos.Icon = null;
-            this.btnExportarListadoProductos.Location = new System.Drawing.Point(718, 225);
-            this.btnExportarListadoProductos.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnExportarListadoProductos.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnExportarListadoProductos.Name = "btnExportarListadoProductos";
-            this.btnExportarListadoProductos.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnExportarListadoProductos.Size = new System.Drawing.Size(271, 39);
-            this.btnExportarListadoProductos.TabIndex = 31;
-            this.btnExportarListadoProductos.Tag = "btnModProducto";
-            this.btnExportarListadoProductos.Text = "Exportar listado";
-            this.btnExportarListadoProductos.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnExportarListadoProductos.UseAccentColor = false;
-            this.btnExportarListadoProductos.UseVisualStyleBackColor = true;
-            this.btnExportarListadoProductos.Click += new System.EventHandler(this.btnExportarListadoProductos_Click);
-            // 
-            // tabImportarProductos
-            // 
-            this.tabImportarProductos.Controls.Add(this.listaProductosImportados);
-            this.tabImportarProductos.Controls.Add(this.btnImportarProductos);
-            this.tabImportarProductos.Location = new System.Drawing.Point(4, 22);
-            this.tabImportarProductos.Name = "tabImportarProductos";
-            this.tabImportarProductos.Size = new System.Drawing.Size(1016, 582);
-            this.tabImportarProductos.TabIndex = 2;
-            this.tabImportarProductos.Text = "Importar Productos";
-            this.tabImportarProductos.UseVisualStyleBackColor = true;
-            // 
-            // listaProductosImportados
-            // 
-            this.listaProductosImportados.AutoSizeTable = false;
-            this.listaProductosImportados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.listaProductosImportados.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listaProductosImportados.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader34,
-            this.columnHeader35,
-            this.columnHeader36,
-            this.columnHeader37,
-            this.columnHeader38,
-            this.columnHeader39,
-            this.columnHeader40,
-            this.columnHeader41,
-            this.columnHeader42,
-            this.columnHeader43,
-            this.columnHeader44});
-            this.listaProductosImportados.Depth = 0;
-            this.listaProductosImportados.Dock = System.Windows.Forms.DockStyle.Top;
-            this.listaProductosImportados.FullRowSelect = true;
-            this.listaProductosImportados.HideSelection = false;
-            this.listaProductosImportados.Location = new System.Drawing.Point(0, 0);
-            this.listaProductosImportados.MinimumSize = new System.Drawing.Size(200, 100);
-            this.listaProductosImportados.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.listaProductosImportados.MouseState = MaterialSkin.MouseState.OUT;
-            this.listaProductosImportados.Name = "listaProductosImportados";
-            this.listaProductosImportados.OwnerDraw = true;
-            this.listaProductosImportados.Size = new System.Drawing.Size(1016, 255);
-            this.listaProductosImportados.TabIndex = 32;
-            this.listaProductosImportados.UseCompatibleStateImageBehavior = false;
-            this.listaProductosImportados.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader34
-            // 
-            this.columnHeader34.Text = "Id";
-            // 
-            // columnHeader35
-            // 
-            this.columnHeader35.Text = "Código artículo";
-            this.columnHeader35.Width = 146;
-            // 
-            // columnHeader36
-            // 
-            this.columnHeader36.Text = "Nombre";
-            this.columnHeader36.Width = 141;
-            // 
-            // columnHeader37
-            // 
-            this.columnHeader37.Text = "Proveedor";
-            this.columnHeader37.Width = 136;
-            // 
-            // columnHeader38
-            // 
-            this.columnHeader38.Text = "Descripcion";
-            this.columnHeader38.Width = 158;
-            // 
-            // columnHeader39
-            // 
-            this.columnHeader39.Text = "Gramos";
-            this.columnHeader39.Width = 87;
-            // 
-            // columnHeader40
-            // 
-            this.columnHeader40.Text = "Bandeja";
-            this.columnHeader40.Width = 87;
-            // 
-            // columnHeader41
-            // 
-            this.columnHeader41.Text = "Costo unitario";
-            this.columnHeader41.Width = 124;
-            // 
-            // columnHeader42
-            // 
-            this.columnHeader42.Text = "Precio venta";
-            this.columnHeader42.Width = 131;
-            // 
-            // columnHeader43
-            // 
-            this.columnHeader43.Text = "Ganancia";
-            this.columnHeader43.Width = 125;
-            // 
-            // columnHeader44
-            // 
-            this.columnHeader44.Text = "Stock";
-            this.columnHeader44.Width = 153;
-            // 
-            // btnImportarProductos
-            // 
-            this.btnImportarProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnImportarProductos.AutoSize = false;
-            this.btnImportarProductos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnImportarProductos.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnImportarProductos.Depth = 0;
-            this.btnImportarProductos.HighEmphasis = true;
-            this.btnImportarProductos.Icon = null;
-            this.btnImportarProductos.Location = new System.Drawing.Point(579, 315);
-            this.btnImportarProductos.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnImportarProductos.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnImportarProductos.Name = "btnImportarProductos";
-            this.btnImportarProductos.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnImportarProductos.Size = new System.Drawing.Size(271, 39);
-            this.btnImportarProductos.TabIndex = 33;
-            this.btnImportarProductos.Tag = "btnModProducto";
-            this.btnImportarProductos.Text = "Importar listado productos";
-            this.btnImportarProductos.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnImportarProductos.UseAccentColor = false;
-            this.btnImportarProductos.UseVisualStyleBackColor = true;
-            this.btnImportarProductos.Click += new System.EventHandler(this.btnImportarProductos_Click);
-            // 
-            // btnExportarPdf
-            // 
-            this.btnExportarPdf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnExportarPdf.AutoSize = false;
-            this.btnExportarPdf.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnExportarPdf.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnExportarPdf.Depth = 0;
-            this.btnExportarPdf.HighEmphasis = true;
-            this.btnExportarPdf.Icon = null;
-            this.btnExportarPdf.Location = new System.Drawing.Point(600, 610);
-            this.btnExportarPdf.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnExportarPdf.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnExportarPdf.Name = "btnExportarPdf";
-            this.btnExportarPdf.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnExportarPdf.Size = new System.Drawing.Size(245, 32);
-            this.btnExportarPdf.TabIndex = 11;
-            this.btnExportarPdf.Tag = "btnProvModificar";
-            this.btnExportarPdf.Text = "Exportar pdf";
-            this.btnExportarPdf.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnExportarPdf.UseAccentColor = false;
-            this.btnExportarPdf.UseVisualStyleBackColor = true;
-            this.btnExportarPdf.Click += new System.EventHandler(this.btnExportarPdf_Click);
-            // 
-            // btnModCliente
-            // 
-            this.btnModCliente.AutoSize = false;
-            this.btnModCliente.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnModCliente.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnModCliente.Depth = 0;
-            this.btnModCliente.HighEmphasis = true;
-            this.btnModCliente.Icon = null;
-            this.btnModCliente.Location = new System.Drawing.Point(554, 390);
-            this.btnModCliente.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnModCliente.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnModCliente.Name = "btnModCliente";
-            this.btnModCliente.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnModCliente.Size = new System.Drawing.Size(167, 78);
-            this.btnModCliente.TabIndex = 12;
-            this.btnModCliente.Tag = "btnProvAgregar";
-            this.btnModCliente.Text = "Modificar";
-            this.btnModCliente.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnModCliente.UseAccentColor = false;
-            this.btnModCliente.UseVisualStyleBackColor = true;
-            this.btnModCliente.Click += new System.EventHandler(this.btnModCliente_Click);
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -3752,6 +3757,7 @@
             this.tabNuevoProducto.ResumeLayout(false);
             this.materialCard5.ResumeLayout(false);
             this.materialCard5.PerformLayout();
+            this.tabImportarProductos.ResumeLayout(false);
             this.tabClientes.ResumeLayout(false);
             this.materialCard10.ResumeLayout(false);
             this.tabInicio.ResumeLayout(false);
@@ -3765,7 +3771,6 @@
             this.tabCompras.ResumeLayout(false);
             this.materialCard8.ResumeLayout(false);
             this.materialCard8.PerformLayout();
-            this.tabImportarProductos.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

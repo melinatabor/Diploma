@@ -283,29 +283,50 @@ namespace UI
                     }
                 }
 
-                // Actualizar controles
                 foreach (Control control in Controls)
                 {
-                    if (control.Tag != null && control.Tag.ToString() != "")
+                    if (control is MaterialSkin.Controls.MaterialTabControl materialTabControl)
                     {
-                        BEPalabra palabra = palabras.Find(pal => pal.Tag.Equals(control.Tag.ToString()));
-                        if (palabra != null)
+                        // Actualizar las TabPages del MaterialTabControl
+                        foreach (TabPage tabPage in materialTabControl.TabPages)
                         {
-                            if (control is Label label && label.Name == "labelTag")
+                            if (tabPage.Tag != null && tabPage.Tag.ToString() != "")
                             {
-                                label.Text = _tag = palabra.Traduccion;
+                                // Buscar la traducción para el tag de la TabPage
+                                BEPalabra palabra = palabras.Find(pal => pal.Tag.Equals(tabPage.Tag.ToString()));
+                                if (palabra != null)
+                                {
+                                    // Actualizar el texto de la TabPage
+                                    tabPage.Text = palabra.Traduccion;
+                                }
                             }
-                            else if (control is MaterialSkin.Controls.MaterialComboBox materialComboBox)
+
+                            // Actualizar controles dentro de la TabPage
+                            foreach (Control tabControl in tabPage.Controls)
                             {
-                                materialComboBox.Hint = palabra.Traduccion;
-                            }
-                            else if (control is MaterialSkin.Controls.MaterialTextBox materialTextBox)
-                            {
-                                materialTextBox.Hint = palabra.Traduccion;
-                            }
-                            else
-                            {
-                                control.Text = palabra.Traduccion;
+                                if (tabControl.Tag != null && tabControl.Tag.ToString() != "")
+                                {
+                                    BEPalabra palabra = palabras.Find(pal => pal.Tag.Equals(tabControl.Tag.ToString()));
+                                    if (palabra != null)
+                                    {
+                                        if (tabControl is Label label && label.Name == "labelTag")
+                                        {
+                                            label.Text = palabra.Traduccion;
+                                        }
+                                        else if (tabControl is MaterialSkin.Controls.MaterialComboBox materialComboBox)
+                                        {
+                                            materialComboBox.Hint = palabra.Traduccion;
+                                        }
+                                        else if (tabControl is MaterialSkin.Controls.MaterialTextBox materialTextBox)
+                                        {
+                                            materialTextBox.Hint = palabra.Traduccion;
+                                        }
+                                        else
+                                        {
+                                            tabControl.Text = palabra.Traduccion;
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -2046,8 +2067,8 @@ namespace UI
         private void btnExportarPdf_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "PDF files (.pdf)|.pdf";
-            saveFileDialog.Title = "Guardar historial médico como PDF";
+            saveFileDialog.Filter = "PDF files (.pdf)|*.pdf";
+            saveFileDialog.Title = "Guardar listado de proveedores como PDF";
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -2059,40 +2080,46 @@ namespace UI
                     PdfWriter.GetInstance(pdfDoc, stream);
                     pdfDoc.Open();
 
-                    pdfDoc.Add(new Paragraph("Listado de Proveedores"));
+                    // Título
+                    pdfDoc.Add(new Paragraph("Listado de Proveedores", FontFactory.GetFont("Arial", 16)));
                     pdfDoc.Add(new Paragraph($"Fecha de exportación: {DateTime.Now.ToString("dd/MM/yyyy")}\n\n"));
 
                     if (proveedores != null && proveedores.Count > 0)
                     {
-                        PdfPTable table = new PdfPTable(6);
-                        table.AddCell("ID");
-                        table.AddCell("Marca");
-                        table.AddCell("Nombre");
-                        table.AddCell("Apellido");
-                        table.AddCell("Teléfono");
-                        table.AddCell("Domicilio");
-                        table.AddCell("Localidad");
+                        PdfPTable table = new PdfPTable(7);
+                        table.WidthPercentage = 100;
+                        table.SetWidths(new float[] { 1.5f, 2f, 2f, 2f, 2f, 3f, 3f });
+
+                        table.AddCell(new PdfPCell(new Phrase("ID", FontFactory.GetFont("Arial", 10))) { HorizontalAlignment = Element.ALIGN_CENTER });
+                        table.AddCell(new PdfPCell(new Phrase("Marca", FontFactory.GetFont("Arial", 10))) { HorizontalAlignment = Element.ALIGN_CENTER });
+                        table.AddCell(new PdfPCell(new Phrase("Nombre", FontFactory.GetFont("Arial", 10))) { HorizontalAlignment = Element.ALIGN_CENTER });
+                        table.AddCell(new PdfPCell(new Phrase("Apellido", FontFactory.GetFont("Arial", 10))) { HorizontalAlignment = Element.ALIGN_CENTER });
+                        table.AddCell(new PdfPCell(new Phrase("Teléfono", FontFactory.GetFont("Arial", 10))) { HorizontalAlignment = Element.ALIGN_CENTER });
+                        table.AddCell(new PdfPCell(new Phrase("Domicilio", FontFactory.GetFont("Arial", 10))) { HorizontalAlignment = Element.ALIGN_CENTER });
+                        table.AddCell(new PdfPCell(new Phrase("Localidad", FontFactory.GetFont("Arial", 10))) { HorizontalAlignment = Element.ALIGN_CENTER });
 
                         foreach (var proveedor in proveedores)
                         {
-                            table.AddCell(proveedor.Id.ToString());
-                            table.AddCell(proveedor.Marca);
-                            table.AddCell(proveedor.Nombre);
-                            table.AddCell(proveedor.Apellido);
-                            table.AddCell(proveedor.Telefono);
-                            table.AddCell(proveedor.Domicilio);
-                            table.AddCell(proveedor.Localidad);
+                            table.AddCell(new PdfPCell(new Phrase(proveedor.Id.ToString())) { HorizontalAlignment = Element.ALIGN_CENTER });
+                            table.AddCell(new PdfPCell(new Phrase(proveedor.Marca)) { HorizontalAlignment = Element.ALIGN_CENTER });
+                            table.AddCell(new PdfPCell(new Phrase(proveedor.Nombre)) { HorizontalAlignment = Element.ALIGN_CENTER });
+                            table.AddCell(new PdfPCell(new Phrase(proveedor.Apellido)) { HorizontalAlignment = Element.ALIGN_CENTER });
+                            table.AddCell(new PdfPCell(new Phrase(proveedor.Telefono)) { HorizontalAlignment = Element.ALIGN_CENTER });
+                            table.AddCell(new PdfPCell(new Phrase(proveedor.Domicilio)) { HorizontalAlignment = Element.ALIGN_CENTER });
+                            table.AddCell(new PdfPCell(new Phrase(proveedor.Localidad)) { HorizontalAlignment = Element.ALIGN_CENTER });
                         }
 
                         pdfDoc.Add(table);
                     }
                     else
                     {
-                        pdfDoc.Add(new Paragraph("No hay proveedores disponibles."));
+                        pdfDoc.Add(new Paragraph("No hay proveedores disponibles.", FontFactory.GetFont("Arial", 12)));
                     }
 
                     pdfDoc.Close();
                 }
+
+                // Confirmación
                 MaterialDialog materialDialog = new MaterialDialog(this, "Éxito", "Listado de proveedores descargado correctamente como PDF.", "OK");
                 materialDialog.ShowDialog(this);
             }
