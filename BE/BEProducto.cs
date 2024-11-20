@@ -1,8 +1,10 @@
 ﻿using Abstraccion;
+using System;
 using System.Collections.Generic;
 
 namespace BE
 {
+    [Serializable]
     public class BEProducto
     {
         #region Propiedades

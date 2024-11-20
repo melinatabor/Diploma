@@ -3,6 +3,7 @@ using BE;
 using BLL;
 using MaterialSkin.Controls;
 using MetroFramework;
+using Servicios;
 using Servicios.SesionManager;
 using Servicios.Validador;
 using System;
@@ -10,10 +11,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
 
 namespace UI
 {
@@ -1460,7 +1466,34 @@ namespace UI
                 listaProductos.Items.Add(item);
             }
         }
+        private void btnExportarListadoProductos_Click(object sender, EventArgs e)
+        {
+            if (listaProductos.Items.Count > 0)
+            {
+                List<BEProducto> productos = BLLProducto.Listar();
 
+                SaveFileDialog saveFileDialog = new SaveFileDialog
+                {
+                    Filter = "Archivo XML (*.xml)|*.xml",
+                    FileName = "ListadoProductos.xml"
+                };
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        XMLHelper.SerializarListaDeProductos(productos, saveFileDialog.FileName);
+                        MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", "Listado de productos exportado correctamente.", "OK");
+                        materialDialog.ShowDialog(this);
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
+                }
+            }
+        }
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
             try
@@ -1961,8 +1994,148 @@ namespace UI
             txtNombreCliente.Text = txtDomicilioCliente.Text = txtLocalidadCliente.Text = txtTelefonoCliente.Text = "";
             listaClientes.SelectedItems.Clear();
         }
+
+
         #endregion
 
+        private void btnImportarProductos_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Archivo XML (*.xml)|*.xml",
+                FileName = "ListadoProductos.xml"
+            };
 
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    List<BEProducto> productos = XMLHelper.DeserializarListaDeProductos(openFileDialog.FileName);
+                    listaProductosImportados.Items.Clear();
+
+                    foreach (BEProducto producto in productos)
+                    {
+                        string[] row =
+                        {
+                        producto.Id.ToString(),
+                        producto.Codigo,
+                        producto.Nombre,
+                        BLLProveedor.BuscarProveedorXId(producto.Proveedor).Marca,
+                        producto.Descripcion,
+                        producto.Gramos.ToString() + "g",
+                        producto.Bandeja.ToString(),
+                        "$" + producto.CostoUnitario.ToString(),
+                        "$" + producto.PrecioVenta.ToString(),
+                        "$" + producto.Ganancia.ToString(),
+                        producto.Cantidad.ToString()
+                    };
+
+                        var item = new ListViewItem(row);
+
+                        listaProductosImportados.Items.Add(item);
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
+        private void btnExportarPdf_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF files (.pdf)|.pdf";
+            saveFileDialog.Title = "Guardar historial médico como PDF";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                List<BEProveedor> proveedores = BLLProveedor.Listar();
+
+                using (var stream = new FileStream(saveFileDialog.FileName, FileMode.Create))
+                {
+                    Document pdfDoc = new Document(PageSize.A4);
+                    PdfWriter.GetInstance(pdfDoc, stream);
+                    pdfDoc.Open();
+
+                    pdfDoc.Add(new Paragraph("Listado de Proveedores"));
+                    pdfDoc.Add(new Paragraph($"Fecha de exportación: {DateTime.Now.ToString("dd/MM/yyyy")}\n\n"));
+
+                    if (proveedores != null && proveedores.Count > 0)
+                    {
+                        PdfPTable table = new PdfPTable(6);
+                        table.AddCell("ID");
+                        table.AddCell("Marca");
+                        table.AddCell("Nombre");
+                        table.AddCell("Apellido");
+                        table.AddCell("Teléfono");
+                        table.AddCell("Domicilio");
+                        table.AddCell("Localidad");
+
+                        foreach (var proveedor in proveedores)
+                        {
+                            table.AddCell(proveedor.Id.ToString());
+                            table.AddCell(proveedor.Marca);
+                            table.AddCell(proveedor.Nombre);
+                            table.AddCell(proveedor.Apellido);
+                            table.AddCell(proveedor.Telefono);
+                            table.AddCell(proveedor.Domicilio);
+                            table.AddCell(proveedor.Localidad);
+                        }
+
+                        pdfDoc.Add(table);
+                    }
+                    else
+                    {
+                        pdfDoc.Add(new Paragraph("No hay proveedores disponibles."));
+                    }
+
+                    pdfDoc.Close();
+                }
+                MaterialDialog materialDialog = new MaterialDialog(this, "Éxito", "Listado de proveedores descargado correctamente como PDF.", "OK");
+                materialDialog.ShowDialog(this);
+            }
+        }
+
+        private void btnModCliente_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listaClientes.Items.Count <= 0) throw new Exception("No hay clientes para modificar.");
+                if (listaClientes.SelectedItems.Count == 0) throw new Exception("Selecciona una fila para modificar.");
+
+                BECliente cliente = new BECliente(Convert.ToInt16(listaClientes.SelectedItems[0].SubItems[0].Text));
+                cliente.Nombre = txtNombreCliente.Text;
+                cliente.Domicilio = txtDomicilioCliente.Text;
+                cliente.Localidad = txtLocalidadCliente.Text;
+                cliente.Telefono = Convert.ToInt32(txtTelefonoCliente.Text);
+
+                MaterialDialog materialDialog = new MaterialDialog(this, "Aviso", $"¿Esta seguro que desea modificar el cliente {cliente.Nombre}?", "Sí, deseo modificarlo", true, "Cancelar");
+                DialogResult result = materialDialog.ShowDialog(this);
+                if (result == DialogResult.OK)
+                {
+                    bool guardado = BLLCliente.Editar(cliente);
+                    if (guardado)
+                    {
+                        MaterialSnackBar SnackBarMessage = new MaterialSnackBar($"Cliente modificado con exito", 2500);
+                        SnackBarMessage.Show(this);
+                        ActualizarListaClientes();
+                        listaClientes.SelectedItems.Clear();
+                        txtNombreCliente.Text = txtDomicilioCliente.Text = txtLocalidadCliente.Text = txtTelefonoCliente.Text = "";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MaterialDialog materialDialog = new MaterialDialog(this, "Error", ex.Message, "OK");
+                materialDialog.ShowDialog(this);
+            }
+        }
+
+        private void materialCard8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

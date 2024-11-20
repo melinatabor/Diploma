@@ -48,6 +48,7 @@
     <Compile Include="SesionManager\SesionManager.cs" />
     <Compile Include="Traductor\Traductor.cs" />
     <Compile Include="Validador\Validador.cs" />
+    <Compile Include="XMLHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Abstraccion\Abstraccion.csproj">
