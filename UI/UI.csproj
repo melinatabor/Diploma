@@ -194,6 +194,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Manual.pdf" />
     <None Include="Resources\Username.png" />
   </ItemGroup>
   <ItemGroup>

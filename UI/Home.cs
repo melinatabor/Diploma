@@ -22,6 +22,7 @@ using iTextSharp.text.pdf;
 using iTextSharp.text;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Diagnostics;
 
 namespace UI
 {
@@ -2228,6 +2229,27 @@ namespace UI
                         MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+            }
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            string basePath = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
+
+            string manualPath = Path.Combine(basePath, "UI", "Resources", "Manual.pdf");
+
+            if (File.Exists(manualPath))
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = manualPath,
+                    UseShellExecute = true
+                });
+            }
+            else
+            {
+                MessageBox.Show("El archivo del manual no se encuentra en la carpeta esperada. Verifique la ubicación.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
